@@ -1,0 +1,52 @@
+{
+	"App": {
+		"Footer": {
+			"Version": "versión"
+		},
+		"Languages": {
+			"Catalan": "Catalán",
+			"English": "Inglés",
+			"French": "Francés",
+			"Spanish": "Español"
+		},
+		"MenuUser": {
+			"AlertDisable": "Deshabilitar alertas",
+			"AlertEnable": "Habilitar alertas",
+			"Login": "Iniciar sesión"
+		},
+		"Msg": {
+			"Cancel": "Cancelar",
+			"CloseSession": "Cerrar sesión",
+			"Exit": "Salir",
+			"messageLogout": "¿Está seguro que desea cerrar su sesión?"
+		},
+		"SideNav": {
+			"Actions": "Acciones",
+			"Menu": "Menú",
+			"Select_lang": "Seleccionar idioma"
+		},
+		"Title": "Alquimia"
+	},
+	"pag404": {
+		"Title": "404"
+	},
+	"pagAbout": {
+		"Title": "Sobre nosotros"
+	},
+	"pagChinker": {
+		"Title": "Juego"
+	},
+	"pagContact": {
+		"Title": "Contáctenos"
+	},
+	"pagHome": {
+		"CreateGame": "Nuevo juego",
+		"GamesInProgress": "Juegos en curso",
+		"JoinGame": "Unirse",
+		"Title": "Inicio",
+		"separadorO": "o"
+	},
+	"pagUser": {
+		"Title": "Usuario"
+	}
+}

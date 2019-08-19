@@ -24,3 +24,4 @@ ng g module components/AppMaterial
 import all necesary materials
 
 npm install @ngx-translate/core @ngx-translate/http-loader rxjs --save
+

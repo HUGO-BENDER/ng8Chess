@@ -1,0 +1,51 @@
+{
+	"App": {
+		"Footer": {
+			"Version": "version"
+		},
+		"Languages": {
+			"Catalan": "Catalán",
+			"English": "English",
+			"French": "French",
+			"Spanish": "Spanish"
+		},
+		"MenuUser": {
+			"AlertDisable": "Disable alerts",
+			"AlertEnable": "Enable alerts",
+			"Login": "Log in"
+		},
+		"Msg": {
+			"Cancel": "Cancel",
+			"CloseSession": "Close session",
+			"Exit": "Exit",
+			"messageLogout": "Are you sure you want to close your session?"
+		},
+		"SideNav": {
+			"Actions": "Actions",
+			"Menu": "Menu",
+			"Select_lang": "Select language"
+		},
+		"Title": "Alchemy"
+	},
+	"pag404": {
+		"Title": "404"
+	},
+	"pagAbout": {
+		"Title": "About"
+	},
+	"pagChinker": {
+		"Title": "Game"
+	},
+	"pagContact": {
+		"Title": "Contact us"
+	},
+	"pagHome": {
+		"CreateGame": "New game",
+		"GamesInProgress": "Games in progress",
+		"JoinGame": "Join",
+		"Title": "Home"
+	},
+	"pagUser": {
+		"Title": "User"
+	}
+}
