@@ -1,12 +1,15 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
+
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+
+export class AppComponent implements OnInit {
+
   selectedLang: string;
   listLanguages = [
     { id: 'en', name: 'English' },
@@ -28,6 +31,19 @@ export class AppComponent {
 
   }
 
+  ngOnInit(): void {
 
+  }
+
+  // private ShowToastMessage(msg: string): void {
+  //   Swal.fire({
+  //     toast: true,
+  //     position: 'top',
+  //     type: 'success',
+  //     title: msg,
+  //     showConfirmButton: false,
+  //     timer: 2000
+  //   });
+  // }
 
 }

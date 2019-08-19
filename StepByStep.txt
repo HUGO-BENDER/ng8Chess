@@ -24,4 +24,84 @@ ng g module components/AppMaterial
 import all necesary materials
 
 npm install @ngx-translate/core @ngx-translate/http-loader rxjs --save
+// --app.module.ts
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+export function HttpLoaderFactory(http: HttpClient) {
+  return new TranslateHttpLoader(http);
+}
+TranslateModule.forRoot({
+      loader: {
+          provide: TranslateLoader,
+          useFactory: HttpLoaderFactory,
+          deps: [HttpClient]
+      }
+  })
+
+  // --app.component.ts
+
+import { TranslateService } from '@ngx-translate/core';
+export class AppComponent {
+  selectedLang: string;
+  listLanguages = [
+    { id: 'en', name: 'English' },
+    { id: 'fr', name: 'French' },
+    { id: 'ca', name: 'Catalan' },
+    { id: 'es', name: 'Spanish' }
+  ];
+
+  constructor(// router: Router,
+    // private sidenavService: SidenavService
+    private translate: TranslateService) {
+
+    this.translate.addLangs(this.listLanguages.map(l => l.id));
+    this.translate.setDefaultLang('es');
+
+    const browserLang = this.translate.getBrowserLang();
+    this.selectedLang = browserLang.match(/en|fr|ca|es/) ? browserLang : 'en';
+    this.translate.use(this.selectedLang);
+
+  }
+
+Sweet Alert 2
+npm install --save sweetalert2 @sweetalert2/ngx-sweetalert2
+// --app.module.ts
+import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
+
+  imports: [
+    BrowserModule,
+    ... ,
+    SweetAlert2Module.forRoot({
+      buttonsStyling: false,
+      confirmButtonClass: 'mat-raised-button mat-primary',
+      cancelButtonClass: 'mat-raised-button swal-margin-rigth',
+      reverseButtons: true
+    })
+  ]
+// -- in components
+import Swal from 'sweetalert2';
+  //   Swal.fire({
+  //     toast: true,
+  //     position: 'top',
+  //     type: 'success',
+  //     title: msg,
+  //     showConfirmButton: false,
+  //     timer: 2000
+  //   });
+
+//-------------------   TODO  PENDIENTE  !!!!
+    for IE - npm install --save classlist.js
+    for IE - edit src\polyfills.ts file
+    //-- not necesary --for IE - npm install --save web-animations-js 
+//-------------------   TODO  PENDIENTE  !!!!
+
+    ng g component components/app-tool-bar
+    ng g component components/app-footer
+    ng g component components/app-login
+    ng g c components/pageHome
+    ng g c components/pageAbout
+    ng g c components/pageNotFound
+    ng g c components/page-policy-privacy
+    ng g c components/page-policy-service
+
 
