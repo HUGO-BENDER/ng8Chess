@@ -21,4 +21,6 @@ Make Roboto the default font of your app
 Install and import hammerjs for gesture support in your project
 
 ng g module components/AppMaterial
-Include a theme 
+import all necesary materials
+
+npm install @ngx-translate/core @ngx-translate/http-loader rxjs --save
