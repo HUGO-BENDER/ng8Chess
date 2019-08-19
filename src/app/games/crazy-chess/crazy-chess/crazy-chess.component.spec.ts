@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { PagePolicyServiceComponent } from './page-policy-service.component';
+import { CrazyChessComponent } from './crazy-chess.component';
 
-describe('PagePolicyServiceComponent', () => {
-  let component: PagePolicyServiceComponent;
-  let fixture: ComponentFixture<PagePolicyServiceComponent>;
+describe('CrazyChessComponent', () => {
+  let component: CrazyChessComponent;
+  let fixture: ComponentFixture<CrazyChessComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ PagePolicyServiceComponent ]
+      declarations: [ CrazyChessComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(PagePolicyServiceComponent);
+    fixture = TestBed.createComponent(CrazyChessComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

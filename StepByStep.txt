@@ -102,6 +102,9 @@ import Swal from 'sweetalert2';
     ng g c components/pageAbout
     ng g c components/pageNotFound
     ng g c components/page-policy-privacy
-    ng g c components/page-policy-service
+    ng g c components/page-service-conditions
 
-
+ng g c games/chess/chess
+ng g c games/crazy-chess/crazy-chess
+ng g c games/chinker/chinker
+ng g c games/flow/flow

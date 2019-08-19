@@ -24,7 +24,12 @@ import { PageHomeComponent } from './components/page-home/page-home.component';
 import { PageAboutComponent } from './components/page-about/page-about.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { PagePolicyPrivacyComponent } from './components/page-policy-privacy/page-policy-privacy.component';
-import { PagePolicyServiceComponent } from './components/page-policy-service/page-policy-service.component';
+import { PageServiceConditionsComponent } from './components/page-service-conditions/page-service-conditions.component';
+
+import { ChessComponent } from './games/chess/chess/chess.component';
+import { CrazyChessComponent } from './games/crazy-chess/crazy-chess/crazy-chess.component';
+import { ChinkerComponent } from './games/chinker/chinker/chinker.component';
+import { FlowComponent } from './games/flow/flow/flow.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -40,7 +45,11 @@ export function HttpLoaderFactory(http: HttpClient) {
     PageAboutComponent,
     PageNotFoundComponent,
     PagePolicyPrivacyComponent,
-    PagePolicyServiceComponent
+    PageServiceConditionsComponent,
+    ChessComponent,
+    CrazyChessComponent,
+    ChinkerComponent,
+    FlowComponent
   ],
   imports: [
     BrowserModule,
