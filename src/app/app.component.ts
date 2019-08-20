@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ViewChild, AfterViewInit } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
-
+import { SidenavService } from './services/components/sidenav.service';
+import { MatSidenav } from '@angular/material';
+import { Router, NavigationEnd } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -8,9 +10,11 @@ import { TranslateService } from '@ngx-translate/core';
   styleUrls: ['./app.component.css']
 })
 
-export class AppComponent implements OnInit {
+export class AppComponent implements AfterViewInit {
 
-  selectedLang: string;
+  @ViewChild('appsidenav', { static: false }) public sidenav: MatSidenav;
+  currentUrl: string;
+  currentLang: string;
   listLanguages = [
     { id: 'en', name: 'English' },
     { id: 'fr', name: 'French' },
@@ -18,32 +22,38 @@ export class AppComponent implements OnInit {
     { id: 'es', name: 'Spanish' }
   ];
 
-  constructor(// router: Router,
-    // private sidenavService: SidenavService
+  constructor(router: Router,
+    private sidenavService: SidenavService,
     private translate: TranslateService) {
 
     this.translate.addLangs(this.listLanguages.map(l => l.id));
     this.translate.setDefaultLang('es');
 
     const browserLang = this.translate.getBrowserLang();
-    this.selectedLang = browserLang.match(/en|fr|ca|es/) ? browserLang : 'en';
-    this.translate.use(this.selectedLang);
+    this.currentLang = browserLang.match(/en|fr|ca|es/) ? browserLang : 'en';
+    this.translate.use(this.currentLang);
 
+    router.events.subscribe((_: NavigationEnd) => {
+      if (_.url) {
+        if (_.url.lastIndexOf('/') > 0) {
+          this.currentUrl = _.url.substring(0, _.url.lastIndexOf('/'));
+        } else {
+          this.currentUrl = _.url;
+        }
+        console.log('this.currentUrl = ', this.currentUrl);
+      }
+    });
   }
 
-  ngOnInit(): void {
-
+  ngAfterViewInit(): void {
+    this.sidenavService.setSidenav(this.sidenav);
+    this.sidenavService.setPositionLeft();
   }
 
-  // private ShowToastMessage(msg: string): void {
-  //   Swal.fire({
-  //     toast: true,
-  //     position: 'top',
-  //     type: 'success',
-  //     title: msg,
-  //     showConfirmButton: false,
-  //     timer: 2000
-  //   });
-  // }
+  changeLanguage(lang: string) {
+    this.currentLang = lang;
+    this.translate.use(lang);
+  }
+
 
 }

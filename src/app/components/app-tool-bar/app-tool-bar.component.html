@@ -1,1 +1,30 @@
-<p>app-tool-bar works!</p>
+<mat-toolbar color="primary">
+    <mat-toolbar-row>
+      <button class="contenedor-logo" type="button" aria-label="Toggle sidenav" mat-icon-button (click)="toggleAppSidenav()">
+        <div class="contenedor-logo">
+          <img src="../assets/logo/fondoLogo.svg" />
+        </div>
+        <div class="contenedor-logo anim-in anim-hover">
+          <img src="../assets/logo/letraLogo.svg" />
+        </div>
+      </button>
+
+      <span fxHide.lt-sm class="tool-bar-spacer center-title"> {{ "App.Title"| translate }} </span>
+  
+      <div *ngIf="user | async; let user; else loguearse;">
+        <h2 class="toolbar-inline">{{user.displayName}}</h2>
+        <img class="toolbar-inline toolbar-user-img" [src]=user.photoURL>
+        <button mat-button (click)="logout()">
+          <mat-icon>cancel</mat-icon>
+        </button>
+      </div>
+      <ng-template #loguearse>
+        <button mat-mini-fab color="primary" (click)="openDialogLogin()">
+
+          <h3 class="textlogin">login</h3>
+          <mat-icon class="iconlogin">account_circle</mat-icon>
+        </button>
+      </ng-template>
+  
+    </mat-toolbar-row>
+  </mat-toolbar>

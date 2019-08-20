@@ -17,6 +17,8 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
 // --SweetAlert2
 import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
+
+// --Components and Pages 
 import { AppToolBarComponent } from './components/app-tool-bar/app-tool-bar.component';
 import { AppFooterComponent } from './components/app-footer/app-footer.component';
 import { AppLoginComponent } from './components/app-login/app-login.component';
@@ -26,6 +28,12 @@ import { PageNotFoundComponent } from './components/page-not-found/page-not-foun
 import { PagePolicyPrivacyComponent } from './components/page-policy-privacy/page-policy-privacy.component';
 import { PageServiceConditionsComponent } from './components/page-service-conditions/page-service-conditions.component';
 
+// --Services
+// import { MetadataService } from './services/firestore/metadata.service';
+import { SidenavService } from './services/components/sidenav.service';
+
+
+// -- GAMES :-)
 import { ChessComponent } from './games/chess/chess/chess.component';
 import { CrazyChessComponent } from './games/crazy-chess/crazy-chess/crazy-chess.component';
 import { ChinkerComponent } from './games/chinker/chinker/chinker.component';
@@ -71,7 +79,9 @@ export function HttpLoaderFactory(http: HttpClient) {
       reverseButtons: true
     })
   ],
-  providers: [],
+  providers: [
+    SidenavService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
