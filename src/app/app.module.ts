@@ -15,10 +15,18 @@ import { AppMaterialModule } from './components/app-material/app-material.module
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
+// --Firebase & Firebase UI
+import { AngularFireModule } from '@angular/fire';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
+// import { AngularFireStorageModule } from '@angular/fire/storage';
+import { AngularFireAuthModule } from '@angular/fire/auth';
+import { NgxAuthFirebaseUIModule } from 'ngx-auth-firebaseui';
+import { environment } from '../environments/environment';
+
 // --SweetAlert2
 import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 
-// --Components and Pages 
+// --Components and Pages
 import { AppToolBarComponent } from './components/app-tool-bar/app-tool-bar.component';
 import { AppFooterComponent } from './components/app-footer/app-footer.component';
 import { AppLoginComponent } from './components/app-login/app-login.component';
@@ -72,12 +80,17 @@ export function HttpLoaderFactory(http: HttpClient) {
         deps: [HttpClient]
       }
     }),
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    NgxAuthFirebaseUIModule.forRoot(environment.firebaseConfig),
     SweetAlert2Module.forRoot({
       buttonsStyling: false,
       confirmButtonClass: 'mat-raised-button mat-primary',
       cancelButtonClass: 'mat-raised-button swal-margin-rigth',
       reverseButtons: true
     })
+  ],
+  entryComponents: [
+    AppLoginComponent
   ],
   providers: [
     SidenavService

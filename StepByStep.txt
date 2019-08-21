@@ -110,3 +110,20 @@ ng g c games/chinker/chinker
 ng g c games/flow/flow
 
 ng generate service services/components/sidenavService
+
+
+npm install @angular/flex-layout --save
+npm install @angular/forms --save
+// -- firebase
+npm install firebase @angular/fire --save
+npm install ngx-auth-firebaseui --save
+
+// --Firebase & Firebase UI
+import { AngularFireModule } from '@angular/fire';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
+// import { AngularFireStorageModule } from '@angular/fire/storage';
+import { AngularFireAuthModule } from '@angular/fire/auth';
+import { NgxAuthFirebaseUIModule } from 'ngx-auth-firebaseui';
+import { environment } from '../environments/environment';
+
+

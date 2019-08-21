@@ -1,4 +1,4 @@
-.example-icon {
+.container-login {
     padding: 0 14px;
   }
   
@@ -9,49 +9,49 @@
   
   .contenedor-logo{
     position: absolute;
-    top: 10px;
+    top: 5px;
     left: 5px;
-    height: 60px;
-    width: 60px;
+    height: 70px;
+    width: 70px;
     z-index: 100;
   }
   
+  .contenedor-logo-mini{
+    height: 60px !important;
+    width: 60px !important;
+  }
+
+  .shadow10 {
+    -webkit-filter: drop-shadow(10px 10px 7px rgba(0,0,0,0.5));      
+    filter: drop-shadow(10px 10px 7px rgba(0,0,0,0.5));  
+  }
+
 .center-title{
   padding-left: 100px;
 }
+
 .activated {
   background-color: #00a8ff;
 }
-
 .textlogin {
-  width:80px;
-  margin-left: -80px;
-  margin-top: -3px;
+  padding-right: 15px;
 }
 .iconlogin{
-  font-size: 36px;
-  margin-top: -72px;
-  margin-left: -12px;
+  font-size: 32px;
+  margin-top: -8px;
+  margin-left: -8px;
 }
-
-  .anim-in {
+.toolbar-inline{
+  display: inline-block;
+  }
+.anim-in {
   animation: anim-fadeinApp 1s ease;
   }
   
   .anim-hover:hover {
   animation: anim-icon-on-over 1s ease;
   }
-  
-  .toolbar-inline{
-  display: inline-block;
-  }
 
-  .toolbar-user-img{
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  }
-    
   @keyframes anim-icon-on-over {
   from {
       opacity: 0;

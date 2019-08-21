@@ -1,30 +1,26 @@
 <mat-toolbar color="primary">
-    <mat-toolbar-row>
-      <button class="contenedor-logo" type="button" aria-label="Toggle sidenav" mat-icon-button (click)="toggleAppSidenav()">
-        <div class="contenedor-logo">
-          <img src="../assets/logo/fondoLogo.svg" />
-        </div>
-        <div class="contenedor-logo anim-in anim-hover">
-          <img src="../assets/logo/letraLogo.svg" />
-        </div>
-      </button>
-
-      <span fxHide.lt-sm class="tool-bar-spacer center-title"> {{ "App.Title"| translate }} </span>
-  
-      <div *ngIf="user | async; let user; else loguearse;">
-        <h2 class="toolbar-inline">{{user.displayName}}</h2>
-        <img class="toolbar-inline toolbar-user-img" [src]=user.photoURL>
-        <button mat-button (click)="logout()">
-          <mat-icon>cancel</mat-icon>
-        </button>
+  <mat-toolbar-row>
+    <div class="contenedor-logo" aria-label="Toggle sidenav" (click)="toggleAppSidenav()">
+      <div class="contenedor-logo" [ngClass]="{'contenedor-logo-mini': inSmallScreen}">
+        <img class="shadow10" src="../assets/logo/fondoLogo.svg" />
       </div>
-      <ng-template #loguearse>
-        <button mat-mini-fab color="primary" (click)="openDialogLogin()">
+      <div class="contenedor-logo anim-in anim-hover" [ngClass]="{'contenedor-logo-mini': inSmallScreen}">
+        <img src="../assets/logo/letraLogo.svg" />
+      </div>
+    </div>
+    <div class="tool-bar-spacer">
+      <span [hidden]="inSmallScreen" class="center-title"> {{ "App.Title"| translate }} </span>
+    </div>
 
-          <h3 class="textlogin">login</h3>
-          <mat-icon class="iconlogin">account_circle</mat-icon>
+    <div *ngIf="user | async; let user; else loguearse;" class="toolbar-inline">
+      <ngx-auth-firebaseui-avatar></ngx-auth-firebaseui-avatar>
+    </div>
+    <ng-template #loguearse>
+        <h3 class="textlogin" [hidden]="inSmallScreen" (click)="openDialogLogin()">{{ 'App.MenuUser.Login'| translate }}</h3>
+        <button mat-mini-fab color="primary" (click)="openDialogLogin()">
+          <mat-icon class="iconlogin">how_to_reg</mat-icon>
         </button>
-      </ng-template>
-  
-    </mat-toolbar-row>
-  </mat-toolbar>
+    </ng-template>
+
+  </mat-toolbar-row>
+</mat-toolbar>
