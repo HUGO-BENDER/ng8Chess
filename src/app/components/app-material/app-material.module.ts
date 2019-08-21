@@ -1,39 +1,44 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MatButtonModule, MatTooltipModule, MatToolbarModule, MatMenuModule, MatIconModule, MatListModule, MatDialogModule,
-  MatSidenavModule, MatGridListModule, MatCardModule, MatExpansionModule, MatSnackBarModule } from '@angular/material';
-
+// tslint:disable-next-line: max-line-length
+import {MatSlideToggleModule, MatInputModule, MatStepperModule, MatTabsModule, MatButtonModule, MatTooltipModule, MatToolbarModule, MatMenuModule, MatIconModule, MatListModule, MatDialogModule,
+  MatSidenavModule, MatGridListModule, MatCardModule, MatExpansionModule } from '@angular/material';
 
 @NgModule({
-  declarations: [],
-  imports: [
-    CommonModule,
-    MatButtonModule,
-    MatTooltipModule,
-    MatToolbarModule,
-    MatMenuModule,
-    MatIconModule,
-    MatListModule,
-    MatDialogModule,
-    MatSidenavModule,
-    MatGridListModule,
-    MatCardModule,
-    MatExpansionModule,
-    MatSnackBarModule
-  ],
-  exports: [
-    MatButtonModule,
-    MatTooltipModule,
-    MatToolbarModule,
-    MatMenuModule,
-    MatIconModule,
-    MatListModule,
-    MatDialogModule,
-    MatSidenavModule,
-    MatGridListModule,
-    MatCardModule,
-    MatExpansionModule,
-    MatSnackBarModule
-  ]
-})
-export class AppMaterialModule { }
+    imports: [
+      MatSlideToggleModule,
+      MatInputModule,
+      MatStepperModule,
+      MatTabsModule,
+      MatButtonModule,
+      MatTooltipModule,
+      MatToolbarModule,
+      MatMenuModule,
+      MatIconModule,
+      MatListModule,
+      MatDialogModule,
+      MatSidenavModule,
+      MatGridListModule,
+      MatCardModule,
+      MatExpansionModule
+    ],
+    exports: [
+      MatSlideToggleModule,
+      MatInputModule,
+      MatStepperModule,
+      MatTabsModule,
+      MatButtonModule,
+      MatTooltipModule,
+      MatToolbarModule,
+      MatMenuModule,
+      MatIconModule,
+      MatListModule,
+      MatDialogModule,
+      MatSidenavModule,
+      MatGridListModule,
+      MatCardModule,
+      MatExpansionModule
+    ],
+    declarations: []
+  })
+  export class AppMaterialModule {}

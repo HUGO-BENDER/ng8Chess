@@ -13,7 +13,8 @@
     </div>
 
     <div *ngIf="user | async; let user; else loguearse;" class="toolbar-inline">
-      <ngx-auth-firebaseui-avatar></ngx-auth-firebaseui-avatar>
+      <ngx-auth-firebaseui-avatar 
+      (onSignOut)="logout()"></ngx-auth-firebaseui-avatar>
     </div>
     <ng-template #loguearse>
         <h3 class="textlogin" [hidden]="inSmallScreen" (click)="openDialogLogin()">{{ 'App.MenuUser.Login'| translate }}</h3>

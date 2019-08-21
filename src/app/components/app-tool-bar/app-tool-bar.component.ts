@@ -39,11 +39,11 @@ export class AppToolBarComponent implements OnInit {
     this.dialogRef = this.dialog.open(AppLoginComponent);
   }
 
-  // logout() {
-  //   if (confirm('"Está seguro de querer abandonar la aplicación')) {
-  //     this.au.auth.signOut();
-  //   }
-  // }
+  logout() {
+    if (confirm('"Está seguro de querer abandonar la aplicación')) {
+      this.au.auth.signOut();
+    }
+  }
 
   toggleAppSidenav() {
     this.sidenavService.toggle();

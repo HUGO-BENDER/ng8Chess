@@ -4,7 +4,14 @@
   <mat-dialog-content>
     <div>
       <ngx-auth-firebaseui 
-      [signInTabText]="'ngxauthfirebaseui.signInTabText' | translate"
+      [providers]="[providers.Google, providers.Facebook]"
+      (onSuccess)="successCallback($event)" 
+      (onError)="errorCallback($event)">
+      </ngx-auth-firebaseui>
+    </div>
+  </mat-dialog-content>
+
+ <!-- [signInTabText]="'ngxauthfirebaseui.signInTabText' | translate"
       [signInCardTitleText]="'ngxauthfirebaseui.signInCardTitleText' | translate"
       [loginButtonText]="'ngxauthfirebaseui.loginButtonText' | translate"
       [forgotPasswordButtonText]="'ngxauthfirebaseui.forgotPasswordButtonText' | translate"
@@ -28,12 +35,4 @@
       [resetPasswordActionButtonText]="'ngxauthfirebaseui.resetPasswordActionButtonText' | translate"
       [resetPasswordInstructionsText]="'ngxauthfirebaseui.resetPasswordInstructionsText' | translate"
       [emailConfirmationTitle]="'ngxauthfirebaseui.emailConfirmationTitle' | translate"
-      [emailConfirmationText]="'ngxauthfirebaseui.emailConfirmationText' | translate"
-      [providers]="[providers.Google, providers.Facebook]"
-      (onSuccess)="successCallback($event)" 
-      (onError)="errorCallback($event)">
-      </ngx-auth-firebaseui>
-    </div>
-
-    <ngx-auth-firebaseui-user></ngx-auth-firebaseui-user>
-  </mat-dialog-content>
+      [emailConfirmationText]="'ngxauthfirebaseui.emailConfirmationText' | translate" -->
