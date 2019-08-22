@@ -12,7 +12,7 @@ import { Router, NavigationEnd } from '@angular/router';
 
 export class AppComponent implements AfterViewInit {
 
-  @ViewChild('appsidenav', { static: false }) public sidenav: MatSidenav;
+  @ViewChild('appsidenav', { static: true }) public sidenav: MatSidenav;
   currentUrl: string;
   currentLang: string;
   listLanguages = [
@@ -24,7 +24,7 @@ export class AppComponent implements AfterViewInit {
 
   constructor(router: Router,
     private sidenavService: SidenavService,
-    private translate: TranslateService) {
+    public translate: TranslateService) {
 
     this.translate.addLangs(this.listLanguages.map(l => l.id));
     this.translate.setDefaultLang('es');
@@ -32,6 +32,10 @@ export class AppComponent implements AfterViewInit {
     const browserLang = this.translate.getBrowserLang();
     this.currentLang = browserLang.match(/en|fr|ca|es/) ? browserLang : 'en';
     this.translate.use(this.currentLang);
+    console.log("translate.use " + this.currentLang);
+    translate.get("App.Title").subscribe((res: string) => {
+      console.log(res);
+      });
 
     router.events.subscribe((_: NavigationEnd) => {
       if (_.url) {

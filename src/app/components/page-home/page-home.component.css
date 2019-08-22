@@ -64,9 +64,14 @@
   .game-avatar{
 	margin:  10px;
 	/* // height: 200px;
-	// max-width: 120px;
-   // border: 1px solid green; */
+	// max-width: 120px; */
+   border: 1px solid green;
   }
+  .game-avatar-image{
+    background-size: cover;
+    }
+
+
   .new-game-button{
 	max-width: 50px;
   }
