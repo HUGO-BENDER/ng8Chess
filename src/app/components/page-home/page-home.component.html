@@ -14,10 +14,9 @@
         <mat-card class="dashboard-card">
           <mat-card-content class="dashboard-card-content">
             <mat-tab-group mat-stretch-tabs>
-              <mat-tab label="ghfdsgdf">
-                  <!-- translate.get('pagHome.CreateGame') -->
+              <mat-tab label="{{'pagHome.CreateGame' | translate }}" >
                 <div class="content-tab-scroll-vert container-games-avatar">
-                  <mat-card *ngFor="let gamecard of listgames" class="game-avatar">
+                  <mat-card *ngFor="let gamecard of listgames" class="game-card">
                       <mat-card-header>
                           <div mat-card-avatar class="game-avatar-image" [style.background-image]="'url(' + gamecard.image48Path + ')'"></div>
                           <mat-card-title>{{ gamecard.title }} </mat-card-title>
@@ -71,7 +70,7 @@
                 </div>
               </mat-tab>
 
-              <mat-tab label="xxxxx">
+              <mat-tab label="{{'pagHome.JoinGame' | translate }}">
               </mat-tab>
             </mat-tab-group>
           </mat-card-content>

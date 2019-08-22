@@ -45,12 +45,12 @@
   
   .content-card-scroll-vert{
     overflow-y: auto;
-    height: 230px;
+    height: 300px;
     border: 1px solid green;
   }
 
   .content-tab-scroll-vert {
-    height: 230px;
+    height: 300px;
     width: 100%;
   }
 
@@ -59,14 +59,16 @@
     flex-direction: row ;
     flex-wrap: wrap;
   }
- 
-      
-  .game-avatar{
-	margin:  10px;
-	/* // height: 200px;
-	// max-width: 120px; */
-   border: 1px solid green;
+  
+  .game-card{
+	 margin:  10px;
+	 min-width: 48%;
+   border: 1px solid royalblue;
   }
+
+
+
+
   .game-avatar-image{
     background-size: cover;
     }

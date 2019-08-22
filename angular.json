@@ -25,7 +25,8 @@
               {
                 "glob": "**/*",
                 "input": "node_modules/ngx-auth-firebaseui/assets/",
-                "output": "./assets/"
+                "output": "./assets/",
+                "ignore": ["**/es.json","**/en.json","**/fr.json","**/de.json"]
                 }
             ],
             "styles": [
@@ -95,7 +96,8 @@
               {
                 "glob": "**/*",
                 "input": "node_modules/ngx-auth-firebaseui/assets/",
-                "output": "./assets/"
+                "output": "./assets/",
+                "ignore": ["**/es.json","**/en.json","**/fr.json","**/de.json"]
                 }
             ],
             "styles": [
