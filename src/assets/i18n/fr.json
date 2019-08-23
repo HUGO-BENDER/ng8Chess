@@ -1,51 +1,73 @@
-{
-	"App": {
-		"Footer": {
-			"Version": "version"
-		},
-		"Languages": {
-			"Catalan": "Catalan",
-			"English": "Anglais",
-			"French": "Français",
-			"Spanish": "Espagnol"
-		},
-		"MenuUser": {
-			"AlertDisable": "Désactiver les alertes",
-			"AlertEnable": "Activer les alertes",
-			"Login": "s'identifier"
-		},
-		"Msg": {
-			"Cancel": "Annuler",
-			"CloseSession": "Fermer la session",
-			"Exit": "Sortir",
-			"messageLogout": "Êtes-vous sûr de vouloir fermer votre session?"
-		},
-		"SideNav": {
-			"Actions": "Actions",
-			"Menu": "Menu",
-			"Select_lang": "Sélectionnez la langue"
-		},
-		"Title": "CrazyChess"
-	},
-	"pag404": {
-		"Title": "404"
-	},
-	"pagAbout": {
-		"Title": "Nous"
-	},
-	"pagChinker": {
-		"Title": "Jeu"
-	},
-	"pagContact": {
-		"Title": "Contactez nous"
-	},
-	"pagHome": {
-		"CreateGame": "Nouveau jeu",
-		"GamesInProgress": "Jeux en cours",
-		"JoinGame": "Rejoindre",
-		"Title": "Maison"
-	},
-	"pagUser": {
-		"Title": "Utilisateur"
-	}
+﻿{
+  "App": {
+    "Title": "Chess CrazyChess",
+    "Languages": {
+      "Catalan": "Catalan",
+      "English": "Anglais",
+      "French": "Le français",
+      "Galician": "Galicien",
+      "Spanish": "Espagnol"
+    },
+    "SideNav": {
+      "Select_lang": "Sélectionnez la langue",
+      "Actions": "Actions",
+      "Menu": "Menu"
+    },
+    "MenuUser": {
+      "AlertDisable": "Désactiver les alertes",
+      "AlertEnable": "Activer les alertes",
+      "Login": "Commencer la session"
+    },
+    "Msg": {
+      "Cancel": "Annuler",
+      "CloseSession": "Fermer la session",
+      "confirmLogout": "Êtes-vous sûr de vouloir vous déconnecter?",
+      "Exit": "sortir",
+      "Welcome": "Bienvenue {{value}}"
+    }
+  },
+  "ngxauthfirebaseui": {
+    "emailConfirmationText": "Un email de confirmation vous a été envoyé.\\n   Vérifiez votre boîte de réception et cliquez sur le lien \\\"Confirmer mon adresse e-mail\\\" pour confirmer votre adresse e-mail.",
+    "emailConfirmationTitle": "Confirmez votre adresse email!",
+    "emailErrorPatternText": "S'il vous plaît, mettez une adresse email valide",
+    "emailErrorRequiredText": "E-mail est requis",
+    "emailText": "Email",
+    "forgotPasswordButtonText": "Mot de passe oublié ?",
+    "guestButtonText": "continuer en tant qu'invité",
+    "loginButtonText": "S'identifier",
+    "nameErrorMaxLengthText": "Le nom est trop long!",
+    "nameErrorMinLengthText": "Le nom est trop court!",
+    "nameErrorRequiredText": "Le nom est requis",
+    "nameText": "Nom",
+    "passwordErrorRequiredText": "Mot de passe requis",
+    "passwordText": "Mot de passe",
+    "registerButtonText": "Registre",
+    "registerCardTitleText": "Enregistrement",
+    "registerTabText": "Registre",
+    "resetPasswordActionButtonText": "Réinitialiser",
+    "resetPasswordErrorPatternText": "S'il vous plaît, mettez une adresse email valide",
+    "resetPasswordErrorRequiredText": "Un email est requis pour réinitialiser le mot de passe!",
+    "resetPasswordInputText": "Réinitialiser l'adresse email en mot de passe",
+    "resetPasswordInstructionsText": "Réinitialisation demandée. Vérifiez vos instructions de courrier électronique.",
+    "resetPasswordTabText": "Réinitialiser l'adresse email en mot de passe",
+    "signInCardTitleText": "Connectez-vous",
+    "signInTabText": "se connecter"
+  },
+  "Footer": {
+    "Version": "version"
+  },
+  "pag404": {
+    "Title": "404"
+  },
+  "pagAbout": {
+    "Title": "À propos de nous"
+  },
+  "pagHome": {
+    "CreateGame": "Nouveau jeu",
+    "GamesInProgress": "Jeux en cours",
+    "JoinGame": "Rejoindre",
+    "playNow": "Joue maintenant!",
+    "separadorO": "ou",
+    "Title": "Accueil"
+  }
 }

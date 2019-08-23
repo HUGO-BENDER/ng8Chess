@@ -1,0 +1,73 @@
+﻿{
+  "App": {
+    "Languages": {
+      "Catalan": "Catalán",
+      "English": "Inglés",
+      "French": "Francés",
+      "Galician": "Galego",
+      "Spanish": "Español"
+    },
+    "SideNav": {
+      "Select_lang": "Seleccionar idioma",
+      "Actions": "Accións",
+      "Menu": "Menú"
+    },
+    "Title": "Xadrez CrazyChess",
+    "MenuUser": {
+      "AlertDisable": "Desactivar as alertas",
+      "AlertEnable": "Activar alertas",
+      "Login": "Iniciar sesión"
+    },
+    "Msg": {
+      "Cancel": "Cancelar",
+      "CloseSession": "Pechar sesión",
+      "confirmLogout": "Estás seguro de que queres pechar sesión?",
+      "Exit": "Saír",
+      "Welcome": "Benvido {{value}}"
+    }
+  },
+  "Footer": {
+    "Version": "versión"
+  },
+  "ngxauthfirebaseui": {
+    "emailConfirmationText": "Envioulle un correo electrónico de confirmación. \\ N Comprobe a súa caixa de entrada e faga clic na ligazón \\ \"Confirmar o meu correo electrónico \\\" para confirmar o seu enderezo de correo electrónico.",
+    "emailConfirmationTitle": "Confirma o teu enderezo de correo electrónico.",
+    "emailErrorPatternText": "Introduce un enderezo de correo electrónico válido",
+    "emailErrorRequiredText": "O correo electrónico é obrigatorio",
+    "emailText": "Correo electrónico",
+    "forgotPasswordButtonText": "Esqueceu o seu contrasinal?",
+    "guestButtonText": "continúa como convidado",
+    "loginButtonText": "Iniciar sesión",
+    "nameErrorMaxLengthText": "O nome é moi longo!",
+    "nameErrorMinLengthText": "O nome é demasiado curto!",
+    "nameErrorRequiredText": "O nome é necesario",
+    "nameText": "Nome",
+    "passwordErrorRequiredText": "contrasinal é obrigatorio",
+    "passwordText": "Contrasinal",
+    "registerButtonText": "Inscrición",
+    "registerCardTitleText": "Inscrición",
+    "registerTabText": "Inscrición",
+    "resetPasswordActionButtonText": "Reiniciar",
+    "resetPasswordErrorPatternText": "Introduce un enderezo de correo electrónico válido",
+    "resetPasswordErrorRequiredText": "É necesario un correo electrónico para restablecer o contrasinal.",
+    "resetPasswordInputText": "Restablecer o enderezo de correo electrónico ao contrasinal",
+    "resetPasswordInstructionsText": "Restablecido solicitado. Verifique as súas instrucións de correo electrónico.",
+    "resetPasswordTabText": "Restablecer o enderezo de correo electrónico ao contrasinal",
+    "signInCardTitleText": "Iniciar sesión",
+    "signInTabText": "Rexístrate"
+  },
+  "pag404": {
+    "Title": "404"
+  },
+  "pagAbout": {
+    "Title": "Sobre nós"
+  },
+  "pagHome": {
+    "CreateGame": "Novo xogo",
+    "GamesInProgress": "Xogos en marcha",
+    "JoinGame": "A unirse",
+    "playNow": "Xoga agora!",
+    "separadorO": "ou",
+    "Title": "Inicio"
+  }
+}

@@ -1,79 +1,73 @@
-{
-	"App": {
-		"Footer": {
-			"Version": "versión"
-		},
-		"Languages": {
-			"Catalan": "Catalán",
-			"English": "Inglés",
-			"French": "Francés",
-			"Spanish": "Español"
-		},
-		"MenuUser": {
-			"AlertDisable": "Deshabilitar alertas",
-			"AlertEnable": "Habilitar alertas",
-			"Login": "Iniciar sesión"
-		},
-		"Msg": {
-			"Cancel": "Cancelar",
-			"CloseSession": "Cerrar sesión",
-			"Exit": "Salir",
-			"messageLogout": "¿Está seguro que desea cerrar su sesión?"
-		},
-		"SideNav": {
-			"Actions": "Acciones",
-			"Menu": "Menú",
-			"Select_lang": "Seleccionar idioma"
-		},
-		"Title": "CrazyChess"
-	},
-	"pag404": {
-		"Title": "404"
-	},
-	"pagAbout": {
-		"Title": "Sobre nosotros"
-	},
-	"pagChinker": {
-		"Title": "Juego"
-	},
-	"pagContact": {
-		"Title": "Contáctenos"
-	},
-	"pagHome": {
-		"CreateGame": "Nuevo juego",
-		"GamesInProgress": "Juegos en curso",
-		"JoinGame": "Unirse",
-		"Title": "Inicio",
-		"separadorO": "o"
-	},
-	"pagUser": {
-		"Title": "Usuario"
-	},
-	"ngxauthfirebaseui": {
-		"signInTabText": "Registrarse",
-		"signInCardTitleText": "Iniciando sesión",
-		"loginButtonText": "Iniciar sesión",
-		"forgotPasswordButtonText": "Se te olvidó tu contraseña ?",
-		"nameText": "Nombre",
-		"nameErrorRequiredText": "Se requiere el nombre",
-		"nameErrorMinLengthText": "¡El nombre es demasiado corto!",
-		"nameErrorMaxLengthText": "¡El nombre es muy largo!",
-		"emailText": "Email",
-		"emailErrorRequiredText": "Correo electronico es requerido",
-		"emailErrorPatternText": "Por favor, introduce una dirección de correo electrónico válida",
-		"passwordText": "Contraseña",
-		"passwordErrorRequiredText": "se requiere contraseña",
-		"registerTabText": "Registro",
-		"registerCardTitleText": "Registro",
-		"registerButtonText": "Registro",
-		"guestButtonText": "continua como invitado",
-		"resetPasswordTabText": "Restablecer la dirección de correo electrónico a la contraseña",
-		"resetPasswordInputText": "Restablecer la dirección de correo electrónico a la contraseña",
-		"resetPasswordErrorRequiredText": "Se requiere un correo electrónico para restablecer la contraseña!",
-		"resetPasswordErrorPatternText": "Por favor, introduce una dirección de correo electrónico válida",
-		"resetPasswordActionButtonText": "Reiniciar",
-		"resetPasswordInstructionsText": "Restablecimiento solicitado. Revise sus instrucciones de correo electrónico.",
-		"emailConfirmationTitle": "¡Confirme su dirección de correo electrónico!",
-		"emailConfirmationText": "Se le ha enviado un correo electrónico de confirmación.\n   Revise su bandeja de entrada y haga clic en el enlace \"Confirmar mi correo electrónico\" para confirmar su dirección de correo electrónico."
-	  }
+﻿{
+  "App": {
+    "Languages": {
+      "Catalan": "Catalán",
+      "English": "Inglés",
+      "French": "Francés",
+      "Galician": "Gallego",
+      "Spanish": "Español"
+    },
+    "SideNav": {
+      "Select_lang": "Seleccionar idioma",
+      "Actions": "Acciones",
+      "Menu": "Menú"
+    },
+    "Title": "Chess CrazyChess",
+    "MenuUser": {
+      "AlertDisable": "Deshabilitar alertas",
+      "AlertEnable": "Habilitar alertas",
+      "Login": "Iniciar sesión"
+    },
+    "Msg": {
+      "Cancel": "Cancelar",
+      "CloseSession": "Cerrar sesión",
+      "confirmLogout": "¿Está seguro que desea cerrar su sesión?",
+      "Exit": "Salir",
+      "Welcome": "Bienvenido {{value}}"
+    }
+  },
+  "Footer": {
+    "Version": "versión"
+  },
+  "ngxauthfirebaseui": {
+    "emailConfirmationText": "Se le ha enviado un correo electrónico de confirmación.\\n   Revise su bandeja de entrada y haga clic en el enlace \\\"Confirmar mi correo electrónico\\\" para confirmar su dirección de correo electrónico.",
+    "emailConfirmationTitle": "¡Confirme su dirección de correo electrónico!",
+    "emailErrorPatternText": "Por favor, introduce una dirección de correo electrónico válida",
+    "emailErrorRequiredText": "Correo electronico es requerido",
+    "emailText": "Email",
+    "forgotPasswordButtonText": "Se te olvidó tu contraseña?",
+    "guestButtonText": "continua como invitado",
+    "loginButtonText": "Iniciar sesión",
+    "nameErrorMaxLengthText": "¡El nombre es muy largo!",
+    "nameErrorMinLengthText": "¡El nombre es demasiado corto!",
+    "nameErrorRequiredText": "Se requiere el nombre",
+    "nameText": "Nombre",
+    "passwordErrorRequiredText": "se requiere contraseña",
+    "passwordText": "Contraseña",
+    "registerButtonText": "Registro",
+    "registerCardTitleText": "Registro",
+    "registerTabText": "Registro",
+    "resetPasswordActionButtonText": "Reiniciar",
+    "resetPasswordErrorPatternText": "Por favor, introduce una dirección de correo electrónico válida",
+    "resetPasswordErrorRequiredText": "Se requiere un correo electrónico para restablecer la contraseña!",
+    "resetPasswordInputText": "Restablecer la dirección de correo electrónico a la contraseña",
+    "resetPasswordInstructionsText": "Restablecimiento solicitado. Revise sus instrucciones de correo electrónico.",
+    "resetPasswordTabText": "Restablecer la dirección de correo electrónico a la contraseña",
+    "signInCardTitleText": "Iniciando sesión",
+    "signInTabText": "Registrarse"
+  },
+  "pag404": {
+    "Title": "404"
+  },
+  "pagAbout": {
+    "Title": "Sobre nosotros"
+  },
+  "pagHome": {
+    "CreateGame": "Nuevo juego",
+    "GamesInProgress": "Juegos en curso",
+    "JoinGame": "Unirse",
+    "playNow": "Jugar ya!",
+    "separadorO": "o",
+    "Title": "Inicio"
+  }
 }

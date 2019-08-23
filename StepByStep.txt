@@ -127,3 +127,12 @@ import { NgxAuthFirebaseUIModule } from 'ngx-auth-firebaseui';
 import { environment } from '../environments/environment';
 
 
+
+// --
+ng generate service service/angularfire/globaldata
+ng g interface model/metadata
+
+ng generate service service/angularfire/recruitment
+ng g interface model/recruitment
+ng g interface model/player
+ng g interface model/datagames

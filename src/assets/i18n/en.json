@@ -1,51 +1,73 @@
-{
-	"App": {
-		"Footer": {
-			"Version": "version"
-		},
-		"Languages": {
-			"Catalan": "Catalán",
-			"English": "English",
-			"French": "French",
-			"Spanish": "Spanish"
-		},
-		"MenuUser": {
-			"AlertDisable": "Disable alerts",
-			"AlertEnable": "Enable alerts",
-			"Login": "Log in"
-		},
-		"Msg": {
-			"Cancel": "Cancel",
-			"CloseSession": "Close session",
-			"Exit": "Exit",
-			"messageLogout": "Are you sure you want to close your session?"
-		},
-		"SideNav": {
-			"Actions": "Actions",
-			"Menu": "Menu",
-			"Select_lang": "Select language"
-		},
-		"Title": "CrazyChess"
-	},
-	"pag404": {
-		"Title": "404"
-	},
-	"pagAbout": {
-		"Title": "About"
-	},
-	"pagChinker": {
-		"Title": "Game"
-	},
-	"pagContact": {
-		"Title": "Contact us"
-	},
-	"pagHome": {
-		"CreateGame": "New game",
-		"GamesInProgress": "Games in progress",
-		"JoinGame": "Join",
-		"Title": "Home"
-	},
-	"pagUser": {
-		"Title": "User"
-	}
+﻿{
+  "App": {
+    "Title": "Chess CrazyChess",
+    "Languages": {
+      "Catalan": "Catalan",
+      "English": "English",
+      "French": "French",
+      "Galician": "Galician",
+      "Spanish": "Spanish"
+    },
+    "SideNav": {
+      "Select_lang": "Select language",
+      "Actions": "Actions",
+      "Menu": "Menu"
+    },
+    "MenuUser": {
+      "AlertDisable": "Disable alerts",
+      "AlertEnable": "Enable alerts",
+      "Login": "Log in"
+    },
+    "Msg": {
+      "Cancel": "Cancel",
+      "CloseSession": "Sign off",
+      "confirmLogout": "Are you sure you want to log out?",
+      "Exit": "Get out",
+      "Welcome": "Welcome {{value}}"
+    }
+  },
+  "ngxauthfirebaseui": {
+    "emailConfirmationText": "A confirmation e-mail has been sent to you.\\n  Check your inbox and click on the link \\\"Confirm my e-mail\\\" to confirm your e-mail address.",
+    "emailConfirmationTitle": "Confirm your e-mail address!",
+    "emailErrorPatternText": "Please enter a valid e-mail address",
+    "emailErrorRequiredText": "E-mail is required",
+    "emailText": "E-mail",
+    "forgotPasswordButtonText": "Forgot Password?",
+    "guestButtonText": "continue as guest",
+    "loginButtonText": "Log in",
+    "nameErrorMaxLengthText": "The name is too long!",
+    "nameErrorMinLengthText": "The name is too short!",
+    "nameErrorRequiredText": "Name is required",
+    "nameText": "Name",
+    "passwordErrorRequiredText": "Password is required",
+    "passwordText": "Password",
+    "registerButtonText": "Register",
+    "registerCardTitleText": "Registration",
+    "registerTabText": "Register",
+    "resetPasswordActionButtonText": "Reset",
+    "resetPasswordErrorPatternText": "Please enter a valid e-mail address",
+    "resetPasswordErrorRequiredText": "E-mail is required to reset the password!",
+    "resetPasswordInputText": "Reset e-mail address to password",
+    "resetPasswordInstructionsText": "Reset requested. Check your e-mail instructions.",
+    "resetPasswordTabText": "Reset e-mail address to password",
+    "signInCardTitleText": "Signing in",
+    "signInTabText": "Sign in"
+  },
+  "Footer": {
+    "Version": "version"
+  },
+  "pag404": {
+    "Title": "404"
+  },
+  "pagAbout": {
+    "Title": "About us"
+  },
+  "pagHome": {
+    "CreateGame": "New game",
+    "GamesInProgress": "Games in progress",
+    "JoinGame": "Join",
+    "playNow": "Play now!",
+    "separadorO": "or",
+    "Title": "Start"
+  }
 }

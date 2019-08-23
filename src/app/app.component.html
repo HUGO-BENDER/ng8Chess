@@ -1,31 +1,31 @@
 <mat-sidenav-container class="sidenav-container">
   <mat-sidenav #appsidenav class="sidenav" fixedInViewport="true" attr.role="navigation" mode="over">
-    <mat-toolbar color="primary" class="mat-elevation-z10"> {{ translate.instant('App.SideNav.Actions') }} </mat-toolbar>
+    <mat-toolbar color="primary" class="mat-elevation-z10"> {{ 'App.SideNav.Actions' | translate }} </mat-toolbar>
     <mat-nav-list>
       <a mat-list-item (click)="showMenuLanguage = !showMenuLanguage">
         <mat-icon matListIcon>translate</mat-icon>
-        {{ translate.instant('App.SideNav.Select_lang') }}
+        {{ 'App.SideNav.Select_lang' | translate }}
         <mat-icon *ngIf="!showMenuLanguage">chevron_right</mat-icon>
         <mat-icon *ngIf="showMenuLanguage">expand_more</mat-icon>
       </a>
       <mat-nav-list *ngIf="showMenuLanguage">
         <mat-list-item *ngFor="let lang of listLanguages" [class.activated]="lang.id == currentLang" (click)="changeLanguage(lang.id)">
-          {{ translate.instant('App.Languages.'+lang.name) }}
+          {{ 'App.Languages.'+lang.name | translate }}
           <p class="spacer">&nbsp;</p>
           <mat-icon *ngIf="lang.id == currentLang">radio_button_checked</mat-icon>
           <mat-icon *ngIf="lang.id != currentLang">radio_button_unchecked</mat-icon>
         </mat-list-item>
       </mat-nav-list>
     </mat-nav-list>
-    <mat-toolbar color="primary" class="mat-elevation-z10"> {{ translate.instant('App.SideNav.Menu') }} </mat-toolbar>
+    <mat-toolbar color="primary" class="mat-elevation-z10"> {{ 'App.SideNav.Menu' | translate }} </mat-toolbar>
     <mat-nav-list>
       <a mat-list-item routerLink="/home" [class.activated]="currentUrl == '/' || currentUrl == '/home'" (click)='appsidenav.toggle()'>
         <mat-icon matListIcon>home</mat-icon>
-        {{ translate.instant('pagHome.Title')}}
+        {{ 'pagHome.Title' | translate }}
       </a>
       <a mat-list-item routerLink="/about" [class.activated]="currentUrl == '/about'" (click)='appsidenav.toggle()'>
         <mat-icon matListIcon>persons</mat-icon>
-        {{ translate.instant('pagAbout.Title') }}
+        {{ 'pagAbout.Title' | translate }}
       </a>
     </mat-nav-list>
   </mat-sidenav>

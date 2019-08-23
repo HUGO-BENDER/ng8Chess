@@ -1,51 +1,73 @@
-{
-	"App": {
-		"Footer": {
-			"Version": "versió"
-		},
-		"Languages": {
-			"Catalan": "Catalá",
-			"English": "Anglès",
-			"French": "Francès",
-			"Spanish": "Espanyol"
-		},
-		"MenuUser": {
-			"AlertDisable": "Deshabilitar alertes",
-			"AlertEnable": "Habilitar alertes",
-			"Login": "Inicia sessió"
-		},
-		"Msg": {
-			"Cancel": "Cancel·lar",
-			"CloseSession": "Tancar sessió",
-			"Exit": "Sortir",
-			"messageLogout": "Està segur que desitja tancar la seva sessió?"
-		},
-		"SideNav": {
-			"Actions": "Accions",
-			"Menu": "Menú",
-			"Select_lang": "Seleccionar idioma"
-		},
-		"Title": "CrazyChess"
-	},
-	"pag404": {
-		"Title": "404"
-	},
-	"pagAbout": {
-		"Title": "Nosaltres"
-	},
-	"pagChinker": {
-		"Title": "Joc"
-	},
-	"pagContact": {
-		"Title": "Contacti amb nosaltres"
-	},
-	"pagHome": {
-		"CreateGame": "Nou joc",
-		"GamesInProgress": "Jocs en curs",
-		"JoinGame": "Uneix-te",
-		"Title": "Inici"
-	},
-	"pagUser": {
-		"Title": "Usuari"
-	}
+﻿{
+  "App": {
+    "Languages": {
+      "Catalan": "català",
+      "English": "Anglès",
+      "French": "Francès",
+      "Galician": "Gallego",
+      "Spanish": "Espanyol"
+    },
+    "SideNav": {
+      "Select_lang": "seleccionar idioma",
+      "Actions": "accions",
+      "Menu": "menú"
+    },
+    "Title": "Chess CrazyChess",
+    "MenuUser": {
+      "AlertDisable": "deshabilitar alertes",
+      "AlertEnable": "habilitar alertes",
+      "Login": "Inicia sessió"
+    },
+    "Msg": {
+      "Cancel": "Cancel",
+      "CloseSession": "Tancar sessió",
+      "confirmLogout": "Esteu segur que voleu tancar la seva sessió?",
+      "Exit": "sortir",
+      "Welcome": "Benvingut {{value}}"
+    }
+  },
+  "Footer": {
+    "Version": "versió"
+  },
+  "ngxauthfirebaseui": {
+    "emailConfirmationText": "Se li ha enviat un correu electrònic de confirmació. \\ N Reviseu la safata d'entrada i feu clic a l'enllaç \\ \"Confirma la vostra adreça electrònica \\\" per confirmar la seva adreça de correu electrònic.",
+    "emailConfirmationTitle": "'Confirmeu la vostra adreça de correu electrònic!",
+    "emailErrorPatternText": "Si us plau, introdueix una adreça de correu electrònic vàlida",
+    "emailErrorRequiredText": "Correu electrònic és requerit",
+    "emailText": "E-mail",
+    "forgotPasswordButtonText": "Se't va oblidar la contrasenya?",
+    "guestButtonText": "contínua com a convidat",
+    "loginButtonText": "Inicia sessió",
+    "nameErrorMaxLengthText": "El nom és molt llarg!",
+    "nameErrorMinLengthText": "El nom és massa curt!",
+    "nameErrorRequiredText": "Es requereix el nom",
+    "nameText": "nom",
+    "passwordErrorRequiredText": "es requereix contrasenya",
+    "passwordText": "clau",
+    "registerButtonText": "Registre",
+    "registerCardTitleText": "Registre",
+    "registerTabText": "Registre",
+    "resetPasswordActionButtonText": "reiniciar",
+    "resetPasswordErrorPatternText": "Si us plau, introdueix una adreça de correu electrònic vàlida",
+    "resetPasswordErrorRequiredText": "Es requereix un correu electrònic per restablir la contrasenya!",
+    "resetPasswordInputText": "Restablir l'adreça de correu electrònic a la contrasenya",
+    "resetPasswordInstructionsText": "Restabliment sol·licitat. Revisi les seves instruccions de correu electrònic.",
+    "resetPasswordTabText": "Restablir l'adreça de correu electrònic a la contrasenya",
+    "signInCardTitleText": "iniciant sessió",
+    "signInTabText": "Registrar"
+  },
+  "pag404": {
+    "Title": "404"
+  },
+  "pagAbout": {
+    "Title": "sobre nosaltres"
+  },
+  "pagHome": {
+    "CreateGame": "nou joc",
+    "GamesInProgress": "Jocs en curs",
+    "JoinGame": "Unir-se",
+    "playNow": "Jugar ja!",
+    "separadorO": "o",
+    "Title": "Inici"
+  }
 }
