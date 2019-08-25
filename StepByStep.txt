@@ -129,10 +129,12 @@ import { environment } from '../environments/environment';
 
 
 // --
-ng generate service service/angularfire/globaldata
+ng generate service services/angularfire/globaldata
 ng g interface model/metadata
 
-ng generate service service/angularfire/recruitment
+ng generate service services/angularfire/recruitment
 ng g interface model/recruitment
 ng g interface model/player
-ng g interface model/datagames
+ng g interface model/gamebase
+
+ng generate service services/angularfire/player
