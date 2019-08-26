@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { ReactiveFormsModule } from '@angular/forms';
 
 // -- App components
 import { AppRoutingModule } from './components/app-routing/app-routing.module';
@@ -50,6 +51,9 @@ import { ChessInfoComponent } from './games/chess/chess-info/chess-info.componen
 import { CrazyChessInfoComponent } from './games/crazy-chess/crazy-chess-info/crazy-chess-info.component';
 import { ChinkerInfoComponent } from './games/chinker/chinker-info/chinker-info.component';
 import { FlowInfoComponent } from './games/flow/flow-info/flow-info.component';
+import { ChessNewGameComponent } from './games/chess/chess-new-game/chess-new-game.component';
+import { CrazyChessNewGameComponent } from './games/crazy-chess/crazy-chess-new-game/crazy-chess-new-game.component';
+import { ChinkerNewGameComponent } from './games/chinker/chinker-new-game/chinker-new-game.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -73,7 +77,10 @@ export function HttpLoaderFactory(http: HttpClient) {
     ChessInfoComponent,
     CrazyChessInfoComponent,
     ChinkerInfoComponent,
-    FlowInfoComponent
+    FlowInfoComponent,
+    ChessNewGameComponent,
+    CrazyChessNewGameComponent,
+    ChinkerNewGameComponent
   ],
   imports: [
     BrowserModule,
@@ -81,6 +88,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     HttpClientModule,
     AppRoutingModule,
     AppMaterialModule,
+    ReactiveFormsModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
@@ -100,9 +108,12 @@ export function HttpLoaderFactory(http: HttpClient) {
   entryComponents: [
     AppLoginComponent,
     ChessInfoComponent,
+    ChessNewGameComponent,
     CrazyChessInfoComponent,
+    CrazyChessNewGameComponent,
     ChinkerInfoComponent,
-    FlowInfoComponent 
+    ChinkerNewGameComponent,
+    FlowInfoComponent
   ],
   providers: [
     SidenavService

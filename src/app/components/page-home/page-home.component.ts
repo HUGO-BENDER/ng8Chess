@@ -14,6 +14,11 @@ import { ChessInfoComponent } from '../../games/chess/chess-info/chess-info.comp
 import { CrazyChessInfoComponent } from '../../games/crazy-chess/crazy-chess-info/crazy-chess-info.component';
 import { ChinkerInfoComponent } from '../../games/chinker/chinker-info/chinker-info.component';
 import { FlowInfoComponent } from '../../games/flow/flow-info/flow-info.component';
+// -- Games setup new recruitment
+import { ChessNewGameComponent } from '../../games/chess/chess-new-game/chess-new-game.component';
+import { CrazyChessNewGameComponent } from '../../games/crazy-chess/crazy-chess-new-game/crazy-chess-new-game.component';
+import { ChinkerNewGameComponent } from '../../games/chinker/chinker-new-game/chinker-new-game.component';
+
 
 // -- Services
 import { RecruitmentService } from 'src/app/services/angularfire/Recruitment.service';
@@ -86,10 +91,10 @@ export class PageHomeComponent implements OnInit {
   ];
   // ---- hasta aca
   constructor(private translate: TranslateService,
-    public au: AngularFireAuth,
-    private fireRecruitment: RecruitmentService,
-    private firePlayer: PlayerService,
-    public dialog: MatDialog) { }
+              public au: AngularFireAuth,
+              private fireRecruitment: RecruitmentService,
+              private firePlayer: PlayerService,
+              public dialog: MatDialog) { }
 
   ngOnInit() {
     this.au.authState.subscribe(user => {
@@ -181,16 +186,16 @@ export class PageHomeComponent implements OnInit {
     if (this.userlogined) {
       switch (idGame) {
         case 'chess':
-          dialogRefNewGame = this.dialog.open(ChessInfoComponent);
+          dialogRefNewGame = this.dialog.open(ChessNewGameComponent);
           break;
         case 'crazychess':
-          dialogRefNewGame = this.dialog.open(CrazyChessInfoComponent);
+          dialogRefNewGame = this.dialog.open(CrazyChessNewGameComponent);
           break;
         case 'chinker':
-          dialogRefNewGame = this.dialog.open(ChinkerInfoComponent);
+          dialogRefNewGame = this.dialog.open(ChinkerNewGameComponent);
           break;
         case 'flow':
-          dialogRefNewGame = this.dialog.open(FlowInfoComponent);
+// --  naaaaaa
           break;
         default:
           dialogRefNewGame = null;
@@ -247,10 +252,15 @@ export class PageHomeComponent implements OnInit {
 
 
 
-      
+
     } else {
+      // tslint:disable-next-line: max-line-length
       this.ShowErrorMessage('xNo se puede ejecutar esta acción sin estar loginado\n\r Puede loginarse como invitado. no es necesario crear una cuenta pero no se guardaran los datos de su partida.');
     }
+  }
+
+  createRecruitmentWithConfig(idGame: string) {
+
   }
 
   openGame(gameInProgress: GameInProgress) {
@@ -276,7 +286,7 @@ export class PageHomeComponent implements OnInit {
           }
         );
       })
-      .catch(function (error) {
+      .catch(function(error) {
         this.ShowErrorMessage('xError deleting game.');
       });
   }
@@ -303,7 +313,8 @@ export class PageHomeComponent implements OnInit {
     //       console.error('Error editing document: ', error);
     //     });
     // } else {
-    //   this.ShowErrorMessage('xNo se puede ejecutar esta acción sin estar loginado\n\r Puede loginarse como invitado. no es necesario crear una cuenta pero no se guardaran los datos de su partida.');
+    //   this.ShowErrorMessage('xNo se puede ejecutar esta acción sin estar loginado\n\r
+    // Puede loginarse como invitado. no es necesario crear una cuenta pero no se guardaran los datos de su partida.');
     // }
   }
 

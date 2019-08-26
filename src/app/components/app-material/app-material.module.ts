@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 // tslint:disable-next-line: max-line-length
 import {MatSlideToggleModule, MatInputModule, MatStepperModule, MatTabsModule, MatButtonModule, MatTooltipModule, MatToolbarModule, MatMenuModule, MatIconModule, MatListModule, MatDialogModule,
-  MatSidenavModule, MatGridListModule, MatCardModule, MatExpansionModule } from '@angular/material';
+  MatSidenavModule, MatGridListModule, MatCardModule, MatExpansionModule, MatSelectModule } from '@angular/material';
 
 @NgModule({
     imports: [
@@ -19,7 +19,8 @@ import {MatSlideToggleModule, MatInputModule, MatStepperModule, MatTabsModule, M
       MatSidenavModule,
       MatGridListModule,
       MatCardModule,
-      MatExpansionModule
+      MatExpansionModule,
+      MatSelectModule
     ],
     exports: [
       MatSlideToggleModule,
@@ -36,7 +37,8 @@ import {MatSlideToggleModule, MatInputModule, MatStepperModule, MatTabsModule, M
       MatSidenavModule,
       MatGridListModule,
       MatCardModule,
-      MatExpansionModule
+      MatExpansionModule,
+      MatSelectModule
     ],
     declarations: []
   })
