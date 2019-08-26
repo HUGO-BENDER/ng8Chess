@@ -46,6 +46,10 @@ import { ChessComponent } from './games/chess/chess/chess.component';
 import { CrazyChessComponent } from './games/crazy-chess/crazy-chess/crazy-chess.component';
 import { ChinkerComponent } from './games/chinker/chinker/chinker.component';
 import { FlowComponent } from './games/flow/flow/flow.component';
+import { ChessInfoComponent } from './games/chess/chess-info/chess-info.component';
+import { CrazyChessInfoComponent } from './games/crazy-chess/crazy-chess-info/crazy-chess-info.component';
+import { ChinkerInfoComponent } from './games/chinker/chinker-info/chinker-info.component';
+import { FlowInfoComponent } from './games/flow/flow-info/flow-info.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -65,7 +69,11 @@ export function HttpLoaderFactory(http: HttpClient) {
     ChessComponent,
     CrazyChessComponent,
     ChinkerComponent,
-    FlowComponent
+    FlowComponent,
+    ChessInfoComponent,
+    CrazyChessInfoComponent,
+    ChinkerInfoComponent,
+    FlowInfoComponent
   ],
   imports: [
     BrowserModule,
@@ -90,7 +98,11 @@ export function HttpLoaderFactory(http: HttpClient) {
     })
   ],
   entryComponents: [
-    AppLoginComponent
+    AppLoginComponent,
+    ChessInfoComponent,
+    CrazyChessInfoComponent,
+    ChinkerInfoComponent,
+    FlowInfoComponent 
   ],
   providers: [
     SidenavService

@@ -108,6 +108,15 @@ ng g c games/chess/chess
 ng g c games/crazy-chess/crazy-chess
 ng g c games/chinker/chinker
 ng g c games/flow/flow
+ng g module games/chess/chess
+ng g module games/crazy-chess/crazy-chess
+ng g module games/chinker/chinker
+ng g module games/flow/flow
+ng g c games/chess/chess-info
+ng g c games/crazy-chess/crazy-chess-info
+ng g c games/chinker/chinker-info
+ng g c games/flow/flow-info
+
 
 ng generate service services/components/sidenavService
 

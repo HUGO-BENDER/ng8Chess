@@ -12,7 +12,7 @@ export class RecruitmentService {
 
   constructor(private db: AngularFirestore) {}
 
-  createRecruitment(newRecruitment: Recruitment): Promise<DocumentReference> {
+  public createRecruitment(newRecruitment: Recruitment): Promise<DocumentReference> {
     return this.db.collection<Recruitment>('Recruitments').add(newRecruitment);
   }
 
@@ -20,7 +20,7 @@ export class RecruitmentService {
     return this.db.collection('Recruitments').snapshotChanges();
   }
 
-  deleteRecruitment(r: Recruitment): Promise<void> {
+  public deleteRecruitment(r: Recruitment): Promise<void> {
     return this.db.collection('Recruitments').doc(r.id).delete();
   }
 

@@ -1,20 +1,30 @@
 import { Component, OnInit } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { BreakpointObserver, BreakpointState } from '@angular/cdk/layout';
-import { MatDialog } from '@angular/material';
+import { MatDialog, MatDialogRef } from '@angular/material';
 import { AngularFireAuth } from '@angular/fire/auth';
-// import * as firebase from 'firebase/app';
+import * as firebaseApp from 'firebase';
 // import { AngularFirestore, AngFirularestoreCollection } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
+import Swal from 'sweetalert2';
 
+// -- Games public Info
+import { ChessInfoComponent } from '../../games/chess/chess-info/chess-info.component';
+import { CrazyChessInfoComponent } from '../../games/crazy-chess/crazy-chess-info/crazy-chess-info.component';
+import { ChinkerInfoComponent } from '../../games/chinker/chinker-info/chinker-info.component';
+import { FlowInfoComponent } from '../../games/flow/flow-info/flow-info.component';
+
+// -- Services
 import { RecruitmentService } from 'src/app/services/angularfire/Recruitment.service';
 import { PlayerService } from 'src/app/services/angularfire/player.service';
+
+// -- Model d.ts
 import { Recruitment, recruitmentState } from 'src/app/model/recruitment';
 import { MinInfoPlayer } from 'src/app/model/player';
 import { GameInProgress } from 'src/app/model/gamebase';
 
-import Swal from 'sweetalert2';
+
 
 @Component({
   selector: 'app-page-home',
@@ -27,6 +37,7 @@ export class PageHomeComponent implements OnInit {
   gamesInProgress: Observable<GameInProgress[]>;
   recruitments: Observable<Recruitment[]>;
   userlogined: firebase.User;
+  dialogRef: MatDialogRef<any>;
 
   // ----- hay que sacarlo
   matGridSetup = {
@@ -74,14 +85,11 @@ export class PageHomeComponent implements OnInit {
     }
   ];
   // ---- hasta aca
-
-
-
   constructor(private translate: TranslateService,
-              public au: AngularFireAuth,
-              private fireRecruitment: RecruitmentService,
-              private firePlayer: PlayerService,
-              public dialog: MatDialog) { }
+    public au: AngularFireAuth,
+    private fireRecruitment: RecruitmentService,
+    private firePlayer: PlayerService,
+    public dialog: MatDialog) { }
 
   ngOnInit() {
     this.au.authState.subscribe(user => {
@@ -110,17 +118,32 @@ export class PageHomeComponent implements OnInit {
 
 
 
+
+
+
   }
 
   showInfo(idGame: string) {
-    switch (idGame) {
-      case 'chinker':
-        // const dialogRef = this.dialog.open(ChinkerDialogManualComponent);
-        break;
 
+    switch (idGame) {
+      case 'chess':
+        this.dialogRef = this.dialog.open(ChessInfoComponent);
+        break;
+      case 'crazychess':
+        this.dialogRef = this.dialog.open(CrazyChessInfoComponent);
+        break;
+      case 'chinker':
+        this.dialogRef = this.dialog.open(ChinkerInfoComponent);
+        break;
+      case 'flow':
+        this.dialogRef = this.dialog.open(FlowInfoComponent);
+        break;
       default:
+        this.dialogRef = null;
         break;
     }
+
+
 
   }
 
@@ -154,50 +177,80 @@ export class PageHomeComponent implements OnInit {
   }
 
   createRecruitment(idGame: string) {
-    // let dialogRef: MatDialog;
-    // switch (idGame) {
-    //   case 'chinker':
-    //     dialogRef = this.dialog.open(ChinkerDialogManualComponent);
-    //     break;
+    let dialogRefNewGame: MatDialogRef<any> = null;
+    if (this.userlogined) {
+      switch (idGame) {
+        case 'chess':
+          dialogRefNewGame = this.dialog.open(ChessInfoComponent);
+          break;
+        case 'crazychess':
+          dialogRefNewGame = this.dialog.open(CrazyChessInfoComponent);
+          break;
+        case 'chinker':
+          dialogRefNewGame = this.dialog.open(ChinkerInfoComponent);
+          break;
+        case 'flow':
+          dialogRefNewGame = this.dialog.open(FlowInfoComponent);
+          break;
+        default:
+          dialogRefNewGame = null;
+          break;
+      }
 
-    //   default:
-    //     break;
-    // }
+      dialogRefNewGame.afterClosed().subscribe(result => {
+        if (result) {
 
+          alert('volvimos del setup');
 
-
-
-    const player1: MinInfoPlayer = { uid: this.userlogined.uid, displayName: this.userlogined.displayName };
-    const arrayPlayers: Array<MinInfoPlayer> = [];
-    arrayPlayers.push(player1);
-    const newRecruitment: Recruitment = {
-      gameType: idGame,
-      name: 'setup.name',
-      description: 'setup.description',
-      dateCreation: null,
-      state: recruitmentState.OPEN,
-      creator: player1,
-      players: arrayPlayers,
-      countPlayers: 1,
-      maxPlayers: 2,
-      config: {}
-    };
-    this.fireRecruitment.createRecruitment(newRecruitment)
-      .then((docRef) => {
-        Swal.fire({
-          position: 'top',
-          type: 'success',
-          title: this.translate.instant('xxxHas creado un juego'),
-          text: 'setup.name' + ' ' + 'setup.description',
-          showConfirmButton: false,
-          timer: 2000
-        });
-        console.log('Document written with ID: ', docRef.id);
-      })
-      .catch(function(error) {
-        this.ShowErrorMessage(error);
-        console.error('Error adding document: ', error);
+        } else {
+          alert('volvimos del setup pero vacios');
+        }
       });
+
+
+
+
+
+
+      // const player1: MinInfoPlayer = { uid: this.userlogined.uid, displayName: this.userlogined.displayName };
+      // const arrayPlayers: Array<MinInfoPlayer> = [];
+      // arrayPlayers.push(player1);
+      // const newRecruitment: Recruitment = {
+      //   gameType: idGame,
+      //   name: 'setup.name',
+      //   description: 'setup.description',
+      //   dateCreation: firebaseApp.database.ServerValue.TIMESTAMP,
+      //   state: recruitmentState.OPEN,
+      //   creator: player1,
+      //   players: arrayPlayers,
+      //   countPlayers: 1,
+      //   maxPlayers: 2,
+      //   config: {}
+      // };
+      // this.fireRecruitment.createRecruitment(newRecruitment)
+      //   .then((docRef) => {
+      //     Swal.fire({
+      //       position: 'top',
+      //       type: 'success',
+      //       title: this.translate.instant('xxxHas creado un juego'),
+      //       text: 'setup.name' + ' ' + 'setup.description',
+      //       showConfirmButton: false,
+      //       timer: 2000
+      //     });
+      //     console.log('Document written with ID: ', docRef.id);
+      //   })
+      //   .catch(function (error) {
+      //     this.ShowErrorMessage(error);
+      //     console.error('Error adding document: ', error);
+      //   });
+
+
+
+
+      
+    } else {
+      this.ShowErrorMessage('xNo se puede ejecutar esta acción sin estar loginado\n\r Puede loginarse como invitado. no es necesario crear una cuenta pero no se guardaran los datos de su partida.');
+    }
   }
 
   openGame(gameInProgress: GameInProgress) {
@@ -214,13 +267,18 @@ export class PageHomeComponent implements OnInit {
   }
 
   deleteRecruitment(r: Recruitment) {
-    // this.fireRecruitments.deleteRecruitment(r)
-    //   .then(function () {
-    //     this.ShowToastMessage('xGame delete.');
-    //   })
-    //   .catch(function (error) {
-    //     this.ShowErrorMessage('xError deleting game.');
-    //   });
+    this.fireRecruitment.deleteRecruitment(r)
+      .then(() => {
+        this.translate.get('pagHome.xxxGame_delete.').subscribe(
+          (res: string) => {
+            this.ShowToastMessage(res);
+            this.dialogRef.close();
+          }
+        );
+      })
+      .catch(function (error) {
+        this.ShowErrorMessage('xError deleting game.');
+      });
   }
 
   canJoin(r: Recruitment): boolean {
@@ -245,8 +303,31 @@ export class PageHomeComponent implements OnInit {
     //       console.error('Error editing document: ', error);
     //     });
     // } else {
-    //   this.ShowErrorMessage('xNo se puede ejecutar esta acción sin estar loginado');
+    //   this.ShowErrorMessage('xNo se puede ejecutar esta acción sin estar loginado\n\r Puede loginarse como invitado. no es necesario crear una cuenta pero no se guardaran los datos de su partida.');
     // }
+  }
+
+
+
+
+  // -- config show messages
+  private ShowToastMessage(msg: string): void {
+    Swal.fire({
+      toast: true,
+      position: 'top',
+      type: 'success',
+      title: msg,
+      showConfirmButton: false,
+      timer: 2000
+    });
+  }
+  private ShowErrorMessage(msg: string): void {
+    Swal.fire({
+      type: 'error',
+      title: this.translate.instant('Error'),
+      text: msg,
+      showConfirmButton: true
+    });
   }
 
 }
