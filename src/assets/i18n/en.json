@@ -23,7 +23,10 @@
       "CloseSession": "Sign off",
       "confirmLogout": "Are you sure you want to log out?",
       "Exit": "Get out",
-      "Welcome": "Welcome {{value}}"
+      "Welcome": "Welcome {{value}}",
+      "Back": "Previous",
+      "Next": "Following",
+      "Reset": "Restart"
     }
   },
   "ngxauthfirebaseui": {
@@ -69,5 +72,29 @@
     "playNow": "Play now!",
     "separadorO": "or",
     "Title": "Start"
+  },
+  "Game": {
+    "Chess": {
+      "ChessColor": {
+        "BLACK": "Black",
+        "RAMDOM": "Random",
+        "WHITE": "White"
+      },
+      "ColorLabel": "Colour",
+      "ColorSelect": "Select your color",
+      "Title": "Chess"
+    },
+    "Shared": {
+      "ChosseName": "Choose a name for this game",
+      "ChosseNameHintLabel": "15 characters maximum",
+      "CreateNewRecuitment": "Create a new game",
+      "GameConfig": "Configuration",
+      "GameConfigSummary": "Summary",
+      "GameDescriptionLabel": "Description",
+      "GameDescriptionPlaceHolder": "Optional: Enter a description",
+      "GameName": "Name of the game",
+      "GameNameIsRequired": "The name of the game is mandatory",
+      "SendNewRecruitment": "Submit"
+    }
   }
 }

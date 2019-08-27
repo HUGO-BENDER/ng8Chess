@@ -23,7 +23,10 @@
       "CloseSession": "Pechar sesión",
       "confirmLogout": "Estás seguro de que queres pechar sesión?",
       "Exit": "Saír",
-      "Welcome": "Benvido {{value}}"
+      "Welcome": "Benvido {{value}}",
+      "Back": "Anterior",
+      "Next": "A continuación",
+      "Reset": "Reiniciar"
     }
   },
   "Footer": {
@@ -69,5 +72,29 @@
     "playNow": "Xoga agora!",
     "separadorO": "ou",
     "Title": "Inicio"
+  },
+  "Game": {
+    "Chess": {
+      "ChessColor": {
+        "BLACK": "Negro",
+        "RAMDOM": "Ao azar",
+        "WHITE": "Branco"
+      },
+      "ColorLabel": "Cor",
+      "ColorSelect": "Selecciona a túa cor",
+      "Title": "Xadrez"
+    },
+    "Shared": {
+      "ChosseName": "Escolla un nome para este xogo",
+      "ChosseNameHintLabel": "15 caracteres como máximo",
+      "CreateNewRecuitment": "Crea un xogo novo",
+      "GameConfig": "Configuración",
+      "GameConfigSummary": "Resumo",
+      "GameDescriptionLabel": "Descrición",
+      "GameDescriptionPlaceHolder": "Opcional: Introduza unha descrición",
+      "GameName": "Nome do xogo",
+      "GameNameIsRequired": "O nome do xogo é obrigatorio",
+      "SendNewRecruitment": "Enviar"
+    }
   }
 }

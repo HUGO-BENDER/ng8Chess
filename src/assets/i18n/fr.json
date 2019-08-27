@@ -23,7 +23,10 @@
       "CloseSession": "Fermer la session",
       "confirmLogout": "Êtes-vous sûr de vouloir vous déconnecter?",
       "Exit": "sortir",
-      "Welcome": "Bienvenue {{value}}"
+      "Welcome": "Bienvenue {{value}}",
+      "Back": "Précédent",
+      "Next": "Suivant",
+      "Reset": "Redémarrer"
     }
   },
   "ngxauthfirebaseui": {
@@ -69,5 +72,29 @@
     "playNow": "Joue maintenant!",
     "separadorO": "ou",
     "Title": "Accueil"
+  },
+  "Game": {
+    "Chess": {
+      "ChessColor": {
+        "BLACK": "Noir",
+        "RAMDOM": "Au hasard",
+        "WHITE": "Blanc"
+      },
+      "ColorLabel": "Couleur",
+      "ColorSelect": "Choisissez votre couleur",
+      "Title": "Jeu d'échecs"
+    },
+    "Shared": {
+      "ChosseName": "Choisissez un nom pour ce jeu",
+      "ChosseNameHintLabel": "15 caractères maximum",
+      "CreateNewRecuitment": "Créer un nouveau jeu",
+      "GameConfig": "Configuration",
+      "GameConfigSummary": "résumé",
+      "GameDescriptionLabel": "Description",
+      "GameDescriptionPlaceHolder": "Facultatif: entrez une description",
+      "GameName": "Nom du jeu",
+      "GameNameIsRequired": "Le nom du jeu est obligatoire",
+      "SendNewRecruitment": "Envoyer"
+    }
   }
 }

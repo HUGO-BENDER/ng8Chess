@@ -1,0 +1,330 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="App.Title" xml:space="preserve">
+    <value>Chess CrazyChess</value>
+  </data>
+  <data name="ngxauthfirebaseui.emailConfirmationText" xml:space="preserve">
+    <value>A confirmation e-mail has been sent to you.\n  Check your inbox and click on the link \"Confirm my e-mail\" to confirm your e-mail address.</value>
+  </data>
+  <data name="ngxauthfirebaseui.emailConfirmationTitle" xml:space="preserve">
+    <value>Confirm your e-mail address!</value>
+  </data>
+  <data name="ngxauthfirebaseui.emailErrorPatternText" xml:space="preserve">
+    <value>Please enter a valid e-mail address</value>
+  </data>
+  <data name="ngxauthfirebaseui.emailErrorRequiredText" xml:space="preserve">
+    <value>E-mail is required</value>
+  </data>
+  <data name="ngxauthfirebaseui.emailText" xml:space="preserve">
+    <value>E-mail</value>
+  </data>
+  <data name="ngxauthfirebaseui.forgotPasswordButtonText" xml:space="preserve">
+    <value>Forgot Password?</value>
+  </data>
+  <data name="ngxauthfirebaseui.guestButtonText" xml:space="preserve">
+    <value>continue as guest</value>
+  </data>
+  <data name="ngxauthfirebaseui.loginButtonText" xml:space="preserve">
+    <value>Log in</value>
+  </data>
+  <data name="ngxauthfirebaseui.nameErrorMaxLengthText" xml:space="preserve">
+    <value>The name is too long!</value>
+  </data>
+  <data name="ngxauthfirebaseui.nameErrorMinLengthText" xml:space="preserve">
+    <value>The name is too short!</value>
+  </data>
+  <data name="ngxauthfirebaseui.nameErrorRequiredText" xml:space="preserve">
+    <value>Name is required</value>
+  </data>
+  <data name="ngxauthfirebaseui.nameText" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="ngxauthfirebaseui.passwordErrorRequiredText" xml:space="preserve">
+    <value>Password is required</value>
+  </data>
+  <data name="ngxauthfirebaseui.passwordText" xml:space="preserve">
+    <value>Password</value>
+  </data>
+  <data name="ngxauthfirebaseui.registerButtonText" xml:space="preserve">
+    <value>Register</value>
+  </data>
+  <data name="ngxauthfirebaseui.registerCardTitleText" xml:space="preserve">
+    <value>Registration</value>
+  </data>
+  <data name="ngxauthfirebaseui.registerTabText" xml:space="preserve">
+    <value>Register</value>
+  </data>
+  <data name="ngxauthfirebaseui.resetPasswordActionButtonText" xml:space="preserve">
+    <value>Reset</value>
+  </data>
+  <data name="ngxauthfirebaseui.resetPasswordErrorPatternText" xml:space="preserve">
+    <value>Please enter a valid e-mail address</value>
+  </data>
+  <data name="ngxauthfirebaseui.resetPasswordErrorRequiredText" xml:space="preserve">
+    <value>E-mail is required to reset the password!</value>
+  </data>
+  <data name="ngxauthfirebaseui.resetPasswordInputText" xml:space="preserve">
+    <value>Reset e-mail address to password</value>
+  </data>
+  <data name="ngxauthfirebaseui.resetPasswordInstructionsText" xml:space="preserve">
+    <value>Reset requested. Check your e-mail instructions.</value>
+  </data>
+  <data name="ngxauthfirebaseui.resetPasswordTabText" xml:space="preserve">
+    <value>Reset e-mail address to password</value>
+  </data>
+  <data name="ngxauthfirebaseui.signInCardTitleText" xml:space="preserve">
+    <value>Signing in</value>
+  </data>
+  <data name="ngxauthfirebaseui.signInTabText" xml:space="preserve">
+    <value>Sign in</value>
+  </data>
+  <data name="App.Languages.Catalan" xml:space="preserve">
+    <value>Catalan</value>
+  </data>
+  <data name="App.Languages.English" xml:space="preserve">
+    <value>English</value>
+  </data>
+  <data name="App.Languages.French" xml:space="preserve">
+    <value>French</value>
+  </data>
+  <data name="App.Languages.Galician" xml:space="preserve">
+    <value>Galician</value>
+  </data>
+  <data name="App.Languages.Spanish" xml:space="preserve">
+    <value>Spanish</value>
+  </data>
+  <data name="App.SideNav.Select_lang" xml:space="preserve">
+    <value>Select language</value>
+  </data>
+  <data name="App.MenuUser.AlertDisable" xml:space="preserve">
+    <value>Disable alerts</value>
+  </data>
+  <data name="App.MenuUser.AlertEnable" xml:space="preserve">
+    <value>Enable alerts</value>
+  </data>
+  <data name="App.MenuUser.Login" xml:space="preserve">
+    <value>Log in</value>
+  </data>
+  <data name="App.Msg.Cancel" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="App.Msg.CloseSession" xml:space="preserve">
+    <value>Sign off</value>
+  </data>
+  <data name="App.Msg.confirmLogout" xml:space="preserve">
+    <value>Are you sure you want to log out?</value>
+  </data>
+  <data name="App.Msg.Exit" xml:space="preserve">
+    <value>Get out</value>
+  </data>
+  <data name="App.Msg.Welcome" xml:space="preserve">
+    <value>Welcome {{value}}</value>
+  </data>
+  <data name="App.SideNav.Actions" xml:space="preserve">
+    <value>Actions</value>
+  </data>
+  <data name="App.SideNav.Menu" xml:space="preserve">
+    <value>Menu</value>
+  </data>
+  <data name="Footer.Version" xml:space="preserve">
+    <value>version</value>
+  </data>
+  <data name="pag404.Title" xml:space="preserve">
+    <value>404</value>
+  </data>
+  <data name="pagAbout.Title" xml:space="preserve">
+    <value>About us</value>
+  </data>
+  <data name="pagHome.CreateGame" xml:space="preserve">
+    <value>New game</value>
+  </data>
+  <data name="pagHome.GamesInProgress" xml:space="preserve">
+    <value>Games in progress</value>
+  </data>
+  <data name="pagHome.JoinGame" xml:space="preserve">
+    <value>Join</value>
+  </data>
+  <data name="pagHome.playNow" xml:space="preserve">
+    <value>Play now!</value>
+  </data>
+  <data name="pagHome.separadorO" xml:space="preserve">
+    <value>or</value>
+  </data>
+  <data name="pagHome.Title" xml:space="preserve">
+    <value>Start</value>
+  </data>
+  <data name="App.Msg.Back" xml:space="preserve">
+    <value>Previous</value>
+  </data>
+  <data name="App.Msg.Next" xml:space="preserve">
+    <value>Following</value>
+  </data>
+  <data name="App.Msg.Reset" xml:space="preserve">
+    <value>Restart</value>
+  </data>
+  <data name="Game.Chess.ChessColor.BLACK" xml:space="preserve">
+    <value>Black</value>
+  </data>
+  <data name="Game.Chess.ChessColor.RAMDOM" xml:space="preserve">
+    <value>Random</value>
+  </data>
+  <data name="Game.Chess.ChessColor.WHITE" xml:space="preserve">
+    <value>White</value>
+  </data>
+  <data name="Game.Chess.ColorLabel" xml:space="preserve">
+    <value>Colour</value>
+  </data>
+  <data name="Game.Chess.ColorSelect" xml:space="preserve">
+    <value>Select your color</value>
+  </data>
+  <data name="Game.Chess.Title" xml:space="preserve">
+    <value>Chess</value>
+  </data>
+  <data name="Game.Shared.ChosseName" xml:space="preserve">
+    <value>Choose a name for this game</value>
+  </data>
+  <data name="Game.Shared.ChosseNameHintLabel" xml:space="preserve">
+    <value>15 characters maximum</value>
+  </data>
+  <data name="Game.Shared.CreateNewRecuitment" xml:space="preserve">
+    <value>Create a new game</value>
+  </data>
+  <data name="Game.Shared.GameConfig" xml:space="preserve">
+    <value>Configuration</value>
+  </data>
+  <data name="Game.Shared.GameConfigSummary" xml:space="preserve">
+    <value>Summary</value>
+  </data>
+  <data name="Game.Shared.GameDescriptionLabel" xml:space="preserve">
+    <value>Description</value>
+  </data>
+  <data name="Game.Shared.GameDescriptionPlaceHolder" xml:space="preserve">
+    <value>Optional: Enter a description</value>
+  </data>
+  <data name="Game.Shared.GameName" xml:space="preserve">
+    <value>Name of the game</value>
+  </data>
+  <data name="Game.Shared.GameNameIsRequired" xml:space="preserve">
+    <value>The name of the game is mandatory</value>
+  </data>
+  <data name="Game.Shared.SendNewRecruitment" xml:space="preserve">
+    <value>Submit</value>
+  </data>
+</root>

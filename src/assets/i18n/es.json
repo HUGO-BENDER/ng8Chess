@@ -23,7 +23,10 @@
       "CloseSession": "Cerrar sesión",
       "confirmLogout": "¿Está seguro que desea cerrar su sesión?",
       "Exit": "Salir",
-      "Welcome": "Bienvenido {{value}}"
+      "Welcome": "Bienvenido {{value}}",
+      "Back": "Anterior",
+      "Next": "Siguiente",
+      "Reset": "Reiniciar"
     }
   },
   "Footer": {
@@ -69,5 +72,29 @@
     "playNow": "Jugar ya!",
     "separadorO": "o",
     "Title": "Inicio"
+  },
+  "Game": {
+    "Chess": {
+      "ChessColor": {
+        "BLACK": "Negras",
+        "RAMDOM": "Al azar",
+        "WHITE": "Blancas"
+      },
+      "ColorLabel": "Color",
+      "ColorSelect": "Seleccióne su color",
+      "Title": "Ajedrez"
+    },
+    "Shared": {
+      "ChosseName": "Elija un nombre para esta partida",
+      "ChosseNameHintLabel": "Máximo 15 caracteres",
+      "CreateNewRecuitment": "Crear un nuevo juego",
+      "GameConfig": "Configuración",
+      "GameConfigSummary": "Resumen",
+      "GameDescriptionLabel": "Descripción",
+      "GameDescriptionPlaceHolder": "Opcional: Escriba una descripción",
+      "GameName": "Nombre del juego",
+      "GameNameIsRequired": "El nombre del juego es obligatorio",
+      "SendNewRecruitment": "Enviar"
+    }
   }
 }

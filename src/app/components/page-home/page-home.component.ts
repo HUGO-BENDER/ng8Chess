@@ -195,7 +195,7 @@ export class PageHomeComponent implements OnInit {
           dialogRefNewGame = this.dialog.open(ChinkerNewGameComponent);
           break;
         case 'flow':
-// --  naaaaaa
+          // --  naaaaaa
           break;
         default:
           dialogRefNewGame = null;

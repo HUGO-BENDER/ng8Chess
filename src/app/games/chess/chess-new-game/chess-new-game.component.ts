@@ -2,10 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialogRef } from '@angular/material';
 import { TranslateService } from '@ngx-translate/core';
 import { FormBuilder, Validators } from '@angular/forms';
-import { RecruitmentSetup } from '../../../model/recruitment';
+import { RecruitmentChessSetup, chessColor } from '../../../model/recruitment';
 
-export interface Food {
-  value: string;
+export interface optionCombo {
+  value: chessColor;
   viewValue: string;
 }
 
@@ -15,12 +15,11 @@ export interface Food {
   styleUrls: ['./chess-new-game.component.css']
 })
 export class ChessNewGameComponent implements OnInit {
-  foods: Food[] = [
-    { value: 'steak-0', viewValue: 'Steak' },
-    { value: 'pizza-1', viewValue: 'Pizza' },
-    { value: 'tacos-2', viewValue: 'Tacos' }
-  ];
-
+  optionsColor: optionCombo[]  = [
+    { value: chessColor.RAMDOM, viewValue: 'Game.Chess.ChessColor.RAMDOM' },
+    { value: chessColor.WHITE, viewValue: 'Game.Chess.ChessColor.WHITE' },
+    { value: chessColor.BLACK, viewValue: 'Game.Chess.ChessColor.BLACK' }        
+  ];;
   firstFormGroup = this.fb.group({
     name: [null, Validators.required],
     description: null
@@ -32,19 +31,20 @@ export class ChessNewGameComponent implements OnInit {
 
   constructor(
     private dialogRef: MatDialogRef<ChessNewGameComponent>,
-    private fb: FormBuilder,
     private translate: TranslateService,
+    private fb: FormBuilder
   ) { }
 
   ngOnInit() {
   }
 
   onSubmit() {
-    const ret: RecruitmentSetup = {
+    const ret: RecruitmentChessSetup = {
       name: this.firstFormGroup.get('name').value,
       description: this.firstFormGroup.get('description').value,
       maxPlayers: 2,
-      minPlayers: 2
+      minPlayers: 2,
+      color: this.secondFormGroup.get('color').value
     };
     this.dialogRef.close(ret);
   }

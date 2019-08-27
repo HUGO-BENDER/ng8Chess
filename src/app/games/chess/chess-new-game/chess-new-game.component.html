@@ -1,20 +1,20 @@
-<h2 mat-dialog-title>Create new recruitment</h2>
+<h2 mat-dialog-title>{{'Game.Shared.CreateNewRecuitment'| translate}}</h2>
 <mat-dialog-content class="new-chinker">
    <mat-vertical-stepper linear #stepper>
       <mat-step [stepControl]="firstFormGroup">
          <form [formGroup]="firstFormGroup">
-            <ng-template matStepLabel>chosse a name for this game</ng-template>
+            <ng-template matStepLabel>{{'Game.Shared.ChosseName'| translate}}</ng-template>
             <div class="row">
                <div class="col">
-                  <mat-form-field hintLabel="Max 15 characters" class="full-width">
-                     <input matInput placeholder="Name game" formControlName="name" maxlength="15"
-                        required>
+                  <mat-form-field hintLabel="{{'Game.Shared.ChosseNameHintLabel'| translate}}" class="full-width">
+                     <input matInput placeholder="{{'Game.Shared.GameName'| translate}}" formControlName="name" maxlength="15" required>
                      <mat-hint align="end">{{firstFormGroup.get('name').value?.length || 0}}/15</mat-hint>
-                     <button mat-button matSuffix mat-icon-button aria-label="Clear" (click)="firstFormGroup.controls['name'].setValue(null)">
+                     <button mat-button matSuffix mat-icon-button aria-label="Clear"
+                        (click)="firstFormGroup.controls['name'].setValue(null)">
                         <mat-icon>close</mat-icon>
                      </button>
                      <mat-error *ngIf="firstFormGroup.controls['name'].hasError('required')">
-                        name is <strong>required</strong>
+                        "{{'Game.Shared.GameNameIsRequired'| translate}}"
                      </mat-error>
                   </mat-form-field>
                </div>
@@ -23,43 +23,42 @@
             <div class="row">
                <div class="col">
                   <mat-form-field class="full-width">
-                     <textarea class="formTextArea" matInput placeholder="Optional: enter a description."
+                     <textarea class="formTextArea" matInput placeholder="{{'Game.Shared.GameDescriptionPlaceHolder'| translate}}"
                         formControlName="description"></textarea>
                   </mat-form-field>
                </div>
             </div>
             <div class="buttonBar">
-               <button mat-button matStepperNext>Next</button>
+               <button mat-button matStepperNext>{{ 'App.Msg.Next' | translate }}</button>
             </div>
          </form>
       </mat-step>
       <mat-step [stepControl]="secondFormGroup">
          <form [formGroup]="secondFormGroup">
-            <ng-template matStepLabel>Config game</ng-template>
+            <ng-template matStepLabel>{{ 'Game.Shared.GameConfig' | translate }}</ng-template>
             <div class="row">
                <div class="col">
                   <mat-form-field class="alignRight">
-
-                                <mat-label>Favorite food</mat-label>
-                                <!-- <mat-select [(ngModel)]="selectedValue" name="food">
-                                  <mat-option *ngFor="let food of foods" [value]="food.value">
-                                    {{food.viewValue}}
-                                  </mat-option>
-                                </mat-select> -->
+                     <mat-label>{{ 'Game.Chess.ColorSelect' | translate }}</mat-label>
+                     <mat-select formControlName="color">
+                        <mat-option *ngFor="let opt of optionCombo" [value]="opt.value">
+                           {{opt.viewValue | translate}}
+                        </mat-option>
+                     </mat-select>
                   </mat-form-field>
                </div>
             </div>
             <div class="buttonBar">
-               <button mat-button matStepperPrevious>Back</button>
-               <button mat-button matStepperNext>Next</button>
+               <button mat-button matStepperPrevious>{{ 'App.Msg.Back' | translate }}</button>
+               <button mat-button matStepperNext>{{ 'App.Msg.Next' | translate }}</button>
             </div>
          </form>
       </mat-step>
       <mat-step>
-         <ng-template matStepLabel>Resumen</ng-template>
+         <ng-template matStepLabel>{{ 'Game.Shared.GameConfigSummary' | translate }}</ng-template>
          <div class="row">
             <div class="col">
-               <label class="alignRight">name: </label>
+               <label class="alignRight">{{'Game.Shared.GameName'| translate}}: </label>
             </div>
             <div class="col">
                <label>{{firstFormGroup.get('name').value}}</label>
@@ -67,18 +66,25 @@
          </div>
          <div class="row">
             <div class="col">
-               <label class="alignRight">fgsfdgfd: </label>
+               <label class="alignRight">{{'Game.Shared.GameDescriptionLabel'| translate}}: </label>
             </div>
-            <!-- <div class="col">
-               <label>{{secondFormGroup.get('color').value}}</label>
-            </div> -->
+            <div class="col">
+               <label>{{firstFormGroup.get('description').value}}</label>
+            </div>
          </div>
-
+         <div class="row">
+            <div class="col">
+               <label class="alignRight">{{'Game.Chess.ColorLabel'| translate}}: </label>
+            </div>
+            <div class="col">
+               <label>{{secondFormGroup.get('color').value}}</label>
+            </div>
+         </div>
          <div class="buttonBar row">
-            <button mat-button matStepperPrevious>Back</button>
-            <button mat-button (click)="stepper.reset()">Reset</button>
+            <button mat-button matStepperPrevious>{{ 'App.Msg.Back' | translate }}</button>
+            <button mat-button (click)="stepper.reset()">{{ 'App.Msg.Reset' | translate }}</button>
             <div class="spacer"></div>
-            <button mat-button color="primary" (click)="onSubmit()">Create game</button>
+            <button mat-button color="primary" (click)="onSubmit()">{{'Game.Shared.SendNewRecruitment'| translate}}</button>
          </div>
       </mat-step>
    </mat-vertical-stepper>

@@ -23,7 +23,10 @@
       "CloseSession": "Tancar sessió",
       "confirmLogout": "Esteu segur que voleu tancar la seva sessió?",
       "Exit": "sortir",
-      "Welcome": "Benvingut {{value}}"
+      "Welcome": "Benvingut {{value}}",
+      "Back": "anterior",
+      "Next": "següent",
+      "Reset": "reiniciar"
     }
   },
   "Footer": {
@@ -69,5 +72,29 @@
     "playNow": "Jugar ja!",
     "separadorO": "o",
     "Title": "Inici"
+  },
+  "Game": {
+    "Chess": {
+      "ChessColor": {
+        "BLACK": "negres",
+        "RAMDOM": "a l'atzar",
+        "WHITE": "blanques"
+      },
+      "ColorLabel": "color",
+      "ColorSelect": "Seleccioni el seu color",
+      "Title": "Escacs"
+    },
+    "Shared": {
+      "ChosseName": "Tria un nom per a aquesta partida",
+      "ChosseNameHintLabel": "Màxim 15 caràcters",
+      "CreateNewRecuitment": "Crear un nou joc",
+      "GameConfig": "configuració",
+      "GameConfigSummary": "Resum",
+      "GameDescriptionLabel": "Descripció",
+      "GameDescriptionPlaceHolder": "Opcional: Escriviu una descripció",
+      "GameName": "Nom del joc",
+      "GameNameIsRequired": "El nom del joc és obligatori",
+      "SendNewRecruitment": "Enviar"
+    }
   }
 }
