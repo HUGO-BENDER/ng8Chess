@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { BreakpointObserver, BreakpointState } from '@angular/cdk/layout';
-import { MatDialog, MatDialogRef } from '@angular/material';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { AngularFireAuth } from '@angular/fire/auth';
 import * as firebaseApp from 'firebase';
 // import { AngularFirestore, AngFirularestoreCollection } from '@angular/fire/firestore';
@@ -91,10 +91,10 @@ export class PageHomeComponent implements OnInit {
   ];
   // ---- hasta aca
   constructor(private translate: TranslateService,
-              public au: AngularFireAuth,
-              private fireRecruitment: RecruitmentService,
-              private firePlayer: PlayerService,
-              public dialog: MatDialog) { }
+    public au: AngularFireAuth,
+    private fireRecruitment: RecruitmentService,
+    private firePlayer: PlayerService,
+    public dialog: MatDialog) { }
 
   ngOnInit() {
     this.au.authState.subscribe(user => {
@@ -153,46 +153,74 @@ export class PageHomeComponent implements OnInit {
   }
 
   quickStart(idGame: string) {
-    const gameInProgress: GameInProgress = this.getRecentGameInProgress(idGame);
-    if (gameInProgress) {
-      this.openGame(gameInProgress);
-    } else {
-      const recruitment: Recruitment = this.getRecentRecruitment(idGame);
-      if (recruitment) {
-        this.joinRecruitmentAndStartGame(recruitment);
-      } else {
-        this.createRecruitment(idGame);
-      }
+    let dialogRefNewQuickGame: MatDialogRef<any> = null;
+    switch (idGame) {
+      case 'chess':
+
+
+
+
+        dialogRefNewQuickGame = this.dialog.open(ChessNewGameComponent, {
+          data: { action: 'quickStart' }
+        });
+        break;
+      case 'crazychess':
+        dialogRefNewQuickGame = this.dialog.open(CrazyChessNewGameComponent, {
+          data: { action: 'quickStart' }
+        });
+        break;
+      case 'chinker':
+        dialogRefNewQuickGame = this.dialog.open(ChinkerNewGameComponent, {
+          data: { action: 'quickStart' }
+        });
+        break;
+      case 'flow':
+        // --  naaaaaa
+        break;
+      default:
+        dialogRefNewQuickGame = null;
+        break;
     }
+    if (dialogRefNewQuickGame) {
+      dialogRefNewQuickGame.afterClosed().subscribe(result => {
+        if (result) {
+
+          alert('volvimos del setup');
+
+        } else {
+          alert('volvimos del setup pero vacios');
+        }
+      });
+    }
+
+
+
+
+
+
+
+
   }
 
-  getRecentGameInProgress(idGame: string): GameInProgress {
-    // let recentGameInProgress: GameInProgress = null;
-    // // this.gamesInProgress.forEach()
-    // return recentGameInProgress;
-
-    return null;
-  }
-  getRecentRecruitment(idGame: string): Recruitment {
-    return null;
-  }
-
-  joinRecruitmentAndStartGame(recruitment: Recruitment) {
-    throw new Error('Method not implemented.');
-  }
 
   createRecruitment(idGame: string) {
     let dialogRefNewGame: MatDialogRef<any> = null;
     if (this.userlogined) {
       switch (idGame) {
         case 'chess':
-          dialogRefNewGame = this.dialog.open(ChessNewGameComponent);
+          dialogRefNewGame = this.dialog.open(ChessNewGameComponent, {
+            data: { action: 'createRecruitment' }
+          });
           break;
         case 'crazychess':
-          dialogRefNewGame = this.dialog.open(CrazyChessNewGameComponent);
+          dialogRefNewGame = this.dialog.open(CrazyChessNewGameComponent, {
+            data: { action: 'createRecruitment' }
+          });
           break;
         case 'chinker':
-          dialogRefNewGame = this.dialog.open(ChinkerNewGameComponent);
+          dialogRefNewGame = this.dialog.open(ChinkerNewGameComponent, {
+            data: { action: 'createRecruitment' }
+          });
           break;
         case 'flow':
           // --  naaaaaa
@@ -201,6 +229,7 @@ export class PageHomeComponent implements OnInit {
           dialogRefNewGame = null;
           break;
       }
+
 
       dialogRefNewGame.afterClosed().subscribe(result => {
         if (result) {
@@ -259,10 +288,6 @@ export class PageHomeComponent implements OnInit {
     }
   }
 
-  createRecruitmentWithConfig(idGame: string) {
-
-  }
-
   openGame(gameInProgress: GameInProgress) {
     throw new Error('Method not implemented.');
   }
@@ -286,7 +311,7 @@ export class PageHomeComponent implements OnInit {
           }
         );
       })
-      .catch(function(error) {
+      .catch(function (error) {
         this.ShowErrorMessage('xError deleting game.');
       });
   }

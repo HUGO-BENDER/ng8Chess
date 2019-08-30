@@ -1,0 +1,40 @@
+.dialog-content{
+    width: 80ch;
+}
+
+.full-width {
+    width: 100%;
+  }
+
+.table-width {
+ width: 80%;
+}
+  .formTextArea {
+    min-height: 150px;
+  }
+
+  .row {
+    display: flex;
+    flex-direction: row;
+  }
+  
+  .col {
+    flex: 1;
+    margin-right: 20px;
+  }
+  
+  .col:last-child {
+    margin-right: 0;
+  }
+  
+  .buttonBar{
+    margin-top: 10px;
+  }
+  
+  .alignRight{
+    text-align: right;
+  }
+  
+  .spacer{
+    flex: 1 1 auto;
+  }

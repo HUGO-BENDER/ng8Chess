@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { MatDialogRef } from '@angular/material';
+import { Component, OnInit, Inject } from '@angular/core';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { TranslateService } from '@ngx-translate/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { RecruitmentChessSetup, chessColor } from '../../../model/recruitment';
@@ -9,17 +9,23 @@ export interface optionCombo {
   viewValue: string;
 }
 
+export interface DialogData {
+  action: string;
+}
+
 @Component({
   selector: 'app-chess-new-game',
   templateUrl: './chess-new-game.component.html',
   styleUrls: ['./chess-new-game.component.css']
 })
+
 export class ChessNewGameComponent implements OnInit {
   optionsColor: optionCombo[]  = [
     { value: chessColor.RAMDOM, viewValue: 'Game.Chess.ChessColor.RAMDOM' },
     { value: chessColor.WHITE, viewValue: 'Game.Chess.ChessColor.WHITE' },
     { value: chessColor.BLACK, viewValue: 'Game.Chess.ChessColor.BLACK' }        
-  ];;
+  ];
+
   firstFormGroup = this.fb.group({
     name: [null, Validators.required],
     description: null
@@ -31,6 +37,7 @@ export class ChessNewGameComponent implements OnInit {
 
   constructor(
     private dialogRef: MatDialogRef<ChessNewGameComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: DialogData,
     private translate: TranslateService,
     private fb: FormBuilder
   ) { }

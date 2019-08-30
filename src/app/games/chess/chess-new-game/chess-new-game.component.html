@@ -1,5 +1,13 @@
+<h1 mat-dialog-title>{{ data.action}}</h1>
 <h2 mat-dialog-title>{{'Game.Shared.CreateNewRecuitment'| translate}}</h2>
-<mat-dialog-content class="new-chinker">
+<mat-dialog-content class="dialog-content">
+   <!-- Stepper for quick star -->
+
+
+
+
+
+   <!-- Stepper for recruitment -->
    <mat-vertical-stepper linear #stepper>
       <mat-step [stepControl]="firstFormGroup">
          <form [formGroup]="firstFormGroup">
@@ -41,7 +49,7 @@
                   <mat-form-field class="alignRight">
                      <mat-label>{{ 'Game.Chess.ColorSelect' | translate }}</mat-label>
                      <mat-select formControlName="color">
-                        <mat-option *ngFor="let opt of optionCombo" [value]="opt.value">
+                        <mat-option *ngFor="let opt of optionsColor" [value]="opt.value">
                            {{opt.viewValue | translate}}
                         </mat-option>
                      </mat-select>
