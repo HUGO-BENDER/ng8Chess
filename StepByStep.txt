@@ -150,3 +150,8 @@ ng g interface model/player
 ng g interface model/gamebase
 
 ng generate service services/angularfire/player
+
+
+
+//---  Section chess
+ng g interface games/chess/model/chessgame

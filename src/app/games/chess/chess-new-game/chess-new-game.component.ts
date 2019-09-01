@@ -4,7 +4,7 @@ import { TranslateService } from '@ngx-translate/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { RecruitmentChessSetup, chessColor } from '../../../model/recruitment';
 
-export interface optionCombo {
+export interface OptionCombo {
   value: chessColor;
   viewValue: string;
 }
@@ -20,10 +20,10 @@ export interface DialogData {
 })
 
 export class ChessNewGameComponent implements OnInit {
-  optionsColor: optionCombo[]  = [
+  optionsColor: OptionCombo[]  = [
     { value: chessColor.RAMDOM, viewValue: 'Game.Chess.ChessColor.RAMDOM' },
     { value: chessColor.WHITE, viewValue: 'Game.Chess.ChessColor.WHITE' },
-    { value: chessColor.BLACK, viewValue: 'Game.Chess.ChessColor.BLACK' }        
+    { value: chessColor.BLACK, viewValue: 'Game.Chess.ChessColor.BLACK' }
   ];
 
   firstFormGroup = this.fb.group({

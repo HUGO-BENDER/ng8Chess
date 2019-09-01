@@ -3,14 +3,14 @@ import { AngularFirestore, DocumentReference } from '@angular/fire/firestore';
 
 import { Recruitment, recruitmentState } from '../../model/recruitment';
 import { MinInfoPlayer } from '../../model/player';
-import { GameBase} from '../../model/gamebase';
+import { GameBase } from '../../model/gamebase';
 
 @Injectable({
   providedIn: 'root'
 })
 export class RecruitmentService {
 
-  constructor(private db: AngularFirestore) {}
+  constructor(private db: AngularFirestore) { }
 
   public createRecruitment(newRecruitment: Recruitment): Promise<DocumentReference> {
     return this.db.collection<Recruitment>('Recruitments').add(newRecruitment);
@@ -49,30 +49,32 @@ export class RecruitmentService {
   //   );
   // }
 
-  createGameFromThisRecruitment(r: Recruitment): any {
+  createGameFromThisRecruitment(r: Recruitment): Promise<void> {
     console.log('Vamos a crear un juego: description ', r.description);
 
     const batch = this.db.firestore.batch();
     const NewId = this.createId();
-    const newGameRef = this.db.collection('Games').doc(NewId).ref;
+    const newGameRef = this.db.collection('Games' + r.gameType).doc(NewId).ref;
     const newGame: GameBase = {
       gameType: r.gameType,
       name: r.name,
-      description: r.description,
-      turnCont: 1,
-      config: r.config
+      turnCont: 1
     };
+
     batch.set(newGameRef, newGame);
 
     r.players.forEach(p => {
-      const newGamePlayerRef = this.db.collection('Games').doc(NewId).collection('Players').doc(p.uid).ref;
-      batch.set(newGamePlayerRef, { uid: p.uid, displayName: p.displayName });
+      if (!p.uid.startsWith('anonymousPlayer')) {
+        const newGamePlayerRef = this.db.collection('Games').doc(NewId).collection('Players').doc(p.uid).ref;
+        batch.set(newGamePlayerRef, { uid: p.uid, displayName: p.displayName });
+      }
     });
 
-    const rgRef = this.db.collection('Recruitments').doc(r.id).ref;
-    batch.delete(rgRef);
-
-    batch.commit().then(res => console.log('Batch completed!'), err => console.error(err));
+    if (r.id) {
+      const rgRef = this.db.collection('Recruitments').doc(r.id).ref;
+      batch.delete(rgRef);
+    }
+    return batch.commit();
   }
 
   createId() {

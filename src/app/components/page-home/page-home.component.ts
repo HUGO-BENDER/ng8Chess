@@ -91,10 +91,10 @@ export class PageHomeComponent implements OnInit {
   ];
   // ---- hasta aca
   constructor(private translate: TranslateService,
-    public au: AngularFireAuth,
-    private fireRecruitment: RecruitmentService,
-    private firePlayer: PlayerService,
-    public dialog: MatDialog) { }
+              public au: AngularFireAuth,
+              private fireRecruitment: RecruitmentService,
+              private firePlayer: PlayerService,
+              public dialog: MatDialog) { }
 
   ngOnInit() {
     this.au.authState.subscribe(user => {
@@ -156,13 +156,38 @@ export class PageHomeComponent implements OnInit {
     let dialogRefNewQuickGame: MatDialogRef<any> = null;
     switch (idGame) {
       case 'chess':
-
-
-
-
-        dialogRefNewQuickGame = this.dialog.open(ChessNewGameComponent, {
-          data: { action: 'quickStart' }
-        });
+        // -- create game
+        let player1: MinInfoPlayer = { uid: 'anonymousPlayer1', displayName: 'Player1' };
+        if (this.userlogined) {
+          player1 = { uid: this.userlogined.uid, displayName: this.userlogined.displayName };
+        }
+        const player2: MinInfoPlayer = { uid: 'anonymousPlayer2', displayName: 'Player2' };
+        const arrayPlayers: Array<MinInfoPlayer> = [];
+        arrayPlayers.push(player1);
+        arrayPlayers.push(player2);
+        const newRecruitment: Recruitment = {
+          id: this.fireRecruitment.createId(),
+          gameType: 'quickStartChess',
+          name: 'quickStartChess',
+          dateCreation: firebaseApp.database.ServerValue.TIMESTAMP,
+          state: recruitmentState.CLOSED,
+          creator: player1,
+          players: arrayPlayers,
+          countPlayers: 2,
+          minPlayers: 2,
+          maxPlayers: 2,
+          config: {}
+        };
+        this.fireRecruitment.createGameFromThisRecruitment(newRecruitment)
+          .then(() => {
+            dialogRefNewQuickGame = this.dialog.open(ChessNewGameComponent, {
+              data: { action: 'quickStart', docId: newRecruitment.id }
+            });
+          }
+          ).catch(function(error) {
+            this.ShowErrorMessage(error);
+            console.error('Error adding document: ', error);
+          });
         break;
       case 'crazychess':
         dialogRefNewQuickGame = this.dialog.open(CrazyChessNewGameComponent, {
@@ -311,7 +336,7 @@ export class PageHomeComponent implements OnInit {
           }
         );
       })
-      .catch(function (error) {
+      .catch(function(error) {
         this.ShowErrorMessage('xError deleting game.');
       });
   }
