@@ -21,8 +21,10 @@ import { ChinkerNewGameComponent } from '../../games/chinker/chinker-new-game/ch
 
 
 // -- Services
+import { GlobaldataService } from 'src/app/services/angularfire/globaldata.service';
 import { RecruitmentService } from 'src/app/services/angularfire/Recruitment.service';
 import { PlayerService } from 'src/app/services/angularfire/player.service';
+import { GameChessService } from 'src/app/services/angularfire/game-chess.service';
 
 // -- Model d.ts
 import { Recruitment, recruitmentState } from 'src/app/model/recruitment';
@@ -93,7 +95,9 @@ export class PageHomeComponent implements OnInit {
   constructor(private translate: TranslateService,
               public au: AngularFireAuth,
               private fireRecruitment: RecruitmentService,
+              private fireData: GlobaldataService,
               private firePlayer: PlayerService,
+              private fireChess: GameChessService,
               public dialog: MatDialog) { }
 
   ngOnInit() {
@@ -166,7 +170,7 @@ export class PageHomeComponent implements OnInit {
         arrayPlayers.push(player1);
         arrayPlayers.push(player2);
         const newRecruitment: Recruitment = {
-          id: this.fireRecruitment.createId(),
+          id: this.fireData.createId(),
           gameType: 'quickStartChess',
           name: 'quickStartChess',
           dateCreation: firebaseApp.database.ServerValue.TIMESTAMP,
@@ -178,7 +182,7 @@ export class PageHomeComponent implements OnInit {
           maxPlayers: 2,
           config: {}
         };
-        this.fireRecruitment.createGameFromThisRecruitment(newRecruitment)
+        this.fireChess.createGameQuickStart(newRecruitment)
           .then(() => {
             dialogRefNewQuickGame = this.dialog.open(ChessNewGameComponent, {
               data: { action: 'quickStart', docId: newRecruitment.id }

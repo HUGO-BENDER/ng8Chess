@@ -1,9 +1,18 @@
 import { Injectable } from '@angular/core';
+import { AngularFirestore } from '@angular/fire/firestore';
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class GlobaldataService {
 
-  constructor() { }
+  constructor(private db: AngularFirestore) { }
+
+  createId() {
+    return this.db.createId();
+  }
+
+
+
 }

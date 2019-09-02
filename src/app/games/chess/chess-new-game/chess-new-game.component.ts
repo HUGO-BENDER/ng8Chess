@@ -11,6 +11,7 @@ export interface OptionCombo {
 
 export interface DialogData {
   action: string;
+  gameId: string;
 }
 
 @Component({

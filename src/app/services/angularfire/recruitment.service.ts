@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore, DocumentReference } from '@angular/fire/firestore';
 
+import { GlobaldataService } from '../angularfire/globaldata.service';
 import { Recruitment, recruitmentState } from '../../model/recruitment';
 import { MinInfoPlayer } from '../../model/player';
 import { GameBase } from '../../model/gamebase';
@@ -10,7 +11,7 @@ import { GameBase } from '../../model/gamebase';
 })
 export class RecruitmentService {
 
-  constructor(private db: AngularFirestore) { }
+  constructor(private db: AngularFirestore, private fireData: GlobaldataService) { }
 
   public createRecruitment(newRecruitment: Recruitment): Promise<DocumentReference> {
     return this.db.collection<Recruitment>('Recruitments').add(newRecruitment);
@@ -49,36 +50,35 @@ export class RecruitmentService {
   //   );
   // }
 
-  createGameFromThisRecruitment(r: Recruitment): Promise<void> {
-    console.log('Vamos a crear un juego: description ', r.description);
 
-    const batch = this.db.firestore.batch();
-    const NewId = this.createId();
-    const newGameRef = this.db.collection('Games' + r.gameType).doc(NewId).ref;
-    const newGame: GameBase = {
-      gameType: r.gameType,
-      name: r.name,
-      turnCont: 1
-    };
 
-    batch.set(newGameRef, newGame);
+  // createGameFromThisRecruitment(r: Recruitment): Promise<void> {
+  //   console.log('Vamos a crear un juego: description ', r.description);
 
-    r.players.forEach(p => {
-      if (!p.uid.startsWith('anonymousPlayer')) {
-        const newGamePlayerRef = this.db.collection('Games').doc(NewId).collection('Players').doc(p.uid).ref;
-        batch.set(newGamePlayerRef, { uid: p.uid, displayName: p.displayName });
-      }
-    });
+  //   const batch = this.db.firestore.batch();
+  //   const NewId = this.fireData.createId();
+  //   const newGameRef = this.db.collection('Games' + r.gameType).doc(NewId).ref;
+  //   const newGame: GameBase = {
+  //     gameType: r.gameType,
+  //     name: r.name,
+  //     turnCont: 1
+  //   };
 
-    if (r.id) {
-      const rgRef = this.db.collection('Recruitments').doc(r.id).ref;
-      batch.delete(rgRef);
-    }
-    return batch.commit();
-  }
+  //   batch.set(newGameRef, newGame);
 
-  createId() {
-    return this.db.createId();
-  }
+  //   r.players.forEach(p => {
+  //     if (!p.uid.startsWith('anonymousPlayer')) {
+  //       const newGamePlayerRef = this.db.collection('Games').doc(NewId).collection('Players').doc(p.uid).ref;
+  //       batch.set(newGamePlayerRef, { uid: p.uid, displayName: p.displayName });
+  //     }
+  //   });
+
+  //   if (r.id) {
+  //     const rgRef = this.db.collection('Recruitments').doc(r.id).ref;
+  //     batch.delete(rgRef);
+  //   }
+  //   return batch.commit();
+  // }
+
 
 }
