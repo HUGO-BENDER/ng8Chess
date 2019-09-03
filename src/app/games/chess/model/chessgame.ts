@@ -1,7 +1,5 @@
 import { GameBase } from 'src/app/model/gamebase';
 
-export interface Chessgame extends GameBase {
-
-    config?: string;
-    timeLastTurn?: any;
+export interface ChessGame extends GameBase {
+    board?: any;
 }

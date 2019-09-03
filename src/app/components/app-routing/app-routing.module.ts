@@ -5,7 +5,7 @@ import { PageAboutComponent } from '../page-about/page-about.component';
 import { PageNotFoundComponent } from '../page-not-found/page-not-found.component';
 import { PagePolicyPrivacyComponent } from '../page-policy-privacy/page-policy-privacy.component';
 import { PageServiceConditionsComponent } from '../page-service-conditions/page-service-conditions.component';
-
+import { ChessComponent } from "../../games/chess/chess/chess.component"
 
 const routes: Routes = [
   {
@@ -24,6 +24,9 @@ const routes: Routes = [
   }, {
     path: 'serviceconditions',
     component: PageServiceConditionsComponent
+  }, {
+    path: 'games/chess/:id/:user',
+    component: ChessComponent
   }, {
     path: '**',
     component: PageNotFoundComponent

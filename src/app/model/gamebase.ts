@@ -5,14 +5,15 @@ export interface GameBase {
     name: string;
     description?: string;
     config?: any;
+    dateCreation?: any;
     timeStart?: any;
-    Players?: ColPlayers;
+    Players?: ColPlayers<MinInfoPlayer>;
     turnCont: number;
     state?: gameState;
     playerIdTurn?: string;
 }
 
-export interface ColPlayers {
+export interface ColPlayers<MinInfoPlayer> {
     [uid: string]: MinInfoPlayer;
 }
 

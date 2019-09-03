@@ -1,40 +1,50 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore, DocumentReference } from '@angular/fire/firestore';
 
-import { Recruitment, recruitmentState } from '../../model/recruitment';
+import { Recruitment } from '../../model/recruitment';
 import { MinInfoPlayer } from '../../model/player';
-import { Chessgame } from '../../games/chess/model/chessgame';
+import { ChessGame } from '../../games/chess/model/chessgame';
+
+import { GlobaldataService } from '../angularfire/globaldata.service';
+import * as firebaseApp from 'firebase';
+import { gameState, ColPlayers } from 'src/app/model/gamebase';
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class GameChessService {
 
-  constructor(private db: AngularFirestore) { }
+  constructor(private db: AngularFirestore, private fireData: GlobaldataService) { }
 
-  createGameQuickStart(r: Recruitment): Promise<void> {
-    console.log('Vamos a crear un juego: description ', r.description);
 
-    const batch = this.db.firestore.batch();
+  createGameQuickStart(userlogined: firebase.User): Promise<DocumentReference> {
+    console.log('Vamos a crear un juego: description ');
+        // -- create game
+        let player1: MinInfoPlayer = { uid: 'anonymousPlayer1', displayName: 'Player1' };
+        if (userlogined) {
+          player1 = { uid: userlogined.uid, displayName: userlogined.displayName };
+        }
+        const player2: MinInfoPlayer = { uid: 'anonymousPlayer2', displayName: 'Player2' };
+        const arrayPlayers: ColPlayers<MinInfoPlayer> = {};
+        arrayPlayers[player1.uid] = player1;
+        arrayPlayers[player2.uid] = player2;
+        const newQuickClassicChess: ChessGame = {
+          gameType: 'quickClassicChess',
+          name: 'quickClassicChess',
+          dateCreation: firebaseApp.firestore.FieldValue.serverTimestamp(),
+          Players: arrayPlayers,
+          turnCont: 0,
+          state: gameState.WAITING
+        };
 
-    const newGameRef = this.db.collection('Chess').doc(r.id).ref;
-    const newGame: Chessgame = {
-      gameType: r.gameType,
-      name: r.name,
-      turnCont: 1
-    };
-
-    batch.set(newGameRef, newGame);
-
-    return batch.commit();
+        return this.db.collection('Games.ClassicChess').add(newQuickClassicChess);
   }
+
 
   createGameFromThisRecruitment(r: Recruitment): Promise<void> {
     console.log('Vamos a crear un juego: description ', r.description);
-
-
     return Promise.resolve();
-
   }
 
 

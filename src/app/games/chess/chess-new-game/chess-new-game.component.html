@@ -1,14 +1,41 @@
-<h1 mat-dialog-title>{{ data.action}}</h1>
+
 <h2 mat-dialog-title>{{'Game.Shared.CreateNewRecuitment'| translate}}</h2>
 <mat-dialog-content class="dialog-content">
    <!-- Stepper for quick star -->
+   <div *ngIf="data.action === 'quickStart'">
+         {{data.action}}
 
 
+         <div class="row">
+            <div class="col">
+               <mat-form-field class="full-width">
+                  <input class="formTextArea" matInput> 
+                  {{ 'http://localhost:4200/games/chess/' + data.gameId + '/anonymousPlayer1' }}
+                  </input>
+               </mat-form-field>
+            </div>
+         </div>
+
+         <div class="row">
+            <div class="col">
+         <button mat-button color="primary" (click)="close()" [routerLink]="['/games/chess/',data.gameId, 'anonymousPlayer2']">
+            <div>
+               Open
+             </div>
+            <!-- <div *ngIf="gameInProgress.isMyTurn">
+              Go
+            </div>
+            <div *ngIf="!gameInProgress.isMyTurn">
+              Open
+            </div> -->
+          </button>
+         </div>
+      </div>
 
 
-
+   </div>
    <!-- Stepper for recruitment -->
-   <mat-vertical-stepper linear #stepper>
+   <mat-vertical-stepper *ngIf="data.action != 'quickStart'" linear #stepper>
       <mat-step [stepControl]="firstFormGroup">
          <form [formGroup]="firstFormGroup">
             <ng-template matStepLabel>{{'Game.Shared.ChosseName'| translate}}</ng-template>
