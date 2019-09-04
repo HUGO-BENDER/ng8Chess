@@ -43,7 +43,6 @@ import { SidenavService } from './services/components/sidenav.service';
 
 
 // -- GAMES :-)
-import { ChessComponent } from './games/chess/chess/chess.component';
 import { CrazyChessComponent } from './games/crazy-chess/crazy-chess/crazy-chess.component';
 import { ChinkerComponent } from './games/chinker/chinker/chinker.component';
 import { FlowComponent } from './games/flow/flow/flow.component';
@@ -70,7 +69,6 @@ export function HttpLoaderFactory(http: HttpClient) {
     PageNotFoundComponent,
     PagePolicyPrivacyComponent,
     PageServiceConditionsComponent,
-    ChessComponent,
     CrazyChessComponent,
     ChinkerComponent,
     FlowComponent,
