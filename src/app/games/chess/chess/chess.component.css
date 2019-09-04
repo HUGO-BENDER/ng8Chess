@@ -1,0 +1,124 @@
+.gameWrapperFullScren {
+    background-color: rgb(107, 189, 138);
+    min-width: 100vw;
+    min-height: 100vh;
+}
+.game-sidenav{
+    width: 300px;
+    max-width: 80vw;
+}
+.game-content {
+    min-width: 100vw;
+    min-height: 100vh;
+    background-color:green;
+}
+.game-display {
+    min-height: 80vh;
+    background-color: darkkhaki;
+}
+.boardgame {
+    position: relative;
+    top: 2vh;
+    left: 2vw;
+    min-height: 76vh;
+    max-height: 76vh;
+    min-width: 96vw;
+    max-width: 96vw;
+    overflow: hidden;
+    border: 1px solid red;
+    background-color: rgb(189, 107, 125);
+    user-select: none;
+  }
+
+  .game-controls {
+    min-height: 5vh;
+    max-height: 5vh;
+    background-color: teal;
+    border-top: 2px solid royalblue;
+    display: flex;
+    flex-direction: row;
+
+
+    }
+  .game-controls-left {
+    flex: 0 0 auto;
+    background-color: rgb(190, 187, 11);
+  }
+    .btn-open-sideNav {
+      margin-top: -25px;
+      margin-left: 10px;
+      background-color: transparent !important;
+
+
+    }
+  .contenedor-logo-back {
+    position: absolute;
+    height: 60px;
+    width: 60px;
+    margin-top: -17px;
+  }
+  .shadow10 {
+    -webkit-filter: drop-shadow(10px 10px 7px rgba(0,0,0,0.5));      
+    filter: drop-shadow(10px 10px 7px rgba(0,0,0,0.5));  
+  }
+  .contenedor-logo-front {
+    position: absolute;      
+    height: 60px;
+    width: 60px;
+    margin-top: -17px;
+  }
+  
+ .anim-in {
+    animation: anim-fadeinApp 1s ease;
+  }
+
+  .anim-hover:hover {
+    animation: anim-icon-on-over 1s ease;
+  }
+  .game-controls-center {
+    flex: 1 1 auto;
+    text-align: center;
+    border: 1px solid grey;
+  }
+  .game-controls-rigth {
+    flex: 0 0 auto;
+    background-color: rgb(190, 187, 11);
+  }
+  .btn-send-turn {
+    margin: 10px;
+    margin-top: -20px;
+  }
+
+
+
+
+
+
+
+
+  
+@keyframes anim-icon-on-over {
+    from {
+      opacity: 0;
+      transform: rotateY(180deg);
+    }
+  
+    to {
+      opacity: 1;
+      transform: rotateY(360deg);
+    }
+  }
+  
+  @keyframes anim-fadeinApp {
+    from {
+      opacity: 0;
+      transform: rotateY(180deg);
+    }
+  
+    to {
+      opacity: 1;
+      transform: rotateY(360deg);
+    }
+  }
+  
+  

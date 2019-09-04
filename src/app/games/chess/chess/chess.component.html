@@ -1,1 +1,71 @@
-<p>chess works!</p>
+<mat-sidenav-container class="gameWrapperFullScren">
+    <mat-sidenav #gamesidenav class="game-sidenav" fixedInViewport="true" attr.role="navigation" mode="push">
+      <mat-toolbar color="primary" class="mat-elevation-z10">
+        {{ 'App.SideNav.Actions' | translate }}       
+      </mat-toolbar>
+      <mat-nav-list>
+        <a mat-list-item routerLink="/home">
+          <mat-icon matListIcon>home</mat-icon>
+          {{ 'pagHome.Title' | translate }}
+        </a>
+        <a mat-list-item routerLink="/about">
+          <mat-icon matListIcon>persons</mat-icon>
+          {{ 'pagAbout.Title' | translate }}
+        </a>
+      </mat-nav-list>
+      <mat-toolbar color="primary" class="mat-elevation-z10">{{ 'Game.Chess.Title' | translate }}</mat-toolbar>
+      <div *ngIf='currentGame'>
+        <p>
+          {{player.displayName}}
+        </p>
+        <p>
+          gameType: {{currentGame.gameType}}
+        </p>
+        <p>
+          name: {{currentGame.name}}
+        </p>
+        <p>
+          description: {{currentGame.description}}
+        </p>
+        --
+        <p>
+          <!-- timeStart: {{currentGame.timeStart.toDate() | date : 'medium' }} -->
+        </p> --
+        <p>
+          turnCont: {{currentGame.turnCont }}
+        </p>
+      </div>
+    </mat-sidenav>
+    <mat-sidenav-content class="game-content">
+      <div class="game-display">
+          <div class="boardgame"></div>
+      </div>
+      <div class="game-controls">
+        <div class="game-controls-left">
+          <div class="btn-open-sideNav" (click)="gamesidenav.open()">     
+            <div class="contenedor-logo-back">
+              <img class="shadow10" src="../../../assets/logo/fondoLogo.svg" />
+            </div>
+            <div class="contenedor-logo-front anim-in anim-hover">
+              <img src="../../../assets/logo/letraLogo.svg" />
+            </div> 
+          </div>
+        </div>
+        <div class="game-controls-center">
+          <span *ngIf="stateGame == 0">{{player.displayName}} es tu turno. Te están esperando</span>
+          <span *ngIf="stateGame == 1">WAITING. Esperando a los otros jugadores</span>
+        </div>
+        <div class="game-controls-rigth" [@animAppear]='stateButtons'>
+          <button mat-raised-button class="btn-send-turn" (click)="resetTurn()">
+            <mat-icon class="mat-24" aria-label="reset turno">undo</mat-icon>
+          </button>
+          <button mat-raised-button class="btn-send-turn" (click)="sendTurn()">
+            xEnviar turno
+            <mat-icon class="mat-24" aria-label="enviar turno">send</mat-icon>
+          </button>
+        </div>
+      </div>
+      <div class="game-on-table">
+      </div>
+    </mat-sidenav-content>
+  </mat-sidenav-container> 

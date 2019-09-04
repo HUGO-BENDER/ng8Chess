@@ -13,7 +13,7 @@ import { Router, NavigationEnd } from '@angular/router';
 export class AppComponent implements AfterViewInit {
 
   @ViewChild('appsidenav', { static: true }) public sidenav: MatSidenav;
-  currentUrl: string;
+  currentUrl = '/home';
   currentLang: string;
   listLanguages = [
     { id: 'en', name: 'English' },
@@ -36,13 +36,17 @@ export class AppComponent implements AfterViewInit {
     router.events.subscribe((_: NavigationEnd) => {
       if (_.url) {
         if (_.url.lastIndexOf('/') > 0) {
-          this.currentUrl = _.url.substring(0, _.url.lastIndexOf('/'));
+          this.currentUrl = _.url.substring(0, _.url.lastIndexOf('/')).trim();
         } else {
-          this.currentUrl = _.url;
+          this.currentUrl = _.url.trim();
         }
-        console.log('this.currentUrl = ', this.currentUrl);
+        console.log('this.currentUrl = [', this.currentUrl);
       }
     });
+  }
+
+  checkIfShowHeaderAndFooter(): boolean {
+    return !this.currentUrl.startsWith('/game');
   }
 
   ngAfterViewInit(): void {
