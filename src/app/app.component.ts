@@ -2,7 +2,7 @@ import { Component, ViewChild, AfterViewInit } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { SidenavService } from './services/components/sidenav.service';
 import { MatSidenav } from '@angular/material';
-import { Router, NavigationEnd } from '@angular/router';
+import { Event, NavigationCancel, NavigationEnd, NavigationError, NavigationStart, Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -15,6 +15,7 @@ export class AppComponent implements AfterViewInit {
   @ViewChild('appsidenav', { static: true }) public sidenav: MatSidenav;
   currentUrl = '/home';
   currentLang: string;
+  loading = false;
   listLanguages = [
     { id: 'en', name: 'English' },
     { id: 'fr', name: 'French' },
@@ -22,7 +23,7 @@ export class AppComponent implements AfterViewInit {
     { id: 'es', name: 'Spanish' }
   ];
 
-  constructor(router: Router,
+  constructor(private router: Router,
               private sidenavService: SidenavService,
               private translate: TranslateService) {
 
@@ -33,15 +34,35 @@ export class AppComponent implements AfterViewInit {
     this.currentLang = browserLang.match(/en|fr|ca|es/) ? browserLang : 'en';
     this.translate.use(this.currentLang);
 
-    router.events.subscribe((_: NavigationEnd) => {
-      if (_.url) {
-        if (_.url.lastIndexOf('/') > 0) {
-          this.currentUrl = _.url.substring(0, _.url.lastIndexOf('/')).trim();
-        } else {
-          this.currentUrl = _.url.trim();
+    this.router.events.subscribe((event: Event) => {
+      switch (true) {
+        case event instanceof NavigationStart: {
+          this.loading = true;
+          break;
         }
-        console.log('this.currentUrl = [', this.currentUrl);
+        case event instanceof NavigationEnd: {
+          const e = <NavigationEnd> event ;
+          if (e.url) {
+            if (e.url.lastIndexOf('/') > 0) {
+              this.currentUrl = e.url.substring(0, e.url.lastIndexOf('/')).trim();
+            } else {
+              this.currentUrl = e.url.trim();
+            }
+            console.log('this.currentUrl = [', this.currentUrl,']');
+          }
+          this.loading = false;
+          break;
+        }
+        case event instanceof NavigationCancel:
+        case event instanceof NavigationError: {
+          this.loading = false;
+          break;
+        }
+        default: {
+          break;
+        }
       }
+      console.log('this.loading =', this.loading );
     });
   }
 

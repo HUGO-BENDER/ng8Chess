@@ -5,10 +5,7 @@ import { ChessComponent } from '../chess/chess.component';
 
 const routes: Routes = [
   {
-    path: 'games/chess/:id/:user',
-    component: ChessComponent
-  }, {
-    path: '**',
+    path: '',
     component: ChessComponent
   }
 ];

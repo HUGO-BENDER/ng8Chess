@@ -1,4 +1,8 @@
-<mat-sidenav-container class="sidenav-container">
+
+<div *ngIf="loading">
+  <br><br><br><br><br><br><br><br><h1>ACÁ VÁ EL WAIT</h1>
+</div>
+<mat-sidenav-container class="sidenav-container" *ngIf="!loading">
   <mat-sidenav #appsidenav class="sidenav" fixedInViewport="true" attr.role="navigation" mode="over">
     <mat-toolbar color="primary" class="mat-elevation-z10"> {{ 'App.SideNav.Actions' | translate }} </mat-toolbar>
     <mat-nav-list>

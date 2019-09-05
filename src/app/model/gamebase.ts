@@ -10,7 +10,7 @@ export interface GameBase {
     Players?: ColPlayers<MinInfoPlayer>;
     turnCont: number;
     state?: gameState;
-    playerIdTurn?: string;
+    uidPlaying?: string;
 }
 
 export interface ColPlayers<MinInfoPlayer> {
