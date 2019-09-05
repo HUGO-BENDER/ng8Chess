@@ -27,7 +27,7 @@ export class GameChessService {
       player1 = { uid: userlogined.uid, displayName: userlogined.displayName };
     }
     const player2: MinInfoPlayer = { uid: 'anonymousPlayer2', displayName: 'Player2' };
-    const arrayPlayers: ColPlayers<MinInfoPlayer> = {};
+    const arrayPlayers: ColPlayers = {};
     arrayPlayers[player1.uid] = player1;
     arrayPlayers[player2.uid] = player2;
     const newQuickClassicChess: ChessGame = {

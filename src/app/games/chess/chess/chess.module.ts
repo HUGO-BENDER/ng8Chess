@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { ChessRoutingModule } from './chess-routing.module';
 import { ChessComponent } from '../chess/chess.component';
 
+import { FramepanzoomDirective } from '../chess/framepanzoom.directive';
 // --Translate
 import { TranslateModule } from '@ngx-translate/core';
 // --Material
@@ -14,8 +15,11 @@ import { AppMaterialModule } from '../../../components/app-material/app-material
     CommonModule,
     ChessRoutingModule,
     AppMaterialModule,
-    TranslateModule.forChild({}),
+    TranslateModule.forChild({})
   ],
-  declarations: [ ChessComponent ]
+  declarations: [
+    ChessComponent,
+    FramepanzoomDirective
+  ]
 })
 export class ChessModule { }

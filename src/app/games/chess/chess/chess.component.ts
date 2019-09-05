@@ -1,7 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { trigger, state, style, transition, animate } from '@angular/animations';
 import { ActivatedRoute } from '@angular/router';
-// -- 
+// --
 import { TranslateService } from '@ngx-translate/core';
 import Swal from 'sweetalert2';
 import { Subscription } from 'rxjs';
@@ -10,6 +10,10 @@ import { MinInfoPlayer } from 'src/app/model/player';
 import { GameChessService } from 'src/app/services/angularfire/game-chess.service';
 import { ChessGame } from '../model/chessgame';
 import { gameState } from 'src/app/model/gamebase';
+// -- lib java
+declare var ChessBoard: any;
+declare var Chess: any;
+
 
 @Component({
   selector: 'app-chess',
@@ -37,6 +41,12 @@ export class ChessComponent implements OnInit, OnDestroy  {
   currentGame: ChessGame;
   stateGame: gameState = gameState.WAITING;
   stateButtons = 'outside';
+  status = '#status';
+  fen = '#fen';
+  pgn = '#pgn';
+
+  board: any;
+  game: any;
 
 
   constructor( private translate: TranslateService,
@@ -48,23 +58,37 @@ export class ChessComponent implements OnInit, OnDestroy  {
 
   ngOnInit() {
 
-
     console.log('entramos a ngOnInit');
     this.idGame = this.route.snapshot.paramMap.get('id');
-    
+
     console.log('route ' + this.route);
-    
+
     console.log('route ' + this.route.parent);
     this.player = {
       uid: this.route.snapshot.paramMap.get('user'),
       displayName: this.route.snapshot.paramMap.get('user')
     };
-
+    this.loadChess();
     this.gameSubscription = this.fireChess.getSnapshotGame(this.idGame).subscribe(snapshotgame => {
       this.startTurn(snapshotgame);
     });
 
   }
+
+  loadChess(): void {
+    this.game = new Chess();
+    const config = {
+      draggable: true,
+      position: 'start',
+      onDragStart: (source, piece, position, orientation) => this.onDragStart(this.game, source, piece, position, orientation),
+      onDrop: (source, target) => this.onDrop(this.game, source, target),
+      onSnapEnd: () => this.onSnapEnd(this.board, this.game)
+    };
+    this.board = ChessBoard('myBoard', config);
+    this.updateStatus();
+  }
+
+
   startTurn(snapshotgame: any) {
 
     this.currentGame =  snapshotgame.payload.data() as ChessGame;
@@ -82,13 +106,68 @@ export class ChessComponent implements OnInit, OnDestroy  {
         (res: string) => {
           this.ShowToastMessage(res);
         });
-        
-        
+
+
     }
 
   }
 
+  onSnapEnd(board, game) {
+    board.position(game.fen());
+  }
 
+  onDrop(game, source, target) {
+    // see if the move is legal
+    const move = game.move({
+      from: source,
+      to: target,
+      promotion: 'q' // NOTE: always promote to a queen for example simplicity
+    });
+
+    // illegal move
+    if (move === null) { return 'snapback'; }
+
+    this.updateStatus();
+  }
+
+  onDragStart(game, source, piece, position, orientation) {
+    // do not pick up pieces if the game is over
+    if (game.game_over()) { return false; }
+
+    // only pick up pieces for the side to move
+    if ((game.turn() === 'w' && piece.search(/^b/) !== -1) ||
+      (game.turn() === 'b' && piece.search(/^w/) !== -1)) {
+      return false;
+    }
+  }
+
+  updateStatus() {
+    this.status = '';
+
+    let moveColor = 'White';
+    if (this.game.turn() === 'b') {
+      moveColor = 'Black';
+    }
+
+    // checkmate?
+    if (this.game.in_checkmate()) {
+      this.status = 'Game over, ' + moveColor + ' is in checkmate.';
+    } else if (this.game.in_draw()) {
+      this.status = 'Game over, drawn position';
+    } else {
+      this.status = moveColor + ' to move';
+
+      // check?
+      if (this.game.in_check()) {
+        this.status += ', ' + moveColor + ' is in check';
+      }
+    }
+
+    this.fen = this.game.fen();
+    this.pgn = this.game.pgn();
+
+
+  }
 
 
 

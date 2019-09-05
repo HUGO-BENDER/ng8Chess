@@ -27,12 +27,22 @@
                 "input": "node_modules/ngx-auth-firebaseui/assets/",
                 "output": "./assets/",
                 "ignore": ["**/es.json","**/en.json","**/fr.json","**/de.json"]
+                },
+                {
+                  "glob": "**/*",
+                  "input": "./node_modules/chessboardjs/www/releases/0.3.0/img",
+                  "output": "./img"
                 }
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.css",
+              "./node_modules/chessboardjs/www/releases/0.3.0/css/chessboard-0.3.0.min.css"
             ],
-            "scripts": []
+            "scripts": [
+              "./node_modules/jquery/dist/jquery.min.js",
+              "./node_modules/chess.js/chess.min.js",
+              "./node_modules/chessboardjs/www/releases/0.3.0/js/chessboard-0.3.0.min.js"
+            ]
           },
           "configurations": {
             "production": {
@@ -98,12 +108,22 @@
                 "input": "node_modules/ngx-auth-firebaseui/assets/",
                 "output": "./assets/",
                 "ignore": ["**/es.json","**/en.json","**/fr.json","**/de.json"]
+                },
+                {
+                  "glob": "**/*",
+                  "input": "./node_modules/chessboardjs/www/releases/0.3.0/img",
+                  "output": "./img"
                 }
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.css",
+              "./node_modules/chessboardjs/www/releases/0.3.0/css/chessboard-0.3.0.min.css"
             ],
-            "scripts": []
+            "scripts": [
+              "./node_modules/jquery/dist/jquery.min.js",
+              "./node_modules/chess.js/chess.min.js",
+              "./node_modules/chessboardjs/www/releases/0.3.0/js/chessboard-0.3.0.min.js"
+            ]
           }
         },
         "lint": {

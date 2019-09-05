@@ -7,13 +7,13 @@ export interface GameBase {
     config?: any;
     dateCreation?: any;
     timeStart?: any;
-    Players?: ColPlayers<MinInfoPlayer>;
+    Players?: ColPlayers;
     turnCont: number;
     state?: gameState;
     uidPlaying?: string;
 }
 
-export interface ColPlayers<MinInfoPlayer> {
+export interface ColPlayers {
     [uid: string]: MinInfoPlayer;
 }
 

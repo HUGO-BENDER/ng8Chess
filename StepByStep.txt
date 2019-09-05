@@ -1,4 +1,4 @@
-options --spec=false for not testing
+options --skipTests for not testing
 
 ng new <project>
   [optional] Route + Css 
@@ -153,8 +153,30 @@ ng g interface model/gamebase
 
 ng generate service services/angularfire/player
 
+//--- Optional
+    Make zoom and pan on boardgame
+    ng g d games/chess/chess/framepanzoom --spec=false
 
 
 //---  Section chess
 ng g interface games/chess/model/chessgame
+npm install chessboardjs --save
+npm install jquery --save
+npm install chess.js --save 
+modify angular.json
+              {
+                "glob": "**/*",
+                "input": "./node_modules/chessboardjs/www/releases/0.3.0/img",
+                "output": "./img"
+              }
+
+            "styles": [
+              "src/styles.css",
+              "./node_modules/chessboardjs/www/releases/0.3.0/css/chessboard-0.3.0.min.css"
+            ],
+            "scripts": [
+              "./node_modules/jquery/dist/jquery.min.js",
+              "./node_modules/chess.js/chess.min.js",
+              "./node_modules/chessboardjs/www/releases/0.3.0/js/chessboard-0.3.0.min.js"
+            ]
 
