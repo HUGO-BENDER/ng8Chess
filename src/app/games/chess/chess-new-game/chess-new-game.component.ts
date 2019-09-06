@@ -2,7 +2,7 @@ import { Component, OnInit, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { TranslateService } from '@ngx-translate/core';
 import { FormBuilder, Validators } from '@angular/forms';
-import { RecruitmentChessSetup, chessColor } from '../../../model/recruitment';
+import { RecruitmentChessSetup, chessColor } from '../model/chessgame';
 
 export interface OptionCombo {
   value: chessColor;

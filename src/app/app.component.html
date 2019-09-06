@@ -1,8 +1,4 @@
-
-<div *ngIf="loading">
-  <br><br><br><br><br><br><br><br><h1>ACÁ VÁ EL WAIT</h1>
-</div>
-<mat-sidenav-container class="sidenav-container" *ngIf="!loading">
+<mat-sidenav-container class="sidenav-container">
   <mat-sidenav #appsidenav class="sidenav" fixedInViewport="true" attr.role="navigation" mode="over">
     <mat-toolbar color="primary" class="mat-elevation-z10"> {{ 'App.SideNav.Actions' | translate }} </mat-toolbar>
     <mat-nav-list>
@@ -33,7 +29,7 @@
       </a>
     </mat-nav-list>
   </mat-sidenav>
-  <mat-sidenav-content class="app-container">
+  <mat-sidenav-content *ngIf="!loading" class="app-container">
     <header *ngIf="checkIfShowHeaderAndFooter()" class="mat-elevation-z10">
       <app-tool-bar></app-tool-bar>
     </header>
@@ -43,3 +39,6 @@
     </footer>
   </mat-sidenav-content>
 </mat-sidenav-container>
+<div *ngIf="loading">
+  <br><br><br><br><br><br><br><br><h1>----------------  ACÁ VÁ EL WAIT</h1>
+</div>

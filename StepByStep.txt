@@ -180,3 +180,5 @@ modify angular.json
               "./node_modules/chessboardjs/www/releases/0.3.0/js/chessboard-0.3.0.min.js"
             ]
 
+http://localhost:4200/games/chess/Z1bMWuFOjbUNQjvrM1ZZ/anonymousPlayer2
+http://localhost:4200/games/chess/Z1bMWuFOjbUNQjvrM1ZZ/anonymousPlayer1

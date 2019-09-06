@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, HostListener } from '@angular/core';
 import { trigger, state, style, transition, animate } from '@angular/animations';
 import { ActivatedRoute } from '@angular/router';
 // --
@@ -33,7 +33,7 @@ declare var Chess: any;
     ])
   ]
 })
-export class ChessComponent implements OnInit, OnDestroy  {
+export class ChessComponent implements OnInit, OnDestroy {
 
   idGame: string;
   gameSubscription: Subscription;
@@ -44,30 +44,45 @@ export class ChessComponent implements OnInit, OnDestroy  {
   status = '#status';
   fen = '#fen';
   pgn = '#pgn';
-
   board: any;
   game: any;
 
+  //   private _position:      any     = 'start';
+  //   private _orientation:   Boolean = true;
+  //   private _showNotation:  Boolean = true;
+  //   private _draggable:     Boolean = false;
+  //   private _dropOffBoard:  string  = 'snapback';
+  //   private _pieceTheme:    any     = 'img/chesspieces/wikipedia/{piece}.png';
+  //   private _moveSpeed:     any     = 200;
+  //   private _snapbackSpeed: any     = 500;
+  //   private _snapSpeed:     any     = 100;
+  //   private _sparePieces:   Boolean = false;
 
-  constructor( private translate: TranslateService,
-               private fireChess: GameChessService,
-               private route: ActivatedRoute ) {
 
-                console.log('entramos a constructor');
-               }
+
+
+  constructor(private translate: TranslateService,
+    private fireChess: GameChessService,
+    private route: ActivatedRoute) { }
+
+
+  // Region HostListener
+  @HostListener('window:resize', ['$event'])
+  onResize(event: any) {
+    if (this.board) this.board.resize(event);
+  }
+  // End Region HostListener
+
 
   ngOnInit() {
-
-    console.log('entramos a ngOnInit');
     this.idGame = this.route.snapshot.paramMap.get('id');
-
-    console.log('route ' + this.route);
-
-    console.log('route ' + this.route.parent);
+    console.log('this.idGame ' + this.idGame);
     this.player = {
       uid: this.route.snapshot.paramMap.get('user'),
       displayName: this.route.snapshot.paramMap.get('user')
     };
+    console.log('this.player ', this.player.uid, ' ', this.player.displayName);
+
     this.loadChess();
     this.gameSubscription = this.fireChess.getSnapshotGame(this.idGame).subscribe(snapshotgame => {
       this.startTurn(snapshotgame);
@@ -91,7 +106,7 @@ export class ChessComponent implements OnInit, OnDestroy  {
 
   startTurn(snapshotgame: any) {
 
-    this.currentGame =  snapshotgame.payload.data() as ChessGame;
+    this.currentGame = snapshotgame.payload.data() as ChessGame;
     console.log(' startTurn: actualizamos los datos', this.currentGame);
 
     this.stateGame = this.currentGame.uidPlaying === this.player.uid ? 0 : 1;
@@ -100,7 +115,7 @@ export class ChessComponent implements OnInit, OnDestroy  {
         (res: string) => {
           this.ShowToastMessage(res);
         });
-    }  else {
+    } else {
 
       this.translate.get('xxxx_Tienes que esperar.').subscribe(
         (res: string) => {
@@ -125,7 +140,11 @@ export class ChessComponent implements OnInit, OnDestroy  {
     });
 
     // illegal move
-    if (move === null) { return 'snapback'; }
+    if (move === null) 
+      { return 'snapback'; }
+    else {
+      console.log('Guardar movimiento ', source, target)
+    }  
 
     this.updateStatus();
   }

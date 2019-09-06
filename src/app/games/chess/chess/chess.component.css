@@ -31,6 +31,8 @@
   }
   .chessboardgame {
     width: 100%;
+    max-width: 76vh;
+    margin: 0 auto;
   }
   .game-controls {
     min-height: 5vh;

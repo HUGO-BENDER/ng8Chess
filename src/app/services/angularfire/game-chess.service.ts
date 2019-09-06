@@ -2,8 +2,7 @@ import { Injectable } from '@angular/core';
 import { AngularFirestore, DocumentReference } from '@angular/fire/firestore';
 
 import { Recruitment } from '../../model/recruitment';
-import { MinInfoPlayer } from '../../model/player';
-import { ChessGame } from '../../games/chess/model/chessgame';
+import { ChessGame, MinInfoChessPlayer, chessColor } from '../../games/chess/model/chessgame';
 
 import { GlobaldataService } from '../angularfire/globaldata.service';
 import * as firebaseApp from 'firebase';
@@ -22,11 +21,20 @@ export class GameChessService {
   createGameQuickStart(userlogined: firebase.User): Promise<DocumentReference> {
     console.log('Vamos a crear un juego: description ');
     // -- create game
-    let player1: MinInfoPlayer = { uid: 'anonymousPlayer1', displayName: 'Player1' };
-    if (userlogined) {
-      player1 = { uid: userlogined.uid, displayName: userlogined.displayName };
-    }
-    const player2: MinInfoPlayer = { uid: 'anonymousPlayer2', displayName: 'Player2' };
+    let IsRandomColorWhite = Math.random()<.5;
+    let player1: MinInfoChessPlayer = { 
+      uid: 'anonymousPlayer1', 
+      displayName: 'Player1', 
+      color: IsRandomColorWhite? chessColor.WHITE: chessColor.BLACK
+    };
+    // if (userlogined) {
+    //   player1 = { uid: userlogined.uid, displayName: userlogined.displayName };
+    // }
+    const player2: MinInfoChessPlayer = { 
+      uid: 'anonymousPlayer2', 
+      displayName: 'Player2',
+      color: IsRandomColorWhite? chessColor.BLACK: chessColor.WHITE 
+    };
     const arrayPlayers: ColPlayers = {};
     arrayPlayers[player1.uid] = player1;
     arrayPlayers[player2.uid] = player2;
@@ -36,7 +44,8 @@ export class GameChessService {
       dateCreation: firebaseApp.firestore.FieldValue.serverTimestamp(),
       Players: arrayPlayers,
       turnCont: 0,
-      state: gameState.WAITING
+      state: gameState.WAITING,
+      gameTurn: 'b'
     };
 
     return this.db.collection('Games.ClassicChess').add(newQuickClassicChess);
