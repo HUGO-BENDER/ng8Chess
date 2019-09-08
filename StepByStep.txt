@@ -153,11 +153,6 @@ ng g interface model/gamebase
 
 ng generate service services/angularfire/player
 
-//--- Optional
-    Make zoom and pan on boardgame
-    ng g d games/chess/chess/framepanzoom --spec=false
-
-
 //---  Section chess
 ng g interface games/chess/model/chessgame
 npm install chessboardjs --save

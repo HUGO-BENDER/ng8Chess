@@ -8,7 +8,7 @@ import { Subscription } from 'rxjs';
 // -- Model d.ts
 import { MinInfoPlayer } from 'src/app/model/player';
 import { GameChessService } from 'src/app/services/angularfire/game-chess.service';
-import { ChessGame } from '../model/chessgame';
+import { ChessGame, MinInfoChessPlayer, chessColor, ChessMove } from '../model/chessgame';
 import { gameState } from 'src/app/model/gamebase';
 // -- lib java
 declare var ChessBoard: any;
@@ -37,13 +37,13 @@ export class ChessComponent implements OnInit, OnDestroy {
 
   idGame: string;
   gameSubscription: Subscription;
-  player: MinInfoPlayer;
+  player: MinInfoChessPlayer;
   currentGame: ChessGame;
+  moveToSend: ChessMove;
+  fenToSend = '#fen';
   stateGame: gameState = gameState.WAITING;
   stateButtons = 'outside';
   status = '#status';
-  fen = '#fen';
-  pgn = '#pgn';
   board: any;
   game: any;
 
@@ -58,18 +58,15 @@ export class ChessComponent implements OnInit, OnDestroy {
   //   private _snapSpeed:     any     = 100;
   //   private _sparePieces:   Boolean = false;
 
-
-
-
   constructor(private translate: TranslateService,
-    private fireChess: GameChessService,
-    private route: ActivatedRoute) { }
+              private fireChess: GameChessService,
+              private route: ActivatedRoute) { }
 
 
   // Region HostListener
   @HostListener('window:resize', ['$event'])
   onResize(event: any) {
-    if (this.board) this.board.resize(event);
+    if (this.board) { this.board.resize(event); }
   }
   // End Region HostListener
 
@@ -79,7 +76,8 @@ export class ChessComponent implements OnInit, OnDestroy {
     console.log('this.idGame ' + this.idGame);
     this.player = {
       uid: this.route.snapshot.paramMap.get('user'),
-      displayName: this.route.snapshot.paramMap.get('user')
+      displayName: this.route.snapshot.paramMap.get('user'),
+      color: chessColor.RAMDOM
     };
     console.log('this.player ', this.player.uid, ' ', this.player.displayName);
 
@@ -100,30 +98,49 @@ export class ChessComponent implements OnInit, OnDestroy {
       onSnapEnd: () => this.onSnapEnd(this.board, this.game)
     };
     this.board = ChessBoard('myBoard', config);
-    this.updateStatus();
+    // this.updateStatus();
   }
 
-
   startTurn(snapshotgame: any) {
-
     this.currentGame = snapshotgame.payload.data() as ChessGame;
     console.log(' startTurn: actualizamos los datos', this.currentGame);
+    if (this.player.color === chessColor.RAMDOM) {
+      this.player.color = this.currentGame.Players[this.player.uid].color;
+      if (this.board) { this.board.orientation(this.player.color === 'w' ? 'white' : 'black'); }
+    }
 
-    this.stateGame = this.currentGame.uidPlaying === this.player.uid ? 0 : 1;
-    if (this.stateGame === gameState.PLAYING) {
+    if (this.board) {
+      this.board.position(this.currentGame.position);
+    }
+    if ( this.game.validate_fen(this.currentGame.position).valid ) {
+      this.game.load(this.currentGame.position);
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+    this.stateGame = this.currentGame.gameTurn === this.player.color ? 0 : 1;
+    if (this.player.color === this.currentGame.gameTurn) {
       this.translate.get('xxxx_Te toca jugar.').subscribe(
         (res: string) => {
-          this.ShowToastMessage(res);
+          this.ShowToastMessage(res + this.player.color);
         });
     } else {
-
       this.translate.get('xxxx_Tienes que esperar.').subscribe(
         (res: string) => {
-          this.ShowToastMessage(res);
+          this.ShowToastMessage(res + this.player.color);
         });
-
-
     }
+
+
 
   }
 
@@ -140,24 +157,21 @@ export class ChessComponent implements OnInit, OnDestroy {
     });
 
     // illegal move
-    if (move === null) 
-      { return 'snapback'; }
-    else {
-      console.log('Guardar movimiento ', source, target)
-    }  
-
+    if (move === null) {
+      return 'snapback';
+    } else {
+      this.moveToSend = move;
+      this.fenToSend = this.game.fen();
+      console.log('Guardar movimiento ', this.moveToSend , source, target);
+      this.stateButtons = 'inside';
+    }
     this.updateStatus();
   }
 
   onDragStart(game, source, piece, position, orientation) {
     // do not pick up pieces if the game is over
     if (game.game_over()) { return false; }
-
-    // only pick up pieces for the side to move
-    if ((game.turn() === 'w' && piece.search(/^b/) !== -1) ||
-      (game.turn() === 'b' && piece.search(/^w/) !== -1)) {
-      return false;
-    }
+    if (this.player.color !== game.turn()) { return false; }
   }
 
   updateStatus() {
@@ -182,12 +196,34 @@ export class ChessComponent implements OnInit, OnDestroy {
       }
     }
 
-    this.fen = this.game.fen();
-    this.pgn = this.game.pgn();
+    this.fenToSend = this.game.fen();
 
 
   }
 
+  // -- Botons
+  public resetTurn() {
+    if (this.board) {
+      this.game.undo();
+      this.board.position(this.currentGame.position);
+    }
+    this.stateButtons = 'outside';
+  }
+
+  public sendTurn() {
+    this.fireChess.senTurn( this.idGame,
+      this.moveToSend,  this.fenToSend
+    ).then(() => {
+        console.log('xSe ha enviado el Turno');
+        this.stateButtons = 'outside';
+        this.stateGame = gameState.WAITING;
+        this.ShowToastMessage('xSe ha enviado el Turno');
+      })
+      .catch((error) => {
+        this.ShowErrorMessage('xError :-( ');
+        console.log('Error adding document: ', error);
+      });
+  }
 
 
 

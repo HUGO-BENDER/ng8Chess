@@ -7,7 +7,6 @@ export interface GameBase {
     config?: any;
     dateCreation?: any;
     timeStart?: any;
-    Players?: ColPlayers;
     turnCont: number;
     state?: gameState;
     uidPlaying?: string;

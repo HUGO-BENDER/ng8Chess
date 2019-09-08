@@ -11,7 +11,8 @@ export interface RecruitmentChessSetup extends RecruitmentSetup {
     time?: string;
 }
 export interface ChessGame extends GameBase {
-    fen?: any;
+    Players?: { [uid: string]: MinInfoChessPlayer };
+    position: string;
     gameTurn?: string;
     lastMove?: string;
 }
@@ -20,4 +21,10 @@ export interface MinInfoChessPlayer {
     uid: any;
     displayName: any;
     color: chessColor;
+}
+
+export interface ChessMove {
+    from: string;
+    to: string;
+    promotion: string;
 }
