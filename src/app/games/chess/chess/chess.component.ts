@@ -98,7 +98,6 @@ export class ChessComponent implements OnInit, OnDestroy {
       onSnapEnd: () => this.onSnapEnd(this.board, this.game)
     };
     this.board = ChessBoard('myBoard', config);
-    // this.updateStatus();
   }
 
   startTurn(snapshotgame: any) {
@@ -114,6 +113,16 @@ export class ChessComponent implements OnInit, OnDestroy {
     }
     if ( this.game.validate_fen(this.currentGame.position).valid ) {
       this.game.load(this.currentGame.position);
+
+      if (this.game.in_checkmate()) {
+        this.status = 'Game over, is in checkmate.';
+      } else if (this.game.in_draw()) {
+        this.status = 'Game over, drawn position';
+      } else {
+        if (this.game.in_check()) {
+          this.status += ' !!!!!  is in check';
+        }
+      }
     }
 
 
@@ -231,7 +240,7 @@ export class ChessComponent implements OnInit, OnDestroy {
   private ShowToastMessage(msg: string): void {
     Swal.fire({
       toast: true,
-      position: 'top',
+      position: 'bottom',
       type: 'success',
       title: msg,
       showConfirmButton: false,

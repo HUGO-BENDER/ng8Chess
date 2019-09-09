@@ -8,7 +8,37 @@ html , body {
     width: 100%;
     background:rgb(255, 255, 255);
 }
-
+/* <!-- styles to be able to display anim-logo in loading screen --> */
+#wrapper-logo{
+    position:relative;
+    height:100%;
+}
+.contenedor-center-logo{
+  position: fixed !important;
+  left: 50% !important;
+  margin-left:-100px;
+  top: 50% !important;
+  margin-top: -100px;
+  width: 200px;
+  z-index: 9000 !important;    
+}
+.shadow10 {
+  -webkit-filter: drop-shadow(10px 10px 7px rgba(0,0,0,0.5));      
+  filter: drop-shadow(10px 10px 7px rgba(0,0,0,0.5));  
+}
+.anim-wait {
+  animation: anim-fadeinApp .7s ease infinite;
+}
+@keyframes anim-fadeinApp {
+  from {
+      opacity: 0;
+      transform: rotateY(180deg);
+  }
+  to {
+      opacity: 1;
+      transform: rotateY(360deg);
+  }
+}
  /* -- Fix flex router -- */
 router-outlet + * {
     flex:1 1 auto;
