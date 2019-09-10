@@ -39,6 +39,11 @@ html , body {
       transform: rotateY(360deg);
   }
 }
+ /* -- Fix jquery ondrag -- */
+body > .piece-417db {
+  z-index: 1;
+}
+
  /* -- Fix flex router -- */
 router-outlet + * {
     flex:1 1 auto;

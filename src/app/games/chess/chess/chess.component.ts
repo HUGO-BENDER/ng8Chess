@@ -47,20 +47,9 @@ export class ChessComponent implements OnInit, OnDestroy {
   board: any;
   game: any;
 
-  //   private _position:      any     = 'start';
-  //   private _orientation:   Boolean = true;
-  //   private _showNotation:  Boolean = true;
-  //   private _draggable:     Boolean = false;
-  //   private _dropOffBoard:  string  = 'snapback';
-  //   private _pieceTheme:    any     = 'img/chesspieces/wikipedia/{piece}.png';
-  //   private _moveSpeed:     any     = 200;
-  //   private _snapbackSpeed: any     = 500;
-  //   private _snapSpeed:     any     = 100;
-  //   private _sparePieces:   Boolean = false;
-
   constructor(private translate: TranslateService,
-              private fireChess: GameChessService,
-              private route: ActivatedRoute) { }
+    private fireChess: GameChessService,
+    private route: ActivatedRoute) { }
 
 
   // Region HostListener
@@ -104,55 +93,32 @@ export class ChessComponent implements OnInit, OnDestroy {
     this.currentGame = snapshotgame.payload.data() as ChessGame;
     console.log(' startTurn: actualizamos los datos', this.currentGame);
     if (this.player.color === chessColor.RAMDOM) {
+      //-- this only append the first time
       this.player.color = this.currentGame.Players[this.player.uid].color;
       if (this.board) { this.board.orientation(this.player.color === 'w' ? 'white' : 'black'); }
     }
 
-    if (this.board) {
+    if (this.board && this.game) {
       this.board.position(this.currentGame.position);
-    }
-    if ( this.game.validate_fen(this.currentGame.position).valid ) {
-      this.game.load(this.currentGame.position);
-
-      if (this.game.in_checkmate()) {
-        this.status = 'Game over, is in checkmate.';
-      } else if (this.game.in_draw()) {
-        this.status = 'Game over, drawn position';
-      } else {
-        if (this.game.in_check()) {
-          this.status += ' !!!!!  is in check';
+      if (this.game.validate_fen(this.currentGame.position).valid) {
+        this.game.load(this.currentGame.position);
+        if (this.game.in_checkmate()) {
+          //this.status = 'Game over, is in checkmate.';
+          this.onCheckmate();
+        } else if (this.game.in_draw()) {
+          //this.status = 'Game over, drawn position';
+          this.onDraw();
+        } else {
+          if (this.game.in_check()) {
+            //this.status += ' !!!!!  is in check';
+            this.onCheck();
+          } else {
+            this.onTurn()
+          }
         }
       }
     }
-
-
-
-
-
-
-
-
-
-
-
-
-    this.stateGame = this.currentGame.gameTurn === this.player.color ? 0 : 1;
-    if (this.player.color === this.currentGame.gameTurn) {
-      this.translate.get('xxxx_Te toca jugar.').subscribe(
-        (res: string) => {
-          this.ShowToastMessage(res + this.player.color);
-        });
-    } else {
-      this.translate.get('xxxx_Tienes que esperar.').subscribe(
-        (res: string) => {
-          this.ShowToastMessage(res + this.player.color);
-        });
-    }
-
-
-
   }
-
   onSnapEnd(board, game) {
     board.position(game.fen());
   }
@@ -171,10 +137,9 @@ export class ChessComponent implements OnInit, OnDestroy {
     } else {
       this.moveToSend = move;
       this.fenToSend = this.game.fen();
-      console.log('Guardar movimiento ', this.moveToSend , source, target);
+      // console.log('Guardar movimiento ', this.moveToSend, source, target);
       this.stateButtons = 'inside';
     }
-    this.updateStatus();
   }
 
   onDragStart(game, source, piece, position, orientation) {
@@ -182,32 +147,39 @@ export class ChessComponent implements OnInit, OnDestroy {
     if (game.game_over()) { return false; }
     if (this.player.color !== game.turn()) { return false; }
   }
+  // -- Manager info Turn
 
-  updateStatus() {
-    this.status = '';
-
-    let moveColor = 'White';
-    if (this.game.turn() === 'b') {
-      moveColor = 'Black';
-    }
-
-    // checkmate?
-    if (this.game.in_checkmate()) {
-      this.status = 'Game over, ' + moveColor + ' is in checkmate.';
-    } else if (this.game.in_draw()) {
-      this.status = 'Game over, drawn position';
+  onCheckmate() {
+    if (this.player.color === this.game.turn()) {
+      alert('alpiste');
     } else {
-      this.status = moveColor + ' to move';
-
-      // check?
-      if (this.game.in_check()) {
-        this.status += ', ' + moveColor + ' is in check';
-      }
+      alert('ganaste');
     }
-
-    this.fenToSend = this.game.fen();
-
-
+  }
+  onDraw() {
+    if (this.player.color === this.game.turn()) {
+      alert('alpiste...  empatamos');
+    }
+  }
+  onCheck() {
+    if (this.player.color === this.game.turn()) {
+      alert('MENSAJE IMPORTANTE');
+    } else {
+      alert('este no hay que mostrarlo');
+    }
+  }
+  onTurn() {
+    if (this.player.color === this.game.turn()) {
+      this.translate.get('xxxx_Te toca jugar.').subscribe(
+        (res: string) => {
+          this.ShowToastMessage(res + this.player.color);
+        });
+    } else {
+      this.translate.get('xxxx_Tienes que esperar.').subscribe(
+        (res: string) => {
+          this.ShowToastMessage(res + this.player.color);
+        });
+    }
   }
 
   // -- Botons
@@ -220,21 +192,19 @@ export class ChessComponent implements OnInit, OnDestroy {
   }
 
   public sendTurn() {
-    this.fireChess.senTurn( this.idGame,
-      this.moveToSend,  this.fenToSend
+    this.fireChess.senTurn(this.idGame,
+      this.moveToSend, this.fenToSend
     ).then(() => {
-        console.log('xSe ha enviado el Turno');
-        this.stateButtons = 'outside';
-        this.stateGame = gameState.WAITING;
-        this.ShowToastMessage('xSe ha enviado el Turno');
-      })
+      console.log('xSe ha enviado el Turno');
+      this.stateButtons = 'outside';
+      this.stateGame = gameState.WAITING;
+      this.ShowToastMessage('xSe ha enviado el Turno');
+    })
       .catch((error) => {
         this.ShowErrorMessage('xError :-( ');
         console.log('Error adding document: ', error);
       });
   }
-
-
 
   // -- config show messages
   private ShowToastMessage(msg: string): void {
@@ -255,6 +225,8 @@ export class ChessComponent implements OnInit, OnDestroy {
       showConfirmButton: true
     });
   }
+
+  // -- Unsubscribe
   ngOnDestroy(): void {
     this.gameSubscription.unsubscribe();
   }
