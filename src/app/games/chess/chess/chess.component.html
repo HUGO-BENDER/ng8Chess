@@ -68,8 +68,7 @@
       </div>
     </div>
     <div class="game-on-table">
-      <div id="status"><label>Status:</label> {{status}}</div>
-      <div id="fen"><label>FEN:</label> {{fen}}</div>
+      <div> {{this.capturedPieces | json}}</div>
     </div>
   </mat-sidenav-content>
 </mat-sidenav-container>

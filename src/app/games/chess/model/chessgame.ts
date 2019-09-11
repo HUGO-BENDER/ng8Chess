@@ -28,3 +28,8 @@ export interface ChessMove {
     to: string;
     promotion: string;
 }
+
+export interface CapturePieces {
+    w: {p: number, n: number, b: number, r: number, q: number};
+    b: {p: number, n: number, b: number, r: number, q: number};
+}
