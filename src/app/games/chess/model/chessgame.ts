@@ -29,7 +29,7 @@ export interface ChessMove {
     promotion: string;
 }
 
-export interface CapturePieces {
+export interface PiecesOutBoard {
     w: {p: number, n: number, b: number, r: number, q: number};
     b: {p: number, n: number, b: number, r: number, q: number};
 }

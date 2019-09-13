@@ -6,9 +6,8 @@ import { TranslateService } from '@ngx-translate/core';
 import Swal from 'sweetalert2';
 import { Subscription } from 'rxjs';
 // -- Model d.ts
-import { MinInfoPlayer } from 'src/app/model/player';
 import { GameChessService } from 'src/app/services/angularfire/game-chess.service';
-import { ChessGame, MinInfoChessPlayer, chessColor, ChessMove, CapturePieces } from '../model/chessgame';
+import { ChessGame, MinInfoChessPlayer, chessColor, ChessMove, PiecesOutBoard } from '../model/chessgame';
 import { gameState } from 'src/app/model/gamebase';
 // -- lib java
 declare var ChessBoard: any;
@@ -48,7 +47,7 @@ export class ChessComponent implements OnInit, OnDestroy {
   game: any;
   whiteSquareGrey = '#a9a9a9';
   blackSquareGrey = '#696969';
-
+  piecesOutBoard: PiecesOutBoard;
 
   constructor(private translate: TranslateService,
               private fireChess: GameChessService,
@@ -92,6 +91,7 @@ export class ChessComponent implements OnInit, OnDestroy {
       onSnapEnd: () => this.onSnapEnd(this.board, this.game)
     };
     this.board = ChessBoard('myBoard', config);
+    this.getPiecesOutBoard();
   }
 
   startTurn(snapshotgame: any) {
@@ -121,7 +121,8 @@ export class ChessComponent implements OnInit, OnDestroy {
             this.onTurn();
           }
         }
-      }
+        this.getPiecesOutBoard();
+      }   
     }
   }
  // -- Boardchess function handlers
@@ -186,6 +187,32 @@ export class ChessComponent implements OnInit, OnDestroy {
     $square.css('background', background);
   }
 
+  getPiecesOutBoard(){
+    const rowsFen: string = this.game.fen().split(" ")[0];
+    if (rowsFen) {
+      const lengthFen = rowsFen.length;
+      this.piecesOutBoard = {
+        w:  {
+              p: 8 - (lengthFen - rowsFen.replace(/P/g,'').length), 
+              n: 2 - (lengthFen - rowsFen.replace(/N/g,'').length), 
+              b: 2 - (lengthFen - rowsFen.replace(/B/g,'').length), 
+              r: 2 - (lengthFen - rowsFen.replace(/R/g,'').length), 
+              q: 1 - (lengthFen - rowsFen.replace(/Q/g,'').length)
+            },
+        b:  { 
+              p: 8 - (lengthFen - rowsFen.replace(/p/g,'').length), 
+              n: 2 - (lengthFen - rowsFen.replace(/n/g,'').length), 
+              b: 2 - (lengthFen - rowsFen.replace(/b/g,'').length), 
+              r: 2 - (lengthFen - rowsFen.replace(/r/g,'').length), 
+              q: 1 - (lengthFen - rowsFen.replace(/q/g,'').length)
+            }
+      };
+    };
+
+    // -- img/chesspieces/wikipedia/wK.png
+    console.log("Las piezas en el tablero son ", rowsFen);
+    console.log("Las piezas fuera del tablero son ", this.piecesOutBoard);
+  }
 
   // -- Manager info Turn
   onCheckmate() {
