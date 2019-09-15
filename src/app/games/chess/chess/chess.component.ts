@@ -47,7 +47,7 @@ export class ChessComponent implements OnInit, OnDestroy {
   game: any;
   whiteSquareGrey = '#a9a9a9';
   blackSquareGrey = '#696969';
-  piecesOutBoard: PiecesOutBoard;
+  piecesOutBoard: any;
 
   constructor(private translate: TranslateService,
               private fireChess: GameChessService,
@@ -122,7 +122,7 @@ export class ChessComponent implements OnInit, OnDestroy {
           }
         }
         this.getPiecesOutBoard();
-      }   
+      }
     }
   }
  // -- Boardchess function handlers
@@ -187,31 +187,47 @@ export class ChessComponent implements OnInit, OnDestroy {
     $square.css('background', background);
   }
 
-  getPiecesOutBoard(){
-    const rowsFen: string = this.game.fen().split(" ")[0];
+  getPiecesOutBoard() {
+    const rowsFen: string = this.game.fen().split(' ')[0];
     if (rowsFen) {
       const lengthFen = rowsFen.length;
       this.piecesOutBoard = {
-        w:  {
-              p: 8 - (lengthFen - rowsFen.replace(/P/g,'').length), 
-              n: 2 - (lengthFen - rowsFen.replace(/N/g,'').length), 
-              b: 2 - (lengthFen - rowsFen.replace(/B/g,'').length), 
-              r: 2 - (lengthFen - rowsFen.replace(/R/g,'').length), 
-              q: 1 - (lengthFen - rowsFen.replace(/Q/g,'').length)
-            },
-        b:  { 
-              p: 8 - (lengthFen - rowsFen.replace(/p/g,'').length), 
-              n: 2 - (lengthFen - rowsFen.replace(/n/g,'').length), 
-              b: 2 - (lengthFen - rowsFen.replace(/b/g,'').length), 
-              r: 2 - (lengthFen - rowsFen.replace(/r/g,'').length), 
-              q: 1 - (lengthFen - rowsFen.replace(/q/g,'').length)
-            }
+        w: [
+          {key: 'p', cant: (8 - (lengthFen - rowsFen.replace(/P/g, '').length)), imgPath: 'img/chesspieces/wikipedia/wP.png'},
+          {key: 'n', cant: (2 - (lengthFen - rowsFen.replace(/N/g, '').length)), imgPath: 'img/chesspieces/wikipedia/wN.png' },
+          {key: 'b', cant: (2 - (lengthFen - rowsFen.replace(/B/g, '').length)), imgPath: 'img/chesspieces/wikipedia/wB.png' },
+          {key: 'r', cant: (2 - (lengthFen - rowsFen.replace(/R/g, '').length)), imgPath: 'img/chesspieces/wikipedia/wR.png' },
+          {key: 'q', cant: (1 - (lengthFen - rowsFen.replace(/Q/g, '').length)), imgPath: 'img/chesspieces/wikipedia/wQ.png' }
+        ],
+        b: [
+          {key: 'p', cant: (8 - (lengthFen - rowsFen.replace(/p/g, '').length)), imgPath: 'img/chesspieces/wikipedia/bP.png' },
+          {key: 'n', cant: (2 - (lengthFen - rowsFen.replace(/n/g, '').length)), imgPath: 'img/chesspieces/wikipedia/bN.png' },
+          {key: 'b', cant: (2 - (lengthFen - rowsFen.replace(/b/g, '').length)), imgPath: 'img/chesspieces/wikipedia/bB.png' },
+          {key: 'r', cant: (2 - (lengthFen - rowsFen.replace(/r/g, '').length)), imgPath: 'img/chesspieces/wikipedia/bR.png' },
+          {key: 'q', cant: (1 - (lengthFen - rowsFen.replace(/q/g, '').length)), imgPath: 'img/chesspieces/wikipedia/bQ.png' }
+        ]
       };
-    };
+
+      //   {
+      //         p: 8 - (lengthFen - rowsFen.replace(/P/g, '').length),
+      //         n: 2 - (lengthFen - rowsFen.replace(/N/g, '').length),
+      //         b: 2 - (lengthFen - rowsFen.replace(/B/g, '').length),
+      //         r: 2 - (lengthFen - rowsFen.replace(/R/g, '').length),
+      //         q: 1 - (lengthFen - rowsFen.replace(/Q/g, '').length)
+      //       },
+      //   b:  {
+      //         p: 8 - (lengthFen - rowsFen.replace(/p/g, '').length),
+      //         n: 2 - (lengthFen - rowsFen.replace(/n/g, '').length),
+      //         b: 2 - (lengthFen - rowsFen.replace(/b/g, '').length),
+      //         r: 2 - (lengthFen - rowsFen.replace(/r/g, '').length),
+      //         q: 1 - (lengthFen - rowsFen.replace(/q/g, '').length)
+      //       }
+      // };
+    }
 
     // -- img/chesspieces/wikipedia/wK.png
-    console.log("Las piezas en el tablero son ", rowsFen);
-    console.log("Las piezas fuera del tablero son ", this.piecesOutBoard);
+    console.log('Las piezas en el tablero son ', rowsFen);
+    console.log('Las piezas fuera del tablero son ', this.piecesOutBoard);
   }
 
   // -- Manager info Turn

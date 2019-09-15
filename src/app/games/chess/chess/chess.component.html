@@ -68,7 +68,16 @@
       </div>
     </div>
     <div class="game-on-table">
-      <div> {{this.capturedPieces | json}}</div>
+      <mat-grid-list cols="5" rowHeight="7vh">
+        <mat-grid-tile *ngFor="let pieceOutBoard of this.piecesOutBoard.w">
+          <img class='imgPiece-out-board' [ngClass]="{'imgPiece-out-board-zero': pieceOutBoard.cant == 0}" [src]='pieceOutBoard.imgPath'>
+          <span class="badge">{{pieceOutBoard.cant}}</span>
+        </mat-grid-tile>       
+        <mat-grid-tile *ngFor="let pieceOutBoard of this.piecesOutBoard.b">
+          <img class='imgPiece-out-board' [ngClass]="{'imgPiece-out-board-zero': pieceOutBoard.cant == 0}" [src]='pieceOutBoard.imgPath'>
+          <span class="badge">{{pieceOutBoard.cant}}</span> 
+        </mat-grid-tile>
+      </mat-grid-list>
     </div>
   </mat-sidenav-content>
 </mat-sidenav-container>

@@ -93,9 +93,30 @@
     margin-top: -20px;
   }
 
+.game-on-table {
+  margin: 0 20%;
+}
 
-
-
+.imgPiece-out-board {
+  margin: 10%;
+}
+.imgPiece-out-board-zero {
+  opacity: 0.3;
+}
+.badge{
+  position: absolute;
+  top: 0;
+  left: 50%;
+  border-radius: 50%;
+  background-color: #ff0000; 
+  border: 4px solid #ff0000;
+  color: #ffffff;
+  text-align: center;
+  font-size: 100%;
+  display: inline-block; 
+  vertical-align: middle;
+  line-height: normal;
+}
 
 
 
