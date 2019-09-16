@@ -98,7 +98,7 @@ export class ChessComponent implements OnInit, OnDestroy {
     this.currentGame = snapshotgame.payload.data() as ChessGame;
     console.log(' startTurn: actualizamos los datos', this.currentGame);
     if (this.player.color === chessColor.RAMDOM) {
-      // -- this only append the first time
+      // -- this only happens the first time
       this.player.color = this.currentGame.Players[this.player.uid].color;
       if (this.board) { this.board.orientation(this.player.color === 'w' ? 'white' : 'black'); }
     }
@@ -108,14 +108,11 @@ export class ChessComponent implements OnInit, OnDestroy {
       if (this.game.validate_fen(this.currentGame.position).valid) {
         this.game.load(this.currentGame.position);
         if (this.game.in_checkmate()) {
-          // this.status = 'Game over, is in checkmate.';
           this.onCheckmate();
         } else if (this.game.in_draw()) {
-          // this.status = 'Game over, drawn position';
           this.onDraw();
         } else {
           if (this.game.in_check()) {
-            // this.status += ' !!!!!  is in check';
             this.onCheck();
           } else {
             this.onTurn();
@@ -207,27 +204,7 @@ export class ChessComponent implements OnInit, OnDestroy {
           {key: 'q', cant: (1 - (lengthFen - rowsFen.replace(/q/g, '').length)), imgPath: 'img/chesspieces/wikipedia/bQ.png' }
         ]
       };
-
-      //   {
-      //         p: 8 - (lengthFen - rowsFen.replace(/P/g, '').length),
-      //         n: 2 - (lengthFen - rowsFen.replace(/N/g, '').length),
-      //         b: 2 - (lengthFen - rowsFen.replace(/B/g, '').length),
-      //         r: 2 - (lengthFen - rowsFen.replace(/R/g, '').length),
-      //         q: 1 - (lengthFen - rowsFen.replace(/Q/g, '').length)
-      //       },
-      //   b:  {
-      //         p: 8 - (lengthFen - rowsFen.replace(/p/g, '').length),
-      //         n: 2 - (lengthFen - rowsFen.replace(/n/g, '').length),
-      //         b: 2 - (lengthFen - rowsFen.replace(/b/g, '').length),
-      //         r: 2 - (lengthFen - rowsFen.replace(/r/g, '').length),
-      //         q: 1 - (lengthFen - rowsFen.replace(/q/g, '').length)
-      //       }
-      // };
     }
-
-    // -- img/chesspieces/wikipedia/wK.png
-    console.log('Las piezas en el tablero son ', rowsFen);
-    console.log('Las piezas fuera del tablero son ', this.piecesOutBoard);
   }
 
   // -- Manager info Turn

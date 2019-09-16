@@ -4,17 +4,25 @@
    <!-- Stepper for quick star -->
    <div *ngIf="data.action === 'quickStart'">
          {{data.action}}
-
-
          <div class="row">
             <div class="col">
                <mat-form-field class="full-width">
                   <input class="formTextArea" matInput /> 
-                  <!-- {{ 'http://localhost:4200/games/chess/' + data.gameId + '/anonymousPlayer1' }} -->
+                   {{ 'http://localhost:4200/games/chess/' + data.gameId + '/anonymousPlayer1' }}
                </mat-form-field>
             </div>
          </div>
-
+         <div class="row">
+            <div class="col">
+               <mat-form-field class="full-width">
+                  <input class="formTextArea" matInput /> 
+                   {{ 'http://localhost:4200/games/chess/' + data.gameId + '/anonymousPlayer2' }}
+                   <button mat-icon-button matSuffix (click)="alert('kk')" [attr.aria-label]="'CopyToClipboard'">
+                     <mat-icon>assignment</mat-icon>
+                  </button>
+               </mat-form-field>
+            </div>
+         </div>
          <div class="row">
             <div class="col">
          <button mat-button color="primary" (click)="close()" [routerLink]="['/games/chess/',data.gameId, 'anonymousPlayer2']">
