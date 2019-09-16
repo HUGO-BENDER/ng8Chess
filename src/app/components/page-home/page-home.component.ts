@@ -160,16 +160,22 @@ export class PageHomeComponent implements OnInit {
     let dialogRefNewQuickGame: MatDialogRef<any> = null;
     switch (idGame) {
       case 'chess':
-        this.fireChess.createGameQuickStart(this.userlogined)
-          .then((docRef) => {
-            dialogRefNewQuickGame = this.dialog.open(ChessNewGameComponent, {
-              data: { action: 'quickStart', gameId: docRef.id }
-            });
-          }
-          ).catch(function(error) {
-            this.ShowErrorMessage(error);
-            console.error('Error adding document: ', error);
-          });
+        // this.fireChess.createGameQuickStart(this.userlogined)
+        //   .then((docRef) => {
+        //     dialogRefNewQuickGame = this.dialog.open(ChessNewGameComponent, {
+        //       data: { action: 'quickStart', gameId: docRef.id }
+        //     });
+        //   }
+        //   ).catch(function(error) {
+        //     this.ShowErrorMessage(error);
+        //     console.error('Error adding document: ', error);
+        //   });
+
+
+          dialogRefNewQuickGame = this.dialog.open(ChessNewGameComponent, {
+            data: { action: 'quickStart', gameId: 'Z1bMWuFOjbUNQjvrM1ZZ' }});
+
+
         break;
       case 'crazychess':
         dialogRefNewQuickGame = this.dialog.open(CrazyChessNewGameComponent, {
@@ -192,9 +198,14 @@ export class PageHomeComponent implements OnInit {
       dialogRefNewQuickGame.afterClosed().subscribe(result => {
         if (result) {
 
-          alert('volvimos del setup');
 
+
+          alert('volvimos del setup');
         } else {
+
+
+
+
           alert('volvimos del setup pero vacios');
         }
       });
