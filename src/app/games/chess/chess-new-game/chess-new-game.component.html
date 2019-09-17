@@ -1,46 +1,39 @@
-
-<h2 mat-dialog-title>{{'Game.Shared.CreateNewRecuitment'| translate}}</h2>
+<h2 *ngIf="data.action === 'quickStart'" mat-dialog-title>{{'Game.Shared.NewQuickGame'| translate}}</h2>
+<h2 *ngIf="data.action != 'quickStart'" mat-dialog-title>{{'Game.Shared.CreateNewRecuitment'| translate}}</h2>
 <mat-dialog-content class="dialog-content">
    <!-- Stepper for quick star -->
    <div *ngIf="data.action === 'quickStart'">
-         {{data.action}}
+      1- Haz click en el boton de <mat-icon>assignment</mat-icon> para copiar el link al clipboard <br>
+      (así se activa el botón de 'jugar ya') <br>
+      2- Mandale el Link a tu amigo <br>
+      3- Haz click en el boton 'jugar ya' <br>
+      Importante <br>
+      <p>- Este juego se borrarrá si en 3 horas no hay ninguna turno enviado o si ha finalizado.</p>
+      <p> Si pierdes tu link es igual al de tu amigo pero termina en anonymousPlayer1</p>
+      <form [formGroup]="quickStartFormGroup" class="formQuickStart">
          <div class="row">
             <div class="col">
                <mat-form-field class="full-width">
-                  <input class="formTextArea" matInput /> 
-                   {{ 'http://localhost:4200/games/chess/' + data.gameId + '/anonymousPlayer1' }}
-               </mat-form-field>
-            </div>
-         </div>
-         <div class="row">
-            <div class="col">
-               <mat-form-field class="full-width">
-                  <input class="formTextArea" matInput /> 
-                   {{ 'http://localhost:4200/games/chess/' + data.gameId + '/anonymousPlayer2' }}
-                   <button mat-icon-button matSuffix (click)="alert('kk')" [attr.aria-label]="'CopyToClipboard'">
+                  <input #userinput matInput placeholder="{{'Game.Shared.quickStartLink2'| translate}}"
+                     formControlName="quickStartLink1" readonly>
+                  <mat-hint>"{{'Game.Shared.quickStartInstructionLink2'| translate}}"</mat-hint>
+                  <button mat-button matSuffix mat-icon-button aria-label="Clear" (click)="copyInputMessage(userinput)">
                      <mat-icon>assignment</mat-icon>
                   </button>
                </mat-form-field>
             </div>
          </div>
-         <div class="row">
-            <div class="col">
-         <button mat-button color="primary" (click)="close()" [routerLink]="['/games/chess/',data.gameId, 'anonymousPlayer2']">
-            <div>
-               Open
-             </div>
-            <!-- <div *ngIf="gameInProgress.isMyTurn">
-              Go
-            </div>
-            <div *ngIf="!gameInProgress.isMyTurn">
-              Open
-            </div> -->
-          </button>
-         </div>
+      </form>
+      <div class="buttonBar row margin-right-10">
+         <div class="spacer col"></div>
+         <button class="margin-right-10" mat-raised-button color="warn" (click)="close()"
+            [routerLink]="['/games/chess/', data.gameId, 'anonymousPlayer2']">
+            <span class="margin-right-10">{{ 'pagHome.playNow' | translate}}</span>
+            <mat-icon>play_circle_outline</mat-icon>
+         </button>
       </div>
-
-
    </div>
+
    <!-- Stepper for recruitment -->
    <mat-vertical-stepper *ngIf="data.action != 'quickStart'" linear #stepper>
       <mat-step [stepControl]="firstFormGroup">
@@ -49,7 +42,8 @@
             <div class="row">
                <div class="col">
                   <mat-form-field hintLabel="{{'Game.Shared.ChosseNameHintLabel'| translate}}" class="full-width">
-                     <input matInput placeholder="{{'Game.Shared.GameName'| translate}}" formControlName="name" maxlength="15" required>
+                     <input matInput placeholder="{{'Game.Shared.GameName'| translate}}" formControlName="name"
+                        maxlength="15" required>
                      <mat-hint align="end">{{firstFormGroup.get('name').value?.length || 0}}/15</mat-hint>
                      <button mat-button matSuffix mat-icon-button aria-label="Clear"
                         (click)="firstFormGroup.controls['name'].setValue(null)">
@@ -65,7 +59,8 @@
             <div class="row">
                <div class="col">
                   <mat-form-field class="full-width">
-                     <textarea class="formTextArea" matInput placeholder="{{'Game.Shared.GameDescriptionPlaceHolder'| translate}}"
+                     <textarea class="formTextArea" matInput
+                        placeholder="{{'Game.Shared.GameDescriptionPlaceHolder'| translate}}"
                         formControlName="description"></textarea>
                   </mat-form-field>
                </div>
@@ -126,7 +121,8 @@
             <button mat-button matStepperPrevious>{{ 'App.Msg.Back' | translate }}</button>
             <button mat-button (click)="stepper.reset()">{{ 'App.Msg.Reset' | translate }}</button>
             <div class="spacer"></div>
-            <button mat-button color="primary" (click)="onSubmit()">{{'Game.Shared.SendNewRecruitment'| translate}}</button>
+            <button mat-button color="primary"
+               (click)="onSubmit()">{{'Game.Shared.SendNewRecruitment'| translate}}</button>
          </div>
       </mat-step>
    </mat-vertical-stepper>

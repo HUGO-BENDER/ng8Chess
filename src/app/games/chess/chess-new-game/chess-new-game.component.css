@@ -1,3 +1,7 @@
+.formQuickStart {
+  /* font-size: 150%; */
+}
+
 .dialog-content{
     width: 80ch;
 }
@@ -35,6 +39,10 @@
     text-align: right;
   }
   
-  .spacer{
-    flex: 1 1 auto;
-  }
+.spacer{
+  flex: 1 1 auto;
+}
+
+.margin-right-10{
+  margin-right: 10px;
+}
