@@ -194,30 +194,22 @@ export class PageHomeComponent implements OnInit {
         dialogRefNewQuickGame = null;
         break;
     }
-    if (dialogRefNewQuickGame) {
-      dialogRefNewQuickGame.afterClosed().subscribe(result => {
-        if (result) {
+    // if (dialogRefNewQuickGame) {
+    //   dialogRefNewQuickGame.afterClosed().subscribe(result => {
+    //     if (result) {
 
 
 
-          alert('volvimos del setup');
-        } else {
-
-
-
-
-          alert('volvimos del setup pero vacios');
-        }
-      });
-    }
+    //       alert('volvimos del setup');
+    //     } else {
 
 
 
 
-
-
-
-
+    //       alert('volvimos del setup pero vacios');
+    //     }
+    //   });
+    // }
   }
 
 

@@ -52,8 +52,8 @@ export class ChessNewGameComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    if(this.data.action === 'quickStart'){
-      //alert(environment.firebaseConfig.authDomain)
+    if (this.data.action === 'quickStart') {
+      // alert(environment.firebaseConfig.authDomain)
     }
 
   }
@@ -69,11 +69,11 @@ export class ChessNewGameComponent implements OnInit {
     this.dialogRef.close(ret);
   }
 
-  close() {
-    this.dialogRef.close();
+  close(ret: any) {
+    this.dialogRef.close(ret);
   }
 
-  copyInputMessage(inputElement){
+  copyInputMessage(inputElement) {
     inputElement.select();
     document.execCommand('copy');
     inputElement.setSelectionRange(0, 0);
