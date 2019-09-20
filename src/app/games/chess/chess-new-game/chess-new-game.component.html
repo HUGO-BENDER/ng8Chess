@@ -1,8 +1,22 @@
 <h2 *ngIf="data.action === 'quickStart'" mat-dialog-title>{{'Game.Shared.NewQuickGame'| translate}}</h2>
 <h2 *ngIf="data.action != 'quickStart'" mat-dialog-title>{{'Game.Shared.CreateNewRecuitment'| translate}}</h2>
 <mat-dialog-content class="dialog-content">
-   <!-- Stepper for quick star -->
+   <!-- for quick star -->
    <div *ngIf="data.action === 'quickStart'">
+      <mat-list>
+         <mat-list-item> Pepper </mat-list-item>
+         <mat-list-item> Salt </mat-list-item>
+         <mat-list-item> Paprika </mat-list-item>
+         <mat-divider></mat-divider>
+         <mat-list-item>
+               <mat-icon matListIcon class='color_red'>report</mat-icon> 
+               <p matLine> Este juego se borrarrá si en 3 horas no hay ninguna turno enviado o si ha finalizado.</p> 
+         </mat-list-item>
+         <mat-list-item>
+               <mat-icon matListIcon >tag_faces</mat-icon> 
+               <p matLine> Si pierdes tu link es igual al de tu amigo pero termina en anonymousPlayer1.</p> 
+         </mat-list-item>
+      </mat-list>
       1- Haz click en el boton de <mat-icon>assignment</mat-icon> para copiar el link al clipboard <br>
       (así se activa el botón de 'jugar ya') <br>
       2- Mandale el Link a tu amigo <br>

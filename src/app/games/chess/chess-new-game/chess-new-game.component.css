@@ -1,19 +1,21 @@
 .formQuickStart {
-   font-size: 150%;
+  font-size: 150%;
 }
 
 .dialog-content{
-    width: 80ch;
+  /* PENDIENTE */
+  width: auto;
 }
 
 .full-width {
-    width: 100%;
-  }
+  width: 100%;
+}
 
 .table-width {
  width: 80%;
 }
-  .formTextArea {
+
+.formTextArea {
     min-height: 150px;
   }
 
@@ -45,4 +47,8 @@
 
 .margin-right-10{
   margin-right: 10px;
+}
+
+.color_red {
+  color: red;
 }
