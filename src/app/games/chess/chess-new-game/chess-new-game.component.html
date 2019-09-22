@@ -3,34 +3,37 @@
 <mat-dialog-content class="dialog-content">
    <!-- for quick star -->
    <div *ngIf="data.action === 'quickStart'">
-      <mat-list>
-         <mat-list-item> Pepper </mat-list-item>
-         <mat-list-item> Salt </mat-list-item>
-         <mat-list-item> Paprika </mat-list-item>
-         <mat-divider></mat-divider>
+      <mat-list >
+         <h3 matSubheader>{{'Game.Shared.Instructions'| translate}}</h3>
          <mat-list-item>
-               <mat-icon matListIcon class='color_red'>report</mat-icon> 
-               <p matLine> Este juego se borrarrá si en 3 horas no hay ninguna turno enviado o si ha finalizado.</p> 
+            <span> <b>1</b> Haz click en el boton <mat-icon>assignment</mat-icon> para copiar el link al
+               clipboard</span>
          </mat-list-item>
          <mat-list-item>
-               <mat-icon matListIcon >tag_faces</mat-icon> 
-               <p matLine> Si pierdes tu link es igual al de tu amigo pero termina en anonymousPlayer1.</p> 
+            <span> <b>2</b> Mandale el Link a tu amigo</span>
+         </mat-list-item>
+         <mat-list-item>
+            <span> <b>3</b> Haz click en el boton 'jugar ya'</span>
          </mat-list-item>
       </mat-list>
-      1- Haz click en el boton de <mat-icon>assignment</mat-icon> para copiar el link al clipboard <br>
-      (así se activa el botón de 'jugar ya') <br>
-      2- Mandale el Link a tu amigo <br>
-      3- Haz click en el boton 'jugar ya' <br>
-      Importante <br>
-      <p>- Este juego se borrarrá si en 3 horas no hay ninguna turno enviado o si ha finalizado.</p>
-      <p> Si pierdes tu link es igual al de tu amigo pero termina en anonymousPlayer1</p>
+      <mat-list dense>
+         <mat-divider></mat-divider>
+         <h3 matSubheader>{{'Game.Shared.Important'| translate}}</h3>
+         <mat-list-item>
+            <mat-icon matListIcon class='color_red'>report</mat-icon>
+            <p> Este juego se borrarrá si en 3 horas no hay actividad.</p>
+         </mat-list-item>
+         <mat-list-item>
+            <mat-icon matListIcon>tag_faces</mat-icon>
+            <p> Tu link es igual al de tu amigo pero termina en anonymousPlayer1.</p>
+         </mat-list-item>
+      </mat-list>
       <form [formGroup]="quickStartFormGroup" class="formQuickStart">
          <div class="row">
             <div class="col">
                <mat-form-field class="full-width">
                   <input #userinput matInput placeholder="{{'Game.Shared.quickStartLink2'| translate}}"
                      formControlName="quickStartLink1" readonly>
-                  <mat-hint>"{{'Game.Shared.quickStartInstructionLink2'| translate}}"</mat-hint>
                   <button mat-button matSuffix mat-icon-button aria-label="Clear" (click)="copyInputMessage(userinput)">
                      <mat-icon>assignment</mat-icon>
                   </button>
@@ -40,8 +43,8 @@
       </form>
       <div class="buttonBar row margin-right-10">
          <div class="spacer col"></div>
-         <button [disabled]="!IsCopyToClipboard" class="margin-right-10" mat-raised-button color="warn" (click)="close()"
-            [routerLink]="['/games/chess/', data.gameId, 'anonymousPlayer2']">
+         <button [disabled]="!IsCopyToClipboard" class="margin-right-10" mat-raised-button color="warn"
+            (click)="close({Ok:true})" [routerLink]="['/games/chess/', data.gameId, 'anonymousPlayer1']">
             <span class="margin-right-10">{{ 'pagHome.playNow' | translate}}</span>
             <mat-icon>play_circle_outline</mat-icon>
          </button>

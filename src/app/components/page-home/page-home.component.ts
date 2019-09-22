@@ -93,12 +93,12 @@ export class PageHomeComponent implements OnInit {
   ];
   // ---- hasta aca
   constructor(private translate: TranslateService,
-              public au: AngularFireAuth,
-              private fireRecruitment: RecruitmentService,
-              private fireData: GlobaldataService,
-              private firePlayer: PlayerService,
-              private fireChess: GameChessService,
-              public dialog: MatDialog) { }
+    public au: AngularFireAuth,
+    private fireRecruitment: RecruitmentService,
+    private fireData: GlobaldataService,
+    private firePlayer: PlayerService,
+    private fireChess: GameChessService,
+    public dialog: MatDialog) { }
 
   ngOnInit() {
     this.au.authState.subscribe(user => {
@@ -172,8 +172,9 @@ export class PageHomeComponent implements OnInit {
         //   });
 
 
-          dialogRefNewQuickGame = this.dialog.open(ChessNewGameComponent, {
-            data: { action: 'quickStart', gameId: 'Z1bMWuFOjbUNQjvrM1ZZ' }});
+        dialogRefNewQuickGame = this.dialog.open(ChessNewGameComponent, {
+          data: { action: 'quickStart', gameId: 'Z1bMWuFOjbUNQjvrM1ZZ' }
+        });
 
 
         break;
@@ -194,22 +195,14 @@ export class PageHomeComponent implements OnInit {
         dialogRefNewQuickGame = null;
         break;
     }
-    // if (dialogRefNewQuickGame) {
-    //   dialogRefNewQuickGame.afterClosed().subscribe(result => {
-    //     if (result) {
-
-
-
-    //       alert('volvimos del setup');
-    //     } else {
-
-
-
-
-    //       alert('volvimos del setup pero vacios');
-    //     }
-    //   });
-    // }
+    if (dialogRefNewQuickGame) {
+      dialogRefNewQuickGame.afterClosed().subscribe(result => {
+        console.log(result);
+        if (!result) {
+          alert('VAmos a borrar el juego por que no lo usan');
+        }
+      });
+    }
   }
 
 
@@ -321,7 +314,7 @@ export class PageHomeComponent implements OnInit {
           }
         );
       })
-      .catch(function(error) {
+      .catch(function (error) {
         this.ShowErrorMessage('xError deleting game.');
       });
   }

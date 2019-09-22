@@ -103,6 +103,10 @@
 .imgPiece-out-board-zero {
   opacity: 0.3;
 }
+
+.show-badge{
+  overflow: visible;
+}
 .badge{
   position: absolute;
   top: 0;
