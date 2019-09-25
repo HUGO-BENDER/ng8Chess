@@ -15,25 +15,28 @@
          <mat-list-item>
             <span> <b>3</b> Haz click en el boton 'jugar ya'</span>
          </mat-list-item>
+         <mat-divider></mat-divider>
       </mat-list>
       <mat-list dense>
-         <mat-divider></mat-divider>
          <h3 matSubheader>{{'Game.Shared.Important'| translate}}</h3>
          <mat-list-item>
             <mat-icon matListIcon class='color_red'>report</mat-icon>
-            <p> Este juego se borrarrá si en 3 horas no hay actividad.</p>
+            <p mat-line> Este juego se borrarrá si en 3 horas</p>
+            <p mat-line> no hay actividad.</p>
          </mat-list-item>
          <mat-list-item>
             <mat-icon matListIcon>tag_faces</mat-icon>
-            <p> Tu link es igual al de tu amigo pero termina en anonymousPlayer1.</p>
+            <p mat-line> Tu link es igual al de tu amigo </p>
+            <p mat-line> pero termina en anonymousPlayer1.</p>
          </mat-list-item>
+         <mat-divider></mat-divider>
       </mat-list>
       <form [formGroup]="quickStartFormGroup" class="formQuickStart">
          <div class="row">
             <div class="col">
                <mat-form-field class="full-width">
                   <input #userinput matInput placeholder="{{'Game.Shared.quickStartLink2'| translate}}"
-                     formControlName="quickStartLink1" readonly>
+                     formControlName="quickStartLink2" readonly>
                   <button mat-button matSuffix mat-icon-button aria-label="Clear" (click)="copyInputMessage(userinput)">
                      <mat-icon>assignment</mat-icon>
                   </button>
@@ -44,7 +47,7 @@
       <div class="buttonBar row margin-right-10">
          <div class="spacer col"></div>
          <button [disabled]="!IsCopyToClipboard" class="margin-right-10" mat-raised-button color="warn"
-            (click)="close({Ok:true})" [routerLink]="['/games/chess/', data.gameId, 'anonymousPlayer1']">
+            (click)="close(true)" [routerLink]="['/games/chess/', data.gameId, 'anonymousPlayer1']">
             <span class="margin-right-10">{{ 'pagHome.playNow' | translate}}</span>
             <mat-icon>play_circle_outline</mat-icon>
          </button>

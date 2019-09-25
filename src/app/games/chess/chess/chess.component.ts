@@ -42,7 +42,7 @@ export class ChessComponent implements OnInit, OnDestroy {
   fenToSend = '#fen';
   stateGame: gameState = gameState.PLAYING;
   stateButtons = 'outside';
-  statusMsg = '#status';
+  msgToPlayer = '#status';
   board: any;
   game: any;
   whiteSquareGrey = '#a9a9a9';

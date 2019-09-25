@@ -64,10 +64,10 @@ export class PageHomeComponent implements OnInit {
   listgames = [
     {
       id: 'chess',
-      title: 'Chess',
-      subtitle: 'Clasic chess',
+      title: 'Game.Chess.Title',
+      subtitle: 'Game.Chess.Subtitle',
       image48Path: '../../../assets/games/chess/chess_48.png',
-      description: 'key-description-for-translate'
+      description: 'Game.Chess.Description'
     },
     {
       id: 'crazychess',
@@ -158,23 +158,33 @@ export class PageHomeComponent implements OnInit {
 
   quickStart(idGame: string) {
     let dialogRefNewQuickGame: MatDialogRef<any> = null;
+    let dataParam: any = null;
     switch (idGame) {
       case 'chess':
-        // this.fireChess.createGameQuickStart(this.userlogined)
-        //   .then((docRef) => {
-        //     dialogRefNewQuickGame = this.dialog.open(ChessNewGameComponent, {
-        //       data: { action: 'quickStart', gameId: docRef.id }
-        //     });
-        //   }
-        //   ).catch(function(error) {
-        //     this.ShowErrorMessage(error);
-        //     console.error('Error adding document: ', error);
-        //   });
+        this.fireChess.createGameQuickStart(this.userlogined)
+          .then((docRef) => {
+            dataParam = { action: 'quickStart', gameId: docRef.id };
+            dialogRefNewQuickGame = this.dialog.open(ChessNewGameComponent, {
+              data: dataParam
+            });
+            dialogRefNewQuickGame.afterClosed().subscribe(result => {
+              if (!result) {
+                this.translate.get('Oh no vas a jugar. Te esperamos una proxima vez.').subscribe((res: string) => {
+                  this.ShowToastMessage(res);
+                  this.fireChess.deleteGameQuickStart(dataParam.gameId);
+                });
+              }
+            });
+          }
+          ).catch(function(error) {
+            this.ShowErrorMessage(error);
+            console.error('Error adding document: ', error);
+          });
 
 
-        dialogRefNewQuickGame = this.dialog.open(ChessNewGameComponent, {
-          data: { action: 'quickStart', gameId: 'Z1bMWuFOjbUNQjvrM1ZZ' }
-        });
+        // dialogRefNewQuickGame = this.dialog.open(ChessNewGameComponent, {
+        //   data: { action: 'quickStart', gameId: 'Z1bMWuFOjbUNQjvrM1ZZ' }
+        // });
 
 
         break;
@@ -195,14 +205,20 @@ export class PageHomeComponent implements OnInit {
         dialogRefNewQuickGame = null;
         break;
     }
-    if (dialogRefNewQuickGame) {
-      dialogRefNewQuickGame.afterClosed().subscribe(result => {
-        console.log(result);
-        if (!result) {
-          alert('VAmos a borrar el juego por que no lo usan');
-        }
-      });
-    }
+    // if (dialogRefNewQuickGame) {
+    //   dialogRefNewQuickGame.afterClosed().subscribe(result => {
+    //     console.log(result);
+    //     // console.log(dataParam);
+    //     if (result) {
+    //       this.translate.get('Oh no vas a jugar. Te esperamos una proxima vez.').subscribe(
+    //         (res: string) => {
+    //           this.ShowToastMessage(res);
+
+    //         }
+    //       );
+    //     }
+    //   });
+    // }
   }
 
 

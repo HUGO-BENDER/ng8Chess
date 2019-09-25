@@ -20,11 +20,11 @@
                     <mat-card-header>
                       <div mat-card-avatar class="game-avatar-image"
                         [style.background-image]="'url(' + gamecard.image48Path + ')'"></div>
-                      <mat-card-title>{{ gamecard.title }} </mat-card-title>
-                      <mat-card-subtitle>{{ gamecard.subtitle }} </mat-card-subtitle>
+                        <mat-card-title> {{ gamecard.title | translate }}</mat-card-title>
+                        <mat-card-subtitle>{{ gamecard.subtitle | translate }} </mat-card-subtitle>
                     </mat-card-header>
                     <mat-card-content>
-                      <p>{{ gamecard.description }} </p>
+                      <p>{{ gamecard.description | translate }} </p>
                       <p>
                         <mat-icon *ngFor="let i of [0,1,2,3,4]">star_rate</mat-icon>
                       </p>

@@ -16,22 +16,6 @@
     <mat-toolbar color="primary" class="mat-elevation-z10">{{ 'Game.Chess.Title' | translate }}</mat-toolbar>
     <div *ngIf='currentGame'>
       <p>
-        {{player.displayName}}
-      </p>
-      <p>
-        gameType: {{currentGame.gameType}}
-      </p>
-      <p>
-        name: {{currentGame.name}}
-      </p>
-      <p>
-        description: {{currentGame.description}}
-      </p>
-      --
-      <p>
-
-      </p> --
-      <p>
         turnCont: {{currentGame.turnCont }}
       </p>
     </div>
@@ -54,8 +38,7 @@
         </div>
       </div>
       <div class="game-controls-center">
-        <span *ngIf="stateGame == 0">{{player.displayName}} es tu turno. Te están esperando</span>
-        <span *ngIf="stateGame == 1">WAITING. Esperando a los otros jugadores</span>
+        <span>{{msgToPlayer}}</span>
       </div>
       <div class="game-controls-rigth" [@animAppear]='stateButtons'>
         <button mat-raised-button class="btn-send-turn" (click)="resetTurn()">

@@ -20,7 +20,8 @@ export class GameChessService {
     return this.db.collection('Games.ClassicChess').doc(idGame).update({
       turnCont: firebaseApp.firestore.FieldValue.increment(1),
       lastMove: moveToSend,
-      position: fenToSend
+      position: fenToSend,
+      timeLastMove: firebaseApp.firestore.FieldValue.serverTimestamp()
     });
   }
 
@@ -58,6 +59,9 @@ export class GameChessService {
     return this.db.collection('Games.ClassicChess').add(newQuickClassicChess);
   }
 
+  deleteGameQuickStart(gameId: any) {
+    return this.db.collection('Games.ClassicChess').doc(gameId).delete();
+  }
 
   createGameFromThisRecruitment(r: Recruitment): Promise<void> {
     console.log('Vamos a crear un juego: description ', r.description);
