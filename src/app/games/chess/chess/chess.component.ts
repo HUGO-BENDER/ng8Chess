@@ -122,7 +122,7 @@ export class ChessComponent implements OnInit, OnDestroy {
       }
     }
   }
- // -- Boardchess function handlers
+  // -- Boardchess function handlers
   onSnapEnd(board, game) {
     board.position(game.fen());
   }
@@ -148,23 +148,23 @@ export class ChessComponent implements OnInit, OnDestroy {
     if (this.player.color !== game.turn()) { return false; }
   }
   onMouseoverSquare(square, piece) {
-  // get list of possible moves for this square
-  const moves = this.game.moves({
-    square,
-    verbose: true
-  });
+    // get list of possible moves for this square
+    const moves = this.game.moves({
+      square,
+      verbose: true
+    });
 
-  // exit if there are no moves available for this square
-  if (moves.length === 0) { return; }
+    // exit if there are no moves available for this square
+    if (moves.length === 0) { return; }
 
-  // highlight the square they moused over
-  this.greySquare(square);
+    // highlight the square they moused over
+    this.greySquare(square);
 
-  // highlight the possible squares for this piece
-  // tslint:disable-next-line: prefer-for-of
-  for (let i = 0; i < moves.length; i++) {
-    this.greySquare(moves[i].to);
-  }
+    // highlight the possible squares for this piece
+    // tslint:disable-next-line: prefer-for-of
+    for (let i = 0; i < moves.length; i++) {
+      this.greySquare(moves[i].to);
+    }
   }
   onMouseoutSquare() {
     this.removeGreySquares();
@@ -190,18 +190,18 @@ export class ChessComponent implements OnInit, OnDestroy {
       const lengthFen = rowsFen.length;
       this.piecesOutBoard = {
         w: [
-          {key: 'p', cant: (8 - (lengthFen - rowsFen.replace(/P/g, '').length)), imgPath: 'img/chesspieces/wikipedia/wP.png'},
-          {key: 'n', cant: (2 - (lengthFen - rowsFen.replace(/N/g, '').length)), imgPath: 'img/chesspieces/wikipedia/wN.png' },
-          {key: 'b', cant: (2 - (lengthFen - rowsFen.replace(/B/g, '').length)), imgPath: 'img/chesspieces/wikipedia/wB.png' },
-          {key: 'r', cant: (2 - (lengthFen - rowsFen.replace(/R/g, '').length)), imgPath: 'img/chesspieces/wikipedia/wR.png' },
-          {key: 'q', cant: (1 - (lengthFen - rowsFen.replace(/Q/g, '').length)), imgPath: 'img/chesspieces/wikipedia/wQ.png' }
+          { key: 'p', cant: (8 - (lengthFen - rowsFen.replace(/P/g, '').length)), imgPath: 'img/chesspieces/wikipedia/wP.png' },
+          { key: 'n', cant: (2 - (lengthFen - rowsFen.replace(/N/g, '').length)), imgPath: 'img/chesspieces/wikipedia/wN.png' },
+          { key: 'b', cant: (2 - (lengthFen - rowsFen.replace(/B/g, '').length)), imgPath: 'img/chesspieces/wikipedia/wB.png' },
+          { key: 'r', cant: (2 - (lengthFen - rowsFen.replace(/R/g, '').length)), imgPath: 'img/chesspieces/wikipedia/wR.png' },
+          { key: 'q', cant: (1 - (lengthFen - rowsFen.replace(/Q/g, '').length)), imgPath: 'img/chesspieces/wikipedia/wQ.png' }
         ],
         b: [
-          {key: 'p', cant: (8 - (lengthFen - rowsFen.replace(/p/g, '').length)), imgPath: 'img/chesspieces/wikipedia/bP.png' },
-          {key: 'n', cant: (2 - (lengthFen - rowsFen.replace(/n/g, '').length)), imgPath: 'img/chesspieces/wikipedia/bN.png' },
-          {key: 'b', cant: (2 - (lengthFen - rowsFen.replace(/b/g, '').length)), imgPath: 'img/chesspieces/wikipedia/bB.png' },
-          {key: 'r', cant: (2 - (lengthFen - rowsFen.replace(/r/g, '').length)), imgPath: 'img/chesspieces/wikipedia/bR.png' },
-          {key: 'q', cant: (1 - (lengthFen - rowsFen.replace(/q/g, '').length)), imgPath: 'img/chesspieces/wikipedia/bQ.png' }
+          { key: 'p', cant: (8 - (lengthFen - rowsFen.replace(/p/g, '').length)), imgPath: 'img/chesspieces/wikipedia/bP.png' },
+          { key: 'n', cant: (2 - (lengthFen - rowsFen.replace(/n/g, '').length)), imgPath: 'img/chesspieces/wikipedia/bN.png' },
+          { key: 'b', cant: (2 - (lengthFen - rowsFen.replace(/b/g, '').length)), imgPath: 'img/chesspieces/wikipedia/bB.png' },
+          { key: 'r', cant: (2 - (lengthFen - rowsFen.replace(/r/g, '').length)), imgPath: 'img/chesspieces/wikipedia/bR.png' },
+          { key: 'q', cant: (1 - (lengthFen - rowsFen.replace(/q/g, '').length)), imgPath: 'img/chesspieces/wikipedia/bQ.png' }
         ]
       };
     }
@@ -210,31 +210,57 @@ export class ChessComponent implements OnInit, OnDestroy {
   // -- Manager info Turn
   onCheckmate() {
     if (this.player.color === this.game.turn()) {
-      alert('alpiste');
+      this.translate.get('Jaque mate. Derrota').subscribe((res) => this.msgToPlayer = res);
+      this.translate.get('xx_Se ha terminado la partida').subscribe(
+        (res: string) => {
+          this.ShowYouLostMessage(res);
+        });
     } else {
-      alert('ganaste');
+      this.translate.get('Jaque mate. Victoria.').subscribe((res) => this.msgToPlayer = res);
+      this.translate.get('xx_FELICITACIONES').subscribe(
+        (res: string) => {
+          this.ShowYouWinMessage(res);
+        });
     }
   }
   onDraw() {
-    if (this.player.color === this.game.turn()) {
-      alert('alpiste...  empatamos');
-    }
+    this.translate.get('Tablas. Es un empate.').subscribe((res) => this.msgToPlayer = res);
+    this.translate.get('xx_Se ha terminado la partida').subscribe(
+      (res: string) => {
+        this.ShowToastMessage(res);
+      });
   }
   onCheck() {
-    if (this.player.color === this.game.turn()) {
-      alert('MENSAJE IMPORTANTE');
+    if (this.game.turn() === 'w') {
+      this.translate.get('xxMueven Las Blancas. Están en jaque!').subscribe((res) => this.msgToPlayer = res);
     } else {
-      alert('este no hay que mostrarlo');
+      this.translate.get('xxMuevenLasNegras. Están en jaque!').subscribe((res) => this.msgToPlayer = res);
+    }
+    if (this.player.color === this.game.turn()) {
+      this.translate.get('xxxx_Tu rey está en jaque!!').subscribe(
+        (res: string) => {
+          this.ShowCheckMessage(res);
+        });
+    } else {
+      this.translate.get('xxxx_Tienes que esperar a oponente.').subscribe(
+        (res: string) => {
+          this.ShowToastMessage(res + this.player.color);
+        });
     }
   }
   onTurn() {
+    if (this.game.turn() === 'w') {
+      this.translate.get('xxMueven Las Blancas.').subscribe((res) => this.msgToPlayer = res);
+    } else {
+      this.translate.get('xxMuevenLasNegras.').subscribe((res) => this.msgToPlayer = res);
+    }
     if (this.player.color === this.game.turn()) {
       this.translate.get('xxxx_Te toca jugar.').subscribe(
         (res: string) => {
           this.ShowToastMessage(res + this.player.color);
         });
     } else {
-      this.translate.get('xxxx_Tienes que esperar.').subscribe(
+      this.translate.get('xxxx_Tienes que esperar a oponente.').subscribe(
         (res: string) => {
           this.ShowToastMessage(res + this.player.color);
         });
@@ -280,6 +306,30 @@ export class ChessComponent implements OnInit, OnDestroy {
     Swal.fire({
       type: 'error',
       title: this.translate.instant('Error'),
+      text: msg,
+      showConfirmButton: true
+    });
+  }
+  private ShowYouWinMessage(msg: string): void {
+    Swal.fire({
+      type: 'success',
+      title: this.translate.instant('xxVictoria'),
+      text: msg,
+      showConfirmButton: true
+    });
+  }
+  private ShowYouLostMessage(msg: string): void {
+    Swal.fire({
+      type: 'info',
+      title: this.translate.instant('xDerrota.'),
+      text: msg,
+      showConfirmButton: true
+    });
+  }
+  private ShowCheckMessage(msg: string): void {
+    Swal.fire({
+      type: 'warning',
+      title: this.translate.instant('xxJaque al rey.'),
       text: msg,
       showConfirmButton: true
     });

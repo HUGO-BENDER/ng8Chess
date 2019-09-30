@@ -46,6 +46,9 @@ export class PageHomeComponent implements OnInit {
   userlogined: firebase.User;
   dialogRef: MatDialogRef<any>;
 
+
+
+
   // ----- hay que sacarlo
   matGridSetup = {
     cols: 3,
@@ -92,6 +95,9 @@ export class PageHomeComponent implements OnInit {
     }
   ];
   // ---- hasta aca
+
+
+
   constructor(private translate: TranslateService,
               public au: AngularFireAuth,
               private fireRecruitment: RecruitmentService,
@@ -151,9 +157,6 @@ export class PageHomeComponent implements OnInit {
         this.dialogRef = null;
         break;
     }
-
-
-
   }
 
   quickStart(idGame: string) {
@@ -161,30 +164,30 @@ export class PageHomeComponent implements OnInit {
     let dataParam: any = null;
     switch (idGame) {
       case 'chess':
-        this.fireChess.createGameQuickStart(this.userlogined)
-          .then((docRef) => {
-            dataParam = { action: 'quickStart', gameId: docRef.id };
-            dialogRefNewQuickGame = this.dialog.open(ChessNewGameComponent, {
-              data: dataParam
-            });
-            dialogRefNewQuickGame.afterClosed().subscribe(result => {
-              if (!result) {
-                this.translate.get('Oh no vas a jugar. Te esperamos una proxima vez.').subscribe((res: string) => {
-                  this.ShowToastMessage(res);
-                  this.fireChess.deleteGameQuickStart(dataParam.gameId);
-                });
-              }
-            });
-          }
-          ).catch(function(error) {
-            this.ShowErrorMessage(error);
-            console.error('Error adding document: ', error);
-          });
+        // this.fireChess.createGameQuickStart(this.userlogined)
+        //   .then((docRef) => {
+        //     dataParam = { action: 'quickStart', gameId: docRef.id };
+        //     dialogRefNewQuickGame = this.dialog.open(ChessNewGameComponent, {
+        //       data: dataParam
+        //     });
+        //     dialogRefNewQuickGame.afterClosed().subscribe(result => {
+        //       if (!result) {
+        //         this.translate.get('xxOh no vas a jugar?. Te esperamos una proxima vez.').subscribe((res: string) => {
+        //           this.ShowToastMessage(res);
+        //           this.fireChess.deleteGameQuickStart(dataParam.gameId);
+        //         });
+        //       }
+        //     });
+        //   }
+        //   ).catch(function(error) {
+        //     this.ShowErrorMessage(error);
+        //     console.error('Error adding document: ', error);
+        //   });
 
-
-        // dialogRefNewQuickGame = this.dialog.open(ChessNewGameComponent, {
-        //   data: { action: 'quickStart', gameId: 'Z1bMWuFOjbUNQjvrM1ZZ' }
-        // });
+        dataParam = { action: 'quickStart', gameId: 'Z1bMWuFOjbUNQjvrM1ZZ' };
+        dialogRefNewQuickGame = this.dialog.open(ChessNewGameComponent, {
+          data: dataParam
+        });
 
 
         break;
@@ -205,22 +208,7 @@ export class PageHomeComponent implements OnInit {
         dialogRefNewQuickGame = null;
         break;
     }
-    // if (dialogRefNewQuickGame) {
-    //   dialogRefNewQuickGame.afterClosed().subscribe(result => {
-    //     console.log(result);
-    //     // console.log(dataParam);
-    //     if (result) {
-    //       this.translate.get('Oh no vas a jugar. Te esperamos una proxima vez.').subscribe(
-    //         (res: string) => {
-    //           this.ShowToastMessage(res);
-
-    //         }
-    //       );
-    //     }
-    //   });
-    // }
   }
-
 
   createRecruitment(idGame: string) {
     let dialogRefNewGame: MatDialogRef<any> = null;
