@@ -105,7 +105,7 @@ export class ChessComponent implements OnInit, OnDestroy {
 
     if (this.board && this.game) {
       this.board.position(this.currentGame.position);
-      if (this.game.validate_fen(this.currentGame.position).valid) {
+      if (this.game.validate_fen(this.currentGame.position).valid || this.currentGame.position === 'start') {
         this.game.load(this.currentGame.position);
         if (this.game.in_checkmate()) {
           this.onCheckmate();

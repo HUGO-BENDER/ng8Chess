@@ -184,7 +184,7 @@ export class PageHomeComponent implements OnInit {
         //     console.error('Error adding document: ', error);
         //   });
 
-        dataParam = { action: 'quickStart', gameId: 'Z1bMWuFOjbUNQjvrM1ZZ' };
+        dataParam = { action: 'quickStart', gameId: 'meSqA7bSd3S6w3K9f1J7' };
         dialogRefNewQuickGame = this.dialog.open(ChessNewGameComponent, {
           data: dataParam
         });

@@ -51,7 +51,7 @@
       </div>
     </div>
     <div class="game-on-table">
-      <mat-grid-list cols="5" rowHeight="7vh">
+      <mat-grid-list cols="5" rowHeight="fit" class="gridPiecesOutBoard">
         <mat-grid-tile class="show-badge" *ngFor="let pieceOutBoard of this.piecesOutBoard.w">
           <img class='imgPiece-out-board' [ngClass]="{'imgPiece-out-board-zero': pieceOutBoard.cant == 0}" [src]='pieceOutBoard.imgPath'>
           <span class="badge">{{pieceOutBoard.cant}}</span>
@@ -61,6 +61,6 @@
           <span class="badge">{{pieceOutBoard.cant}}</span> 
         </mat-grid-tile>
       </mat-grid-list>
-    </div>
+    </div> 
   </mat-sidenav-content>
 </mat-sidenav-container>

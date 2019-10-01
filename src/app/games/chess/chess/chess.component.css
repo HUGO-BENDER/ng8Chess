@@ -1,20 +1,26 @@
 .gameWrapperFullScren {
-    background-color: rgb(107, 189, 138);
     min-width: 100vw;
     min-height: 100vh;
+
+    /* background-color:rgb(0, 71, 153);
+    border: 1px yellow solid;
+    box-sizing: border-box; */
 }
 .game-sidenav{
     width: 300px;
     max-width: 80vw;
 }
+
 .game-content {
-    min-width: 100vw;
-    min-height: 100vh;
-    background-color:green;
+    min-width: 100%;
+    min-height: 100%;
+    /* background-color:rgb(222, 247, 199); 
+    border: 2px red solid;
+    box-sizing: border-box; */
 }
+
 .game-display {
-    min-height: 80vh;
-    background-color: darkkhaki;
+    min-height: 80%;
 }
 .boardgame {
     position: relative;
@@ -25,8 +31,6 @@
     min-width: 96vw;
     max-width: 96vw;
     overflow: hidden;
-    border: 1px solid red;
-    background-color: rgb(189, 107, 125);
     user-select: none;
   }
   .chessboardgame {
@@ -34,26 +38,23 @@
     max-width: 76vh;
     margin: 0 auto;
   }
+
   .game-controls {
-    min-height: 5vh;
-    max-height: 5vh;
-    background-color: teal;
-    border-top: 2px solid royalblue;
+    min-height: 5%;
+    max-height: 5%; 
     display: flex;
     flex-direction: row;
-
+    border-top: 2px solid black;   
+    box-sizing: border-box;
 
     }
   .game-controls-left {
     flex: 0 0 auto;
-    background-color: rgb(190, 187, 11);
   }
     .btn-open-sideNav {
       margin-top: -25px;
       margin-left: 10px;
       background-color: transparent !important;
-
-
     }
   .contenedor-logo-back {
     position: absolute;
@@ -79,25 +80,35 @@
   .anim-hover:hover {
     animation: anim-icon-on-over 1s ease;
   }
+
   .game-controls-center {
     flex: 1 1 auto;
     text-align: center;
-    border: 1px solid grey;
   }
   .game-controls-rigth {
     flex: 0 0 auto;
-    background-color: rgb(190, 187, 11);
   }
   .btn-send-turn {
     margin: 10px;
     margin-top: -20px;
   }
 
+
 .game-on-table {
+  min-height: 15%;
+  max-height: 15%;
+  padding-bottom: 2px;
   margin: 0 20%;
+  overflow: hidden
+}
+
+.gridPiecesOutBoard {
+  height: 15vh;
+  margin: 0 auto;
 }
 
 .imgPiece-out-board {
+  height: 6vh;
   margin: 10%;
 }
 .imgPiece-out-board-zero {
