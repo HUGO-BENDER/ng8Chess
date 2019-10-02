@@ -44,12 +44,14 @@
   }  
   
   .content-card-scroll-vert{
+    overflow-x: hidden;
     overflow-y: auto;
     height: 300px;
     border: 1px solid green;
   }
 
   .content-tab-scroll-vert {
+    overflow-x: hidden;
     height: 300px;
     width: 100%;
   }
@@ -62,7 +64,7 @@
   
   .game-card{
 	 margin:  10px;
-	 min-width: 48%;
+	 /* min-width: 46%; */
    border: 1px solid royalblue;
   }
 

@@ -16,7 +16,7 @@
             <mat-tab-group mat-stretch-tabs>
               <mat-tab label="{{'pagHome.CreateGame' | translate }}">
                 <div class="content-tab-scroll-vert container-games-avatar">
-                  <mat-card *ngFor="let gamecard of listgames" class="game-card">
+                  <mat-card *ngFor="let gamecard of listgames" class="game-card" [style.min-width]="matGridSetup.JoinOrCreateGame.CardWidth">
                     <mat-card-header>
                       <div mat-card-avatar class="game-avatar-image"
                         [style.background-image]="'url(' + gamecard.image48Path + ')'"></div>

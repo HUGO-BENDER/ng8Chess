@@ -56,7 +56,8 @@ export class PageHomeComponent implements OnInit {
     gutterSize: '0px',
     JoinOrCreateGame: {
       cols: 3,
-      rows: 1
+      rows: 1,
+      CardWidth: '96%'
     },
     GamesInProgress: {
       cols: 3,
@@ -104,9 +105,22 @@ export class PageHomeComponent implements OnInit {
               private fireData: GlobaldataService,
               private firePlayer: PlayerService,
               private fireChess: GameChessService,
-              public dialog: MatDialog) { }
+              public dialog: MatDialog,
+              public breakpointObserver: BreakpointObserver) { }
 
   ngOnInit() {
+    this.breakpointObserver
+      .observe(['(max-width: 600px)'])
+      .subscribe((state: BreakpointState) => {
+        this.inSmallScreen = state.matches;
+        this.makeResponsive();
+      });
+    this.breakpointObserver
+      .observe(['(max-width: 900px)'])
+      .subscribe((state: BreakpointState) => {
+        this.inMediumScreen = state.matches;
+        this.makeResponsive();
+      });
     this.au.authState.subscribe(user => {
       if (user) {
         this.userlogined = user;
@@ -373,4 +387,24 @@ export class PageHomeComponent implements OnInit {
     });
   }
 
+  makeResponsive(): void {
+    if (this.inSmallScreen) {
+      this.matGridSetup.cols = 1;
+      this.matGridSetup.JoinOrCreateGame.cols = 1;
+      this.matGridSetup.JoinOrCreateGame.CardWidth = '96%';
+      this.matGridSetup.GamesInProgress.cols = 1;
+    } else {
+      if (this.inMediumScreen) {
+        this.matGridSetup.cols = 2;
+        this.matGridSetup.JoinOrCreateGame.cols = 1;
+        this.matGridSetup.JoinOrCreateGame.CardWidth = '96%';
+        this.matGridSetup.GamesInProgress.cols = 1;
+      } else {
+        this.matGridSetup.cols = 3;
+        this.matGridSetup.JoinOrCreateGame.cols = 2;
+        this.matGridSetup.JoinOrCreateGame.CardWidth = '46%';
+        this.matGridSetup.GamesInProgress.cols = 1;
+      }
+    }
+  }
 }
