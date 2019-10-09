@@ -9,6 +9,8 @@ import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import Swal from 'sweetalert2';
 
+// -- Config app
+import { AppConfig, GameCard, AppGridConfig } from '../app-config/AppGridConfig';
 // -- Games public Info
 import { ChessInfoComponent } from '../../games/chess/chess-info/chess-info.component';
 import { CrazyChessInfoComponent } from '../../games/crazy-chess/crazy-chess-info/crazy-chess-info.component';
@@ -36,7 +38,8 @@ import { GameInProgress } from 'src/app/model/gamebase';
 @Component({
   selector: 'app-page-home',
   templateUrl: './page-home.component.html',
-  styleUrls: ['./page-home.component.css']
+  styleUrls: ['./page-home.component.css'],
+  providers: [AppConfig]
 })
 export class PageHomeComponent implements OnInit {
   inSmallScreen: boolean;
@@ -45,59 +48,8 @@ export class PageHomeComponent implements OnInit {
   recruitments: Observable<Recruitment[]>;
   userlogined: firebase.User;
   dialogRef: MatDialogRef<any>;
-
-
-
-
-  // ----- hay que sacarlo
-  matGridSetup = {
-    cols: 3,
-    rowHeight: '400px',
-    gutterSize: '0px',
-    JoinOrCreateGame: {
-      cols: 3,
-      rows: 1,
-      CardWidth: '96%'
-    },
-    GamesInProgress: {
-      cols: 3,
-      rows: 1
-    }
-  };
-
-  listgames = [
-    {
-      id: 'chess',
-      title: 'Game.Chess.Title',
-      subtitle: 'Game.Chess.Subtitle',
-      image48Path: '../../../assets/games/chess/chess_48.png',
-      description: 'Game.Chess.Description'
-    },
-    {
-      id: 'crazychess',
-      title: 'Crazy chess',
-      subtitle: 'Change the rules!!!',
-      image48Path: '../../../assets/games/crazychess/crazychess_48.png',
-      description: 'key-description-for-translate'
-    },
-    {
-      id: 'chinker',
-      title: 'Chinker',
-      subtitle: 'Chin-(Chon + Po)-ker',
-      image48Path: '../../../assets/games/chinker/chinker_48.png',
-      description: 'key-description-for-translate'
-    },
-    {
-      id: 'flow',
-      title: 'Flow',
-      subtitle: 'Flow original from Phaser',
-      image48Path: '../../../assets/games/chinker/chinker_48.png',
-      description: 'key-description-for-translate'
-    }
-  ];
-  // ---- hasta aca
-
-
+  matGridSetup: AppGridConfig;
+  listgames: Array<GameCard>;
 
   constructor(private translate: TranslateService,
               public au: AngularFireAuth,
@@ -106,9 +58,12 @@ export class PageHomeComponent implements OnInit {
               private firePlayer: PlayerService,
               private fireChess: GameChessService,
               public dialog: MatDialog,
-              public breakpointObserver: BreakpointObserver) { }
+              public breakpointObserver: BreakpointObserver,
+              public appConfig: AppConfig) { }
 
   ngOnInit() {
+    this.matGridSetup = this.appConfig.getGridConfig();
+    this.listgames = this.appConfig.getGamesList();
     this.breakpointObserver
       .observe(['(max-width: 600px)'])
       .subscribe((state: BreakpointState) => {
@@ -144,11 +99,6 @@ export class PageHomeComponent implements OnInit {
         return { id, ...data };
       }))
     );
-
-
-
-
-
 
   }
 
