@@ -22,6 +22,14 @@ export interface GameCard {
     description: string;
   }
 
+  
+export function getMatGridConfig() {
+    return 'HOLA MUNDO';
+}
+
+
+
+
 export class AppConfig {
   private matGridSetup: AppGridConfig = {
       cols: 3,

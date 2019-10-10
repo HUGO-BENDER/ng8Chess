@@ -10,7 +10,7 @@ import { map } from 'rxjs/operators';
 import Swal from 'sweetalert2';
 
 // -- Config app
-import { AppConfig, GameCard, AppGridConfig } from '../app-config/AppGridConfig';
+import { AppConfig, GameCard, AppGridConfig, getMatGridConfig } from '../app-config/app-config';
 // -- Games public Info
 import { ChessInfoComponent } from '../../games/chess/chess-info/chess-info.component';
 import { CrazyChessInfoComponent } from '../../games/crazy-chess/crazy-chess-info/crazy-chess-info.component';
@@ -99,6 +99,8 @@ export class PageHomeComponent implements OnInit {
         return { id, ...data };
       }))
     );
+
+    // alert(getMatGridConfig());
 
   }
 
