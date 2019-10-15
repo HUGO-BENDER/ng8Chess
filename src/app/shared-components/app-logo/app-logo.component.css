@@ -1,0 +1,48 @@
+.contenedor-logo{
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    height: 70px;
+    width: 70px;
+    z-index: 100;
+}
+
+.contenedor-logo-mini{
+    height: 60px !important;
+    width: 60px !important;
+}
+
+.shadow10 {
+    -webkit-filter: drop-shadow(10px 10px 7px rgba(0,0,0,0.5));      
+    filter: drop-shadow(10px 10px 7px rgba(0,0,0,0.5));  
+}
+
+.anim-in {
+    animation: anim-fadeinApp 1s ease;
+    }
+    
+.anim-hover:hover {
+    animation: anim-icon-on-over 1s ease;
+}
+
+@keyframes anim-icon-on-over {
+    from {
+        opacity: 0;
+        transform: rotateY(180deg);
+    }
+    to {
+        opacity: 1;
+        transform: rotateY(360deg);
+    }
+}
+
+@keyframes anim-fadeinApp {
+    from {
+        opacity: 0;
+        transform: rotateY(180deg);
+    }
+    to {
+        opacity: 1;
+        transform: rotateY(360deg);
+    }
+}

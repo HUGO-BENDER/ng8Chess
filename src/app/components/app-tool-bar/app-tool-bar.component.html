@@ -1,13 +1,6 @@
 <mat-toolbar color="primary">
   <mat-toolbar-row>
-    <div class="contenedor-logo" aria-label="Toggle sidenav" (click)="toggleAppSidenav()">
-      <div class="contenedor-logo" [ngClass]="{'contenedor-logo-mini': inSmallScreen}">
-        <img class="shadow10" src="../assets/logo/fondoLogo.svg" />
-      </div>
-      <div class="contenedor-logo anim-in anim-hover" [ngClass]="{'contenedor-logo-mini': inSmallScreen}">
-        <img src="../assets/logo/letraLogo.svg" />
-      </div>
-    </div>
+    <app-logo (click)="toggleAppSidenav()"></app-logo>
     <div class="tool-bar-spacer">
       <span [hidden]="inSmallScreen" class="center-title"> {{ "App.Title"| translate }} </span>
     </div>

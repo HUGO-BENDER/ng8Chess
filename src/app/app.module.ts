@@ -28,6 +28,7 @@ import { environment } from '../environments/environment';
 import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 
 // --Components and Pages
+import { AppSharedModule } from './shared-components/app-shared.module'
 import { AppToolBarComponent } from './components/app-tool-bar/app-tool-bar.component';
 import { AppFooterComponent } from './components/app-footer/app-footer.component';
 import { AppLoginComponent } from './components/app-login/app-login.component';
@@ -53,6 +54,7 @@ import { FlowInfoComponent } from './games/flow/flow-info/flow-info.component';
 import { ChessNewGameComponent } from './games/chess/chess-new-game/chess-new-game.component';
 import { CrazyChessNewGameComponent } from './games/crazy-chess/crazy-chess-new-game/crazy-chess-new-game.component';
 import { ChinkerNewGameComponent } from './games/chinker/chinker-new-game/chinker-new-game.component';
+
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -84,6 +86,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     BrowserModule,
     BrowserAnimationsModule,
     HttpClientModule,
+    AppSharedModule,
     AppRoutingModule,
     AppMaterialModule,
     ReactiveFormsModule,

@@ -28,14 +28,7 @@
     </div>
     <div class="game-controls">
       <div class="game-controls-left">
-        <div class="btn-open-sideNav" (click)="gameChessSidenav.open()">
-          <div class="contenedor-logo-back">
-            <img class="shadow10" src="../../../assets/logo/fondoLogo.svg" />
-          </div>
-          <div class="contenedor-logo-front anim-in anim-hover">
-            <img src="../../../assets/logo/letraLogo.svg" />
-          </div>
-        </div>
+        <app-logo (click)="gameChessSidenav.open()" class="contenedor-logo-back"></app-logo>
       </div>
       <div class="game-controls-center">
         <span>{{msgToPlayer}}</span>

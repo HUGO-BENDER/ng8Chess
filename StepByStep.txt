@@ -107,6 +107,12 @@ import Swal from 'sweetalert2';
     ng g c components/page-service-conditions
     ng g module components/app-config
 
+//------------------  Shared
+    ng g module shared-components/shared
+    ng g c shared-components/app-logo
+
+
+
 ng g c games/chess/chess
 ng g c games/crazy-chess/crazy-chess
 ng g c games/chinker/chinker
