@@ -44,6 +44,7 @@ import { GameInProgress } from 'src/app/model/gamebase';
 export class PageHomeComponent implements OnInit {
   inSmallScreen: boolean;
   inMediumScreen: boolean;
+  inLargeScreen: boolean;
   gamesInProgress: Observable<GameInProgress[]>;
   recruitments: Observable<Recruitment[]>;
   userlogined: firebase.User;
@@ -74,6 +75,12 @@ export class PageHomeComponent implements OnInit {
       .observe(['(max-width: 900px)'])
       .subscribe((state: BreakpointState) => {
         this.inMediumScreen = state.matches;
+        this.makeResponsive();
+      });
+      this.breakpointObserver
+      .observe(['(max-width: 1500px)'])
+      .subscribe((state: BreakpointState) => {
+        this.inLargeScreen = state.matches;
         this.makeResponsive();
       });
     this.au.authState.subscribe(user => {
@@ -343,20 +350,32 @@ export class PageHomeComponent implements OnInit {
     if (this.inSmallScreen) {
       this.matGridSetup.cols = 1;
       this.matGridSetup.JoinOrCreateGame.cols = 1;
-      this.matGridSetup.JoinOrCreateGame.CardWidth = '96%';
       this.matGridSetup.GamesInProgress.cols = 1;
-    } else {
-      if (this.inMediumScreen) {
+      this.matGridSetup.JoinOrCreateGame.CardMaxWidth = '96%';
+      this.matGridSetup.JoinOrCreateGame.CardMinWidth = '96%';
+      console.log('inSmallScreen');
+    } else if (this.inMediumScreen) {
         this.matGridSetup.cols = 2;
         this.matGridSetup.JoinOrCreateGame.cols = 1;
-        this.matGridSetup.JoinOrCreateGame.CardWidth = '96%';
         this.matGridSetup.GamesInProgress.cols = 1;
+        this.matGridSetup.JoinOrCreateGame.CardMaxWidth = '96%';
+        this.matGridSetup.JoinOrCreateGame.CardMinWidth = '96%';
+        console.log('inMediumScreen');
+      } else if (this.inLargeScreen) {
+        this.matGridSetup.cols = 2;
+        this.matGridSetup.JoinOrCreateGame.cols = 1;
+        this.matGridSetup.GamesInProgress.cols = 1;
+        this.matGridSetup.JoinOrCreateGame.CardMaxWidth = '96%';
+        this.matGridSetup.JoinOrCreateGame.CardMinWidth = '46%';
+        console.log('inLargeScreen');
       } else {
         this.matGridSetup.cols = 3;
         this.matGridSetup.JoinOrCreateGame.cols = 2;
-        this.matGridSetup.JoinOrCreateGame.CardWidth = '46%';
         this.matGridSetup.GamesInProgress.cols = 1;
+        this.matGridSetup.JoinOrCreateGame.CardMaxWidth = '46%';
+        this.matGridSetup.JoinOrCreateGame.CardMinWidth = '30%';
+        console.log('muy grande');
       }
-    }
+
   }
 }

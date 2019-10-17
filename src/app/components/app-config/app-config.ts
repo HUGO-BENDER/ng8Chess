@@ -6,7 +6,8 @@ export interface AppGridConfig {
   JoinOrCreateGame: {
     cols: number;
     rows: number;
-    CardWidth: string;
+    CardMaxWidth: string;
+    CardMinWidth: string;
   };
   GamesInProgress: {
     cols: number;
@@ -15,16 +16,21 @@ export interface AppGridConfig {
 }
 
 export interface GameCard {
-    id: string;
-    title: string;
-    subtitle: string;
-    image48Path: string;
-    description: string;
-  }
+  id: string;
+  order: number;
+  isActive: boolean;
+  isPlayable: boolean;
+  title: string;
+  subtitle: string;
+  image48Path: string;
+  description: string;
+  maxPlayers: number;
+  minPlayers: number;
+}
 
-  
+
 export function getMatGridConfig() {
-    return 'HOLA MUNDO';
+  return 'HOLA MUNDO';
 }
 
 
@@ -32,55 +38,88 @@ export function getMatGridConfig() {
 
 export class AppConfig {
   private matGridSetup: AppGridConfig = {
+    cols: 3,
+    rowHeight: '400px',
+    gutterSize: '0px',
+    JoinOrCreateGame: {
       cols: 3,
-      rowHeight: '400px',
-      gutterSize: '0px',
-      JoinOrCreateGame: {
-        cols: 3,
-        rows: 1,
-        CardWidth: '96%'
-      },
-      GamesInProgress: {
-        cols: 3,
-        rows: 1
-      }
-    };
+      rows: 1,
+      CardMaxWidth: '96%',
+      CardMinWidth: '46%'
+    },
+    GamesInProgress: {
+      cols: 3,
+      rows: 1
+    }
+  };
 
-    private listgames: Array<GameCard> = [
-      {
-        id: 'chess',
-        title: 'Game.Chess.Title',
-        subtitle: 'Game.Chess.Subtitle',
-        image48Path: '../../../assets/games/chess/chess_48.png',
-        description: 'Game.Chess.Description'
-      },
-      {
-        id: 'crazychess',
-        title: 'Crazy chess',
-        subtitle: 'Change the rules!!!',
-        image48Path: '../../../assets/games/crazychess/crazychess_48.png',
-        description: 'key-description-for-translate'
-      },
-      {
-        id: 'chinker',
-        title: 'Chinker',
-        subtitle: 'Chin-(Chon + Po)-ker',
-        image48Path: '../../../assets/games/chinker/chinker_48.png',
-        description: 'key-description-for-translate'
-      },
-      {
-        id: 'flow',
-        title: 'Flow',
-        subtitle: 'Flow original from Phaser',
-        image48Path: '../../../assets/games/chinker/chinker_48.png',
-        description: 'key-description-for-translate'
-      }
-    ];
+  private listgames: Array<GameCard> = [
+    {
+      id: 'chess',
+      order: 0,
+      isActive: true,
+      isPlayable: true,
+      title: 'Game.Chess.Title',
+      subtitle: 'Game.Chess.Subtitle',
+      image48Path: '../../../assets/games/chess/chess_48.png',
+      description: 'Game.Chess.Description',
+      maxPlayers: 2,
+      minPlayers: 2
+    },
+    {
+      id: 'crazychess',
+      order: 1,
+      isActive: false,
+      isPlayable: false,
+      title: 'Game.Crazychess.Title',
+      subtitle: 'Game.Crazychess.Subtitle',
+      image48Path: '../../../assets/games/crazychess/crazychess_48.png',
+      description: 'Game.Crazychess.Description',
+      maxPlayers: 2,
+      minPlayers: 2
+    },
+    {
+      id: 'chinker',
+      order: 2,
+      isActive: false,
+      isPlayable: false,
+      title: 'Game.Chinker.Title',
+      subtitle: 'Game.Chinker.Subtitle',
+      image48Path: '../../../assets/games/chinker/chinker_48.png',
+      description: 'Game.Chinker.Description',
+      maxPlayers: 2,
+      minPlayers: 2
+    },
+    {
+      id: 'flow',
+      order: 3,
+      isActive: false,
+      isPlayable: false,
+      title: 'Game.Flow.Title',
+      subtitle: 'Game.Flow.Subtitle',
+      image48Path: '../../../assets/games/flow/phaser.png',
+      description: 'Game.Flow.Description',
+      maxPlayers: 1,
+      minPlayers: 1
+    },
+    {
+      id: 'babydontcry',
+      order: 4,
+      isActive: false,
+      isPlayable: false,
+      title: 'Game.Babydontcry.Title',
+      subtitle: 'Game.Babydontcry.Subtitle',
+      image48Path: '../../../assets/games/flow/flow_48.png',
+      description: 'Game.Babydontcry.Description',
+      maxPlayers: 1,
+      minPlayers: 1
+    }
+  ];
 
-      getGridConfig() {
-          return this.matGridSetup;
-      }
-      getGamesList() {
-          return this.listgames;
-      }
+  getGridConfig() {
+    return this.matGridSetup;
   }
+  getGamesList() {
+    return this.listgames;
+  }
+}
