@@ -6,8 +6,11 @@ export interface AppGridConfig {
   JoinOrCreateGame: {
     cols: number;
     rows: number;
-    CardMaxWidth: string;
-    CardMinWidth: string;
+    CreateGameSubGrid: {
+      cols: number;
+      rowHeight: string;
+      gutterSize: string;
+    }
   };
   GamesInProgress: {
     cols: number;
@@ -18,6 +21,8 @@ export interface AppGridConfig {
 export interface GameCard {
   id: string;
   order: number;
+  colsInGrid: number;
+  rowsInGrid: number;
   isActive: boolean;
   isPlayable: boolean;
   title: string;
@@ -44,8 +49,11 @@ export class AppConfig {
     JoinOrCreateGame: {
       cols: 3,
       rows: 1,
-      CardMaxWidth: '96%',
-      CardMinWidth: '46%'
+      CreateGameSubGrid: {
+        cols: 2,
+        rowHeight: '280px',
+        gutterSize: '0px'
+      }
     },
     GamesInProgress: {
       cols: 3,
@@ -57,6 +65,8 @@ export class AppConfig {
     {
       id: 'chess',
       order: 0,
+      colsInGrid: 1,
+      rowsInGrid: 1,
       isActive: true,
       isPlayable: true,
       title: 'Game.Chess.Title',
@@ -69,6 +79,8 @@ export class AppConfig {
     {
       id: 'crazychess',
       order: 1,
+      colsInGrid: 1,
+      rowsInGrid: 1,
       isActive: false,
       isPlayable: false,
       title: 'Game.Crazychess.Title',
@@ -81,6 +93,8 @@ export class AppConfig {
     {
       id: 'chinker',
       order: 2,
+      colsInGrid: 1,
+      rowsInGrid: 1,
       isActive: false,
       isPlayable: false,
       title: 'Game.Chinker.Title',
@@ -93,6 +107,8 @@ export class AppConfig {
     {
       id: 'flow',
       order: 3,
+      colsInGrid: 1,
+      rowsInGrid: 1,
       isActive: false,
       isPlayable: false,
       title: 'Game.Flow.Title',
@@ -105,6 +121,8 @@ export class AppConfig {
     {
       id: 'babydontcry',
       order: 4,
+      colsInGrid: 1,
+      rowsInGrid: 1,
       isActive: false,
       isPlayable: false,
       title: 'Game.Babydontcry.Title',

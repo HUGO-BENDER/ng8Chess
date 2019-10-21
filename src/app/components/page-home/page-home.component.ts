@@ -77,8 +77,8 @@ export class PageHomeComponent implements OnInit {
         this.inMediumScreen = state.matches;
         this.makeResponsive();
       });
-      this.breakpointObserver
-      .observe(['(max-width: 1500px)'])
+    this.breakpointObserver
+      .observe(['(max-width: 1200px)'])
       .subscribe((state: BreakpointState) => {
         this.inLargeScreen = state.matches;
         this.makeResponsive();
@@ -351,31 +351,32 @@ export class PageHomeComponent implements OnInit {
       this.matGridSetup.cols = 1;
       this.matGridSetup.JoinOrCreateGame.cols = 1;
       this.matGridSetup.GamesInProgress.cols = 1;
-      this.matGridSetup.JoinOrCreateGame.CardMaxWidth = '96%';
-      this.matGridSetup.JoinOrCreateGame.CardMinWidth = '96%';
+      this.matGridSetup.JoinOrCreateGame.CreateGameSubGrid.cols = 1;
       console.log('inSmallScreen');
     } else if (this.inMediumScreen) {
         this.matGridSetup.cols = 2;
         this.matGridSetup.JoinOrCreateGame.cols = 1;
         this.matGridSetup.GamesInProgress.cols = 1;
-        this.matGridSetup.JoinOrCreateGame.CardMaxWidth = '96%';
-        this.matGridSetup.JoinOrCreateGame.CardMinWidth = '96%';
+        this.matGridSetup.JoinOrCreateGame.CreateGameSubGrid.cols = 1;
         console.log('inMediumScreen');
       } else if (this.inLargeScreen) {
         this.matGridSetup.cols = 2;
         this.matGridSetup.JoinOrCreateGame.cols = 1;
         this.matGridSetup.GamesInProgress.cols = 1;
-        this.matGridSetup.JoinOrCreateGame.CardMaxWidth = '96%';
-        this.matGridSetup.JoinOrCreateGame.CardMinWidth = '46%';
+        this.matGridSetup.JoinOrCreateGame.CreateGameSubGrid.cols = 2;
         console.log('inLargeScreen');
       } else {
         this.matGridSetup.cols = 3;
         this.matGridSetup.JoinOrCreateGame.cols = 2;
         this.matGridSetup.GamesInProgress.cols = 1;
-        this.matGridSetup.JoinOrCreateGame.CardMaxWidth = '46%';
-        this.matGridSetup.JoinOrCreateGame.CardMinWidth = '30%';
+        this.matGridSetup.JoinOrCreateGame.CreateGameSubGrid.cols = 4;
         console.log('muy grande');
       }
-
   }
+
+
+  getMaxPlayers(n: number): any[] {
+    return Array(n);
+  }
+
 }
