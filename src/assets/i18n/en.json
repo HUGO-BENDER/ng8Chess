@@ -69,9 +69,23 @@
     "CreateGame": "New game",
     "GamesInProgress": "Games in progress",
     "JoinGame": "Join",
-    "playNow": "Play now!",
-    "separadorO": "or",
-    "Title": "Start"
+    "SeparadorO": "or",
+    "PlayNow": "Play now!",
+    "Title": "Start",
+    "AbortQuickGame": "Oh you won't play? We wait for you next time.",
+    "Completed": "Full",
+    "Delete": "Remove",
+    "GameDelete": "Game removed",
+    "Go": "Go",
+    "InfoGame": "More information",
+    "IsNotLogined": "You cannot execute this action without being logged",
+    "LastTurn": "Last shift",
+    "NewGameSuccess": "You have created a game",
+    "NoRecordsFound": "There are no records",
+    "Open": "Open",
+    "State": "State",
+    "Surrender": "Leave",
+    "Waiting": "Waiting"
   },
   "Game": {
     "Chess": {
@@ -82,7 +96,21 @@
       },
       "ColorLabel": "Colour",
       "ColorSelect": "Select your color",
-      "Title": "Chess"
+      "Title": "Chess",
+      "BlackCheck": "Black moves. They are in check!",
+      "BlackTurn": "Black moves",
+      "Check": "Check the king",
+      "Congratulations": "CONGRATULATIONS",
+      "Draw": "Draw. It's a tie.",
+      "GameOver": "The game is over",
+      "InCheck": "Your king is in check!",
+      "Wait": "You have to wait for opponent.",
+      "WhiteCheck": "White moves. They are in check!",
+      "WhiteTurn": "White moves",
+      "YouLost": "Checkmate. Defeat.",
+      "YouMove": "It's your turn",
+      "YouWin": "Checkmate. Victory.",
+      "Subtitle": "Classic chess"
     },
     "Shared": {
       "ChosseName": "Choose a name for this game",
@@ -94,7 +122,26 @@
       "GameDescriptionPlaceHolder": "Optional: Enter a description",
       "GameName": "Name of the game",
       "GameNameIsRequired": "The name of the game is mandatory",
-      "SendNewRecruitment": "Submit"
+      "SendNewRecruitment": "Submit",
+      "Defeat": "Defeat",
+      "SendTurn": "Turn has been sent",
+      "Victory": "Victory"
+    },
+    "Babydontcry": {
+      "Title": "Baby dont cry",
+      "Subtitle": "Move without waking them."
+    },
+    "Chinker": {
+      "Title": "Chinker",
+      "Subtitle": "Card game"
+    },
+    "Crazychess": {
+      "Title": "Chess crazy chess",
+      "Subtitle": "Let's change the rules"
+    },
+    "Flow": {
+      "Title": "Flow",
+      "Subtitle": "Phaser game"
     }
   }
 }

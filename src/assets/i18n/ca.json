@@ -69,9 +69,23 @@
     "CreateGame": "nou joc",
     "GamesInProgress": "Jocs en curs",
     "JoinGame": "Unir-se",
-    "playNow": "Jugar ja!",
-    "separadorO": "o",
-    "Title": "Inici"
+    "SeparadorO": "o",
+    "PlayNow": "Jugar ja!",
+    "Title": "Inici",
+    "AbortQuickGame": "Oh no jugaràs? T'esperem una propera vegada.",
+    "Completed": "complet",
+    "Delete": "eliminar",
+    "GameDelete": "joc eliminat",
+    "Go": "anar",
+    "InfoGame": "més informació",
+    "IsNotLogined": "No es pot executar aquesta acció sense estar loginado",
+    "LastTurn": "darrer torn",
+    "NewGameSuccess": "Has creat un joc",
+    "NoRecordsFound": "No hi ha registres",
+    "Open": "obrir",
+    "State": "estat",
+    "Surrender": "abandonar",
+    "Waiting": "esperant"
   },
   "Game": {
     "Chess": {
@@ -82,7 +96,21 @@
       },
       "ColorLabel": "color",
       "ColorSelect": "Seleccioni el seu color",
-      "Title": "Escacs"
+      "Title": "Escacs",
+      "BlackCheck": "Mouen les negres. Estan en escac!",
+      "BlackTurn": "Mouen les negres",
+      "Check": "Escac al rei",
+      "Congratulations": "FELICITACIONS",
+      "Draw": "Taules. És un empat.",
+      "GameOver": "S'ha acabat la partida",
+      "InCheck": "El teu rei està en escac!",
+      "Wait": "Has d'esperar a oponent.",
+      "WhiteCheck": "Mouen les blanques. Estan en escac!",
+      "WhiteTurn": "Mouen les blanques",
+      "YouLost": "Escac i mat. Derrota.",
+      "YouMove": "És el teu torn",
+      "YouWin": "Escac i mat. Victòria.",
+      "Subtitle": "Escacs clàssic"
     },
     "Shared": {
       "ChosseName": "Tria un nom per a aquesta partida",
@@ -94,7 +122,26 @@
       "GameDescriptionPlaceHolder": "Opcional: Escriviu una descripció",
       "GameName": "Nom del joc",
       "GameNameIsRequired": "El nom del joc és obligatori",
-      "SendNewRecruitment": "Enviar"
+      "SendNewRecruitment": "Enviar",
+      "Defeat": "derrota",
+      "SendTurn": "S'ha enviat el torn",
+      "Victory": "victòria"
+    },
+    "Babydontcry": {
+      "Title": "Baby dont cry",
+      "Subtitle": "Mou-te sense despertar-los."
+    },
+    "Chinker": {
+      "Title": "Chinker",
+      "Subtitle": "Joc de cartes"
+    },
+    "Crazychess": {
+      "Title": "Chess crazy chess",
+      "Subtitle": "Canviem les regles"
+    },
+    "Flow": {
+      "Title": "Flow",
+      "Subtitle": "Phaser game"
     }
   }
 }

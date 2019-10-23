@@ -261,10 +261,10 @@
   <data name="pagHome.JoinGame" xml:space="preserve">
     <value>Unirse</value>
   </data>
-  <data name="pagHome.playNow" xml:space="preserve">
+  <data name="pagHome.PlayNow" xml:space="preserve">
     <value>Jugar ya!</value>
   </data>
-  <data name="pagHome.separadorO" xml:space="preserve">
+  <data name="pagHome.SeparadorO" xml:space="preserve">
     <value>o</value>
   </data>
   <data name="pagHome.Title" xml:space="preserve">
@@ -326,5 +326,126 @@
   </data>
   <data name="Game.Shared.SendNewRecruitment" xml:space="preserve">
     <value>Enviar</value>
+  </data>
+  <data name="Game.Babydontcry.Subtitle" xml:space="preserve">
+    <value>Muevete sin despertarlos.</value>
+  </data>
+  <data name="Game.Babydontcry.Title" xml:space="preserve">
+    <value>Baby dont cry</value>
+    <comment>NOT_TRANSLATE</comment>
+  </data>
+  <data name="Game.Chess.BlackCheck" xml:space="preserve">
+    <value>Mueven las negras. Están en jaque!</value>
+  </data>
+  <data name="Game.Chess.BlackTurn" xml:space="preserve">
+    <value>Mueven las negras</value>
+  </data>
+  <data name="Game.Chess.Check" xml:space="preserve">
+    <value>Jaque al rey</value>
+  </data>
+  <data name="Game.Chess.Congratulations" xml:space="preserve">
+    <value>FELICITACIONES</value>
+  </data>
+  <data name="Game.Chess.Draw" xml:space="preserve">
+    <value>Tablas. Es un empate.</value>
+  </data>
+  <data name="Game.Chess.GameOver" xml:space="preserve">
+    <value>Se ha terminado la partida</value>
+  </data>
+  <data name="Game.Chess.InCheck" xml:space="preserve">
+    <value>Tu rey está en jaque!</value>
+  </data>
+  <data name="Game.Chess.Subtitle" xml:space="preserve">
+    <value>Ajedrez clásico</value>
+  </data>
+  <data name="Game.Chess.Wait" xml:space="preserve">
+    <value>Tienes que esperar a oponente.</value>
+  </data>
+  <data name="Game.Chess.WhiteCheck" xml:space="preserve">
+    <value>Mueven las blancas. Están en jaque!</value>
+  </data>
+  <data name="Game.Chess.WhiteTurn" xml:space="preserve">
+    <value>Mueven las blancas</value>
+  </data>
+  <data name="Game.Chess.YouLost" xml:space="preserve">
+    <value>Jaque mate. Derrota.</value>
+  </data>
+  <data name="Game.Chess.YouMove" xml:space="preserve">
+    <value>Es tu turno</value>
+  </data>
+  <data name="Game.Chess.YouWin" xml:space="preserve">
+    <value>Jaque mate. Victoria.</value>
+  </data>
+  <data name="Game.Chinker.Subtitle" xml:space="preserve">
+    <value>Juego de cartas</value>
+  </data>
+  <data name="Game.Chinker.Title" xml:space="preserve">
+    <value>Chinker</value>
+    <comment>NOT_TRANSLATE</comment>
+  </data>
+  <data name="Game.Crazychess.Subtitle" xml:space="preserve">
+    <value>Cambiemos las reglas</value>
+  </data>
+  <data name="Game.Crazychess.Title" xml:space="preserve">
+    <value>Chess crazy chess</value>
+    <comment>NOT_TRANSLATE</comment>
+  </data>
+  <data name="Game.Flow.Subtitle" xml:space="preserve">
+    <value>Phaser game</value>
+  </data>
+  <data name="Game.Flow.Title" xml:space="preserve">
+    <value>Flow</value>
+    <comment>NOT_TRANSLATE</comment>
+  </data>
+  <data name="Game.Shared.Defeat" xml:space="preserve">
+    <value>Derrota</value>
+  </data>
+  <data name="Game.Shared.SendTurn" xml:space="preserve">
+    <value>Se ha enviado el turno</value>
+  </data>
+  <data name="Game.Shared.Victory" xml:space="preserve">
+    <value>Victoria</value>
+  </data>
+  <data name="pagHome.AbortQuickGame" xml:space="preserve">
+    <value>Oh no vas a jugar? Te esperamos una proxima vez.</value>
+  </data>
+  <data name="pagHome.Completed" xml:space="preserve">
+    <value>Completo</value>
+  </data>
+  <data name="pagHome.Delete" xml:space="preserve">
+    <value>Eliminar</value>
+  </data>
+  <data name="pagHome.GameDelete" xml:space="preserve">
+    <value>Juego eliminado</value>
+  </data>
+  <data name="pagHome.Go" xml:space="preserve">
+    <value>Ir</value>
+  </data>
+  <data name="pagHome.InfoGame" xml:space="preserve">
+    <value>Más información</value>
+  </data>
+  <data name="pagHome.IsNotLogined" xml:space="preserve">
+    <value>No se puede ejecutar esta acción sin estar loginado</value>
+  </data>
+  <data name="pagHome.LastTurn" xml:space="preserve">
+    <value>Ultimo turno</value>
+  </data>
+  <data name="pagHome.NewGameSuccess" xml:space="preserve">
+    <value>Has creado un juego</value>
+  </data>
+  <data name="pagHome.NoRecordsFound" xml:space="preserve">
+    <value>No existen registros</value>
+  </data>
+  <data name="pagHome.Open" xml:space="preserve">
+    <value>Abrir</value>
+  </data>
+  <data name="pagHome.State" xml:space="preserve">
+    <value>Estado</value>
+  </data>
+  <data name="pagHome.Surrender" xml:space="preserve">
+    <value>Abandonar</value>
+  </data>
+  <data name="pagHome.Waiting" xml:space="preserve">
+    <value>Esperando</value>
   </data>
 </root>

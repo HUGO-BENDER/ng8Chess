@@ -69,9 +69,23 @@
     "CreateGame": "Novo xogo",
     "GamesInProgress": "Xogos en marcha",
     "JoinGame": "A unirse",
-    "playNow": "Xoga agora!",
-    "separadorO": "ou",
-    "Title": "Inicio"
+    "SeparadorO": "ou",
+    "PlayNow": "Xoga agora!",
+    "Title": "Inicio",
+    "AbortQuickGame": "Ah, non xogará? Agardámoste a próxima vez.",
+    "Completed": "Completo",
+    "Delete": "Elimina",
+    "GameDelete": "Xogo eliminado",
+    "Go": "Vaia",
+    "InfoGame": "Máis información",
+    "IsNotLogined": "Non podes executar esta acción sen estar rexistrado",
+    "LastTurn": "Última quenda",
+    "NewGameSuccess": "Creou un xogo",
+    "NoRecordsFound": "Non hai rexistros",
+    "Open": "Aberto",
+    "State": "Estado",
+    "Surrender": "Abandonar",
+    "Waiting": "Agardando"
   },
   "Game": {
     "Chess": {
@@ -82,7 +96,21 @@
       },
       "ColorLabel": "Cor",
       "ColorSelect": "Selecciona a túa cor",
-      "Title": "Xadrez"
+      "Title": "Xadrez",
+      "BlackCheck": "Os negros móvense. Están en xaque!",
+      "BlackTurn": "Os negros móvense",
+      "Check": "Consulta o rei",
+      "Congratulations": "CONGRATULACIÓNS",
+      "Draw": "Táboas É un empate.",
+      "GameOver": "O xogo rematou",
+      "InCheck": "O teu rei está en xaque.",
+      "Wait": "Hai que esperar ao rival.",
+      "WhiteCheck": "O branco móvese. Están en xaque!",
+      "WhiteTurn": "O branco móvese",
+      "YouLost": "Comprobe Derrota",
+      "YouMove": "É a túa quenda",
+      "YouWin": "Comprobe Victoria",
+      "Subtitle": "Xadrez clásico"
     },
     "Shared": {
       "ChosseName": "Escolla un nome para este xogo",
@@ -94,7 +122,26 @@
       "GameDescriptionPlaceHolder": "Opcional: Introduza unha descrición",
       "GameName": "Nome do xogo",
       "GameNameIsRequired": "O nome do xogo é obrigatorio",
-      "SendNewRecruitment": "Enviar"
+      "SendNewRecruitment": "Enviar",
+      "Defeat": "Derrota",
+      "SendTurn": "O cambio foi enviado",
+      "Victory": "Victoria"
+    },
+    "Babydontcry": {
+      "Title": "Baby dont cry",
+      "Subtitle": "Móvese sen espertalos."
+    },
+    "Chinker": {
+      "Title": "Chinker",
+      "Subtitle": "Xogo de cartas"
+    },
+    "Crazychess": {
+      "Title": "Chess crazy chess",
+      "Subtitle": "Cambiamos as regras"
+    },
+    "Flow": {
+      "Title": "Flow",
+      "Subtitle": "Xogo de fases"
     }
   }
 }

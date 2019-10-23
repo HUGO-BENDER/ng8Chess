@@ -106,9 +106,6 @@ export class PageHomeComponent implements OnInit {
         return { id, ...data };
       }))
     );
-
-    // alert(getMatGridConfig());
-
   }
 
   showInfo(idGame: string) {
@@ -145,7 +142,7 @@ export class PageHomeComponent implements OnInit {
         //     });
         //     dialogRefNewQuickGame.afterClosed().subscribe(result => {
         //       if (!result) {
-        //         this.translate.get('xxOh no vas a jugar?. Te esperamos una proxima vez.').subscribe((res: string) => {
+        //         this.translate.get('pagHome.AbortQuickGame').subscribe((res: string) => {
         //           this.ShowToastMessage(res);
         //           this.fireChess.deleteGameQuickStart(dataParam.gameId);
         //         });
@@ -246,7 +243,7 @@ export class PageHomeComponent implements OnInit {
       //     Swal.fire({
       //       position: 'top',
       //       type: 'success',
-      //       title: this.translate.instant('xxxHas creado un juego'),
+      //       title: this.translate.instant('Has creado un juego'),
       //       text: 'setup.name' + ' ' + 'setup.description',
       //       showConfirmButton: false,
       //       timer: 2000
@@ -264,7 +261,7 @@ export class PageHomeComponent implements OnInit {
 
     } else {
       // tslint:disable-next-line: max-line-length
-      this.ShowErrorMessage('xNo se puede ejecutar esta acción sin estar loginado\n\r Puede loginarse como invitado. no es necesario crear una cuenta pero no se guardaran los datos de su partida.');
+      this.ShowErrorMessage(this.translate.instant('pagHome.IsNotLogined'));
     }
   }
 
@@ -284,7 +281,7 @@ export class PageHomeComponent implements OnInit {
   deleteRecruitment(r: Recruitment) {
     this.fireRecruitment.deleteRecruitment(r)
       .then(() => {
-        this.translate.get('pagHome.xxxGame_delete.').subscribe(
+        this.translate.get('pagHome.GameDelete').subscribe(
           (res: string) => {
             this.ShowToastMessage(res);
             this.dialogRef.close();
@@ -292,7 +289,7 @@ export class PageHomeComponent implements OnInit {
         );
       })
       .catch(function(error) {
-        this.ShowErrorMessage('xError deleting game.');
+        this.ShowErrorMessage('Error deleting game.');
       });
   }
 
@@ -363,13 +360,13 @@ export class PageHomeComponent implements OnInit {
         this.matGridSetup.cols = 2;
         this.matGridSetup.JoinOrCreateGame.cols = 1;
         this.matGridSetup.GamesInProgress.cols = 1;
-        this.matGridSetup.JoinOrCreateGame.CreateGameSubGrid.cols = 2;
+        this.matGridSetup.JoinOrCreateGame.CreateGameSubGrid.cols = 1;
         console.log('inLargeScreen');
       } else {
         this.matGridSetup.cols = 3;
         this.matGridSetup.JoinOrCreateGame.cols = 2;
         this.matGridSetup.GamesInProgress.cols = 1;
-        this.matGridSetup.JoinOrCreateGame.CreateGameSubGrid.cols = 4;
+        this.matGridSetup.JoinOrCreateGame.CreateGameSubGrid.cols = 3;
         console.log('muy grande');
       }
   }

@@ -20,7 +20,7 @@
                     [rowHeight]="matGridSetup.JoinOrCreateGame.CreateGameSubGrid.rowHeight"
                     [gutterSize]="matGridSetup.JoinOrCreateGame.CreateGameSubGrid.gutterSize">
                     <mat-grid-tile *ngFor="let gamecard of listgames" [colspan]="1" [rowspan]="1">
-                      <mat-card class="game-card">
+                      <mat-card class="game-card"  [style.background-image]="'url(' + gamecard.bkPath + ')'">
                         <mat-card-header>
                           <div mat-card-avatar class="game-avatar-image"
                             [style.background-image]="'url(' + gamecard.image48Path + ')'"></div>
@@ -28,9 +28,9 @@
                           <mat-card-subtitle>{{ gamecard.subtitle | translate }} </mat-card-subtitle>
                         </mat-card-header>
                         <mat-card-content>
-                          <p>{{ gamecard.description | translate }} </p>
+                          <!-- <p>{{ gamecard.description | translate }} </p> -->
                           <button mat-button (click)="showInfo(gamecard.id)">
-                              <span class="margin-right-10">{{ 'pagHome.Moreinfo' | translate}}</span>
+                              <span class="margin-right-10">{{ 'pagHome.InfoGame' | translate}}</span>
                               <mat-icon>info</mat-icon>
                             </button>
                           <p>
@@ -42,7 +42,7 @@
                             <mat-icon>add_circle</mat-icon>
                           </button>
                           <button mat-raised-button color="warn" (click)="quickStart(gamecard.id)">
-                            <span class="margin-right-10">{{ 'pagHome.playNow' | translate}}</span>
+                            <span class="margin-right-10">{{ 'pagHome.PlayNow' | translate}}</span>
                             <mat-icon>play_circle_outline</mat-icon>
                           </button>
                         </mat-card-actions>
@@ -68,13 +68,13 @@
                         <mat-icon>account_circle</mat-icon> {{recruitment.creator.displayName}}
                       </span>
                       <div>{{recruitment.description}} </div>
-                      <div>{{'pagHome.xxxState' | translate }}:
-                        <span *ngIf="recruitment.state==0">{{'pagHome.xxxWaiting' | translate }}</span>
-                        <span *ngIf="recruitment.state==1">{{'pagHome.xxxCompleted' | translate }}completed</span>
+                      <div>{{'pagHome.State' | translate }}:
+                        <span *ngIf="recruitment.state==0">{{'pagHome.Waiting' | translate }}</span>
+                        <span *ngIf="recruitment.state==1">{{'pagHome.Completed' | translate }}completed</span>
                       </div>
                       <mat-action-row>
                         <button mat-button *ngIf="canDelete(recruitment)" color="warn"
-                          (click)="deleteRecruitment(recruitment)">{{'pagHome.xxxDelete' | translate }}</button>
+                          (click)="deleteRecruitment(recruitment)">{{'pagHome.Delete' | translate }}</button>
                         <button mat-button [disabled]="!canJoin(recruitment)" color="primary"
                           (click)="joinRecruitment(recruitment)">{{'pagHome.JoinGame' | translate }}</button>
                       </mat-action-row>
@@ -97,7 +97,7 @@
           </mat-card-header>
           <mat-card-content class="dashboard-card-content content-card-scroll-vert">
             <div *ngIf="(gamesInProgress | async)==null">
-              {{ 'pagHome.xxxNoRecordsFound' | translate  }}
+              {{ 'pagHome.NoRecordsFound' | translate  }}
             </div>
             <mat-accordion class="headers-align">
               <mat-expansion-panel *ngFor="let gameInProgress of (gamesInProgress | async)">
@@ -117,18 +117,18 @@
                   </mat-panel-description>
                 </mat-expansion-panel-header>
                 <div>{{gameInProgress.description}}</div>
-                <div>{{ 'pagHome.xxUltimoTurno' | translate }}:
+                <div>{{ 'pagHome.LastTurn' | translate }}:
                   {{gameInProgress.timeLastTurn.toDate() | date : 'dd/MM/yy HH:MM' }}</div>
                 <mat-action-row>
                   <button mat-button color="warn"
-                    (click)="surrender(gameInProgress)">{{ 'pagHome.xxSurrender' | translate }}</button>
+                    (click)="surrender(gameInProgress)">{{ 'pagHome.Surrender' | translate }}</button>
                   <button mat-button color="primary"
                     [routerLink]="['/game/'+ gameInProgress.gameType, gameInProgress.id]">
                     <div *ngIf="gameInProgress.isMyTurn">
-                      {{ 'pagHome.xxGo' | translate }}
+                      {{ 'pagHome.Go' | translate }}
                     </div>
                     <div *ngIf="!gameInProgress.isMyTurn">
-                      {{ 'pagHome.xxOpen' | translate }}
+                      {{ 'pagHome.Open' | translate }}
                     </div>
                   </button>
                 </mat-action-row>

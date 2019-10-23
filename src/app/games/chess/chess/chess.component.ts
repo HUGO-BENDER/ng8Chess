@@ -210,39 +210,39 @@ export class ChessComponent implements OnInit, OnDestroy {
   // -- Manager info Turn
   onCheckmate() {
     if (this.player.color === this.game.turn()) {
-      this.translate.get('Jaque mate. Derrota').subscribe((res) => this.msgToPlayer = res);
-      this.translate.get('xx_Se ha terminado la partida').subscribe(
+      this.translate.get('Game.Chess.YouLost').subscribe((res) => this.msgToPlayer = res);
+      this.translate.get('Game.Chess.GameOver').subscribe(
         (res: string) => {
           this.ShowYouLostMessage(res);
         });
     } else {
-      this.translate.get('Jaque mate. Victoria.').subscribe((res) => this.msgToPlayer = res);
-      this.translate.get('xx_FELICITACIONES').subscribe(
+      this.translate.get('Game.Chess.YouWin').subscribe((res) => this.msgToPlayer = res);
+      this.translate.get('Game.Chess.Congratulations').subscribe(
         (res: string) => {
           this.ShowYouWinMessage(res);
         });
     }
   }
   onDraw() {
-    this.translate.get('Tablas. Es un empate.').subscribe((res) => this.msgToPlayer = res);
-    this.translate.get('xx_Se ha terminado la partida').subscribe(
+    this.translate.get('Game.Chess.Draw').subscribe((res) => this.msgToPlayer = res);
+    this.translate.get('Game.Chess.GameOver').subscribe(
       (res: string) => {
         this.ShowToastMessage(res);
       });
   }
   onCheck() {
     if (this.game.turn() === 'w') {
-      this.translate.get('xxMueven Las Blancas. Están en jaque!').subscribe((res) => this.msgToPlayer = res);
+      this.translate.get('Game.Chess.WhiteCheck').subscribe((res) => this.msgToPlayer = res);
     } else {
-      this.translate.get('xxMuevenLasNegras. Están en jaque!').subscribe((res) => this.msgToPlayer = res);
+      this.translate.get('Game.Chess.BlackCheck').subscribe((res) => this.msgToPlayer = res);
     }
     if (this.player.color === this.game.turn()) {
-      this.translate.get('xxxx_Tu rey está en jaque!!').subscribe(
+      this.translate.get('Game.Chess.InCheck').subscribe(
         (res: string) => {
           this.ShowCheckMessage(res);
         });
     } else {
-      this.translate.get('xxxx_Tienes que esperar a oponente.').subscribe(
+      this.translate.get('Game.Chess.Wait').subscribe(
         (res: string) => {
           this.ShowToastMessage(res + this.player.color);
         });
@@ -250,17 +250,17 @@ export class ChessComponent implements OnInit, OnDestroy {
   }
   onTurn() {
     if (this.game.turn() === 'w') {
-      this.translate.get('xxMueven Las Blancas.').subscribe((res) => this.msgToPlayer = res);
+      this.translate.get('Game.Chess.WhiteTurn').subscribe((res) => this.msgToPlayer = res);
     } else {
-      this.translate.get('xxMuevenLasNegras.').subscribe((res) => this.msgToPlayer = res);
+      this.translate.get('Game.Chess.BlackTurn').subscribe((res) => this.msgToPlayer = res);
     }
     if (this.player.color === this.game.turn()) {
-      this.translate.get('xxxx_Te toca jugar.').subscribe(
+      this.translate.get('Game.Chess.YouMove').subscribe(
         (res: string) => {
           this.ShowToastMessage(res + this.player.color);
         });
     } else {
-      this.translate.get('xxxx_Tienes que esperar a oponente.').subscribe(
+      this.translate.get('Game.Chess.Wait').subscribe(
         (res: string) => {
           this.ShowToastMessage(res + this.player.color);
         });
@@ -280,10 +280,10 @@ export class ChessComponent implements OnInit, OnDestroy {
     this.fireChess.senTurn(this.idGame,
       this.moveToSend, this.fenToSend
     ).then(() => {
-      console.log('xSe ha enviado el Turno');
+      console.log('Game.Shared.SendTurn');
       this.stateButtons = 'outside';
       this.stateGame = gameState.WAITING;
-      this.ShowToastMessage('xSe ha enviado el Turno');
+      this.ShowToastMessage('Game.Shared.SendTurn');
     })
       .catch((error) => {
         this.ShowErrorMessage('xError :-( ');
@@ -313,7 +313,7 @@ export class ChessComponent implements OnInit, OnDestroy {
   private ShowYouWinMessage(msg: string): void {
     Swal.fire({
       type: 'success',
-      title: this.translate.instant('xxVictoria'),
+      title: this.translate.instant('Game.Shared.Victory'),
       text: msg,
       showConfirmButton: true
     });
@@ -321,7 +321,7 @@ export class ChessComponent implements OnInit, OnDestroy {
   private ShowYouLostMessage(msg: string): void {
     Swal.fire({
       type: 'info',
-      title: this.translate.instant('xDerrota.'),
+      title: this.translate.instant('Game.Shared.Defeat'),
       text: msg,
       showConfirmButton: true
     });
@@ -329,7 +329,7 @@ export class ChessComponent implements OnInit, OnDestroy {
   private ShowCheckMessage(msg: string): void {
     Swal.fire({
       type: 'warning',
-      title: this.translate.instant('xxJaque al rey.'),
+      title: this.translate.instant('Game.Chess.Check'),
       text: msg,
       showConfirmButton: true
     });

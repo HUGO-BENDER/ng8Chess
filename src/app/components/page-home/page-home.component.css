@@ -55,7 +55,7 @@
 
   .content-tab-scroll-vert {
     overflow-x: hidden;
-    height: 300px;
+    height: 712px;
     width: 100%;
   }
 
@@ -74,6 +74,7 @@
 	 margin:  10px;
 	 width: 100%; 
    border: 1px solid royalblue;
+   background-size: cover;
   }
 
   .game-avatar-image{

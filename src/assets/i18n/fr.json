@@ -69,9 +69,23 @@
     "CreateGame": "Nouveau jeu",
     "GamesInProgress": "Jeux en cours",
     "JoinGame": "Rejoindre",
-    "playNow": "Joue maintenant!",
-    "separadorO": "ou",
-    "Title": "Accueil"
+    "SeparadorO": "ou",
+    "PlayNow": "Joue maintenant!",
+    "Title": "Accueil",
+    "AbortQuickGame": "Oh tu ne joueras pas? Nous vous attendons la prochaine fois.",
+    "Completed": "Complète",
+    "Delete": "Enlever",
+    "GameDelete": "Jeu enlevé",
+    "Go": "Aller",
+    "InfoGame": "Plus d'informations",
+    "IsNotLogined": "Vous ne pouvez pas exécuter cette action sans être connecté",
+    "LastTurn": "Dernier quart de travail",
+    "NewGameSuccess": "Vous avez créé un jeu",
+    "NoRecordsFound": "Il n'y a pas d'enregistrements",
+    "Open": "Ouvert",
+    "State": "Etat",
+    "Surrender": "Abandonner",
+    "Waiting": "En attente de"
   },
   "Game": {
     "Chess": {
@@ -82,7 +96,21 @@
       },
       "ColorLabel": "Couleur",
       "ColorSelect": "Choisissez votre couleur",
-      "Title": "Jeu d'échecs"
+      "Title": "Jeu d'échecs",
+      "BlackCheck": "Noir se déplace. Ils sont en échec!",
+      "BlackTurn": "Mouvements noirs",
+      "Check": "Vérifiez le roi",
+      "Congratulations": "FÉLICITATIONS",
+      "Draw": "Des tableaux C'est un match nul.",
+      "GameOver": "Le jeu est terminé",
+      "InCheck": "Votre roi est en échec!",
+      "Wait": "Vous devez attendre l'adversaire.",
+      "WhiteCheck": "Blanc se déplace. Ils sont en échec!",
+      "WhiteTurn": "Mouvements blancs",
+      "YouLost": "Échec et mat. La défaite",
+      "YouMove": "C'est ton tour",
+      "YouWin": "Échec et mat. Victoria",
+      "Subtitle": "Echecs Classiques"
     },
     "Shared": {
       "ChosseName": "Choisissez un nom pour ce jeu",
@@ -94,7 +122,26 @@
       "GameDescriptionPlaceHolder": "Facultatif: entrez une description",
       "GameName": "Nom du jeu",
       "GameNameIsRequired": "Le nom du jeu est obligatoire",
-      "SendNewRecruitment": "Envoyer"
+      "SendNewRecruitment": "Envoyer",
+      "Defeat": "La défaite",
+      "SendTurn": "Shift a été envoyé",
+      "Victory": "Victoria"
+    },
+    "Babydontcry": {
+      "Title": "Baby dont cry",
+      "Subtitle": "Bougez sans les réveiller."
+    },
+    "Chinker": {
+      "Title": "Chinker",
+      "Subtitle": "Jeu de cartes"
+    },
+    "Crazychess": {
+      "Title": "Chess crazy chess",
+      "Subtitle": "Changeons les règles"
+    },
+    "Flow": {
+      "Title": "Flow",
+      "Subtitle": "Phaser jeu"
     }
   }
 }

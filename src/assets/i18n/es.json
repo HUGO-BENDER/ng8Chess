@@ -69,9 +69,23 @@
     "CreateGame": "Nuevo juego",
     "GamesInProgress": "Juegos en curso",
     "JoinGame": "Unirse",
-    "playNow": "Jugar ya!",
-    "separadorO": "o",
-    "Title": "Inicio"
+    "PlayNow": "Jugar ya!",
+    "SeparadorO": "o",
+    "Title": "Inicio",
+    "AbortQuickGame": "Oh no vas a jugar? Te esperamos una proxima vez.",
+    "Completed": "Completo",
+    "Delete": "Eliminar",
+    "GameDelete": "Juego eliminado",
+    "Go": "Ir",
+    "InfoGame": "Más información",
+    "IsNotLogined": "No se puede ejecutar esta acción sin estar loginado",
+    "LastTurn": "Ultimo turno",
+    "NewGameSuccess": "Has creado un juego",
+    "NoRecordsFound": "No existen registros",
+    "Open": "Abrir",
+    "State": "Estado",
+    "Surrender": "Abandonar",
+    "Waiting": "Esperando"
   },
   "Game": {
     "Chess": {
@@ -82,7 +96,21 @@
       },
       "ColorLabel": "Color",
       "ColorSelect": "Seleccióne su color",
-      "Title": "Ajedrez"
+      "Title": "Ajedrez",
+      "BlackCheck": "Mueven las negras. Están en jaque!",
+      "BlackTurn": "Mueven las negras",
+      "Check": "Jaque al rey",
+      "Congratulations": "FELICITACIONES",
+      "Draw": "Tablas. Es un empate.",
+      "GameOver": "Se ha terminado la partida",
+      "InCheck": "Tu rey está en jaque!",
+      "Subtitle": "Ajedrez clásico",
+      "Wait": "Tienes que esperar a oponente.",
+      "WhiteCheck": "Mueven las blancas. Están en jaque!",
+      "WhiteTurn": "Mueven las blancas",
+      "YouLost": "Jaque mate. Derrota.",
+      "YouMove": "Es tu turno",
+      "YouWin": "Jaque mate. Victoria."
     },
     "Shared": {
       "ChosseName": "Elija un nombre para esta partida",
@@ -94,7 +122,26 @@
       "GameDescriptionPlaceHolder": "Opcional: Escriba una descripción",
       "GameName": "Nombre del juego",
       "GameNameIsRequired": "El nombre del juego es obligatorio",
-      "SendNewRecruitment": "Enviar"
+      "SendNewRecruitment": "Enviar",
+      "Defeat": "Derrota",
+      "SendTurn": "Se ha enviado el turno",
+      "Victory": "Victoria"
+    },
+    "Babydontcry": {
+      "Subtitle": "Muevete sin despertarlos.",
+      "Title": "Baby dont cry"
+    },
+    "Chinker": {
+      "Subtitle": "Juego de cartas",
+      "Title": "Chinker"
+    },
+    "Crazychess": {
+      "Subtitle": "Cambiemos las reglas",
+      "Title": "Chess crazy chess"
+    },
+    "Flow": {
+      "Subtitle": "Phaser game",
+      "Title": "Flow"
     }
   }
 }
