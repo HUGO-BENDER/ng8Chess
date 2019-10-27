@@ -3,29 +3,6 @@
 	overflow-x: auto;
 }
 
-.hero-section {
-	background: url("/assets/images/bg800x527.jpg") 50% no-repeat;
-	background-size: cover;
-	height: 40vh;
-	text-align: center;
-	display: -webkit-flex;
-	display: -ms-flexbox;
-	display: flex;
-	-webkit-align-items: center;
-	-ms-flex-align: center;
-	align-items: center;
-	-webkit-justify-content: center;
-	-ms-flex-pack: center;
-	justify-content: center;
-	width: 100%;
-}
-
-.hero-section .hero-section-text {
-	color: #fefefe;
-	text-shadow: 1px 1px 2px #0a0a0a;
-}
-
-
 .grid-container {
     margin: 10px;
   }
@@ -81,6 +58,10 @@
     background-size: cover;
     }
 
+    .game-card-img{
+      width: 256px;
+      height: 256px;
+    }
 
   .new-game-button{
 	max-width: 50px;

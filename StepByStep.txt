@@ -100,6 +100,7 @@ import Swal from 'sweetalert2';
     ng g component components/app-tool-bar
     ng g component components/app-footer
     ng g component components/app-login
+    ng g component components/app-jumbotron
     ng g c components/pageHome
     ng g c components/pageAbout
     ng g c components/pageNotFound

@@ -52,7 +52,7 @@ export class AppConfig {
       rows: 2,
       CreateGameSubGrid: {
         cols: 2,
-        rowHeight: '280px',
+        rowHeight: '450px',
         gutterSize: '0px'
       }
     },
@@ -73,7 +73,7 @@ export class AppConfig {
       title: 'Game.Chess.Title',
       subtitle: 'Game.Chess.Subtitle',
       image48Path: '../../../assets/games/chess/chess_48.png',
-      bkPath: '../../../assets/games/chess/bkGame.png',
+      bkPath: '../../../assets/games/chess/256x256.png',
       description: 'Game.Chess.Description',
       maxPlayers: 2,
       minPlayers: 2
@@ -88,7 +88,7 @@ export class AppConfig {
       title: 'Game.Crazychess.Title',
       subtitle: 'Game.Crazychess.Subtitle',
       image48Path: '../../../assets/games/crazychess/crazychess_48.png',
-      bkPath: '../../../assets/games/chess/bkgame.png',
+      bkPath: '../../../assets/games/chess/bkGame.png',
       description: 'Game.Crazychess.Description',
       maxPlayers: 2,
       minPlayers: 2
@@ -103,7 +103,7 @@ export class AppConfig {
       title: 'Game.Chinker.Title',
       subtitle: 'Game.Chinker.Subtitle',
       image48Path: '../../../assets/games/chinker/chinker_48.png',
-      bkPath: '../../../assets/games/chess/bkgame.png',
+      bkPath: '../../../assets/games/chess/bkGame.png',
       description: 'Game.Chinker.Description',
       maxPlayers: 2,
       minPlayers: 2
@@ -118,7 +118,7 @@ export class AppConfig {
       title: 'Game.Flow.Title',
       subtitle: 'Game.Flow.Subtitle',
       image48Path: '../../../assets/games/flow/phaser.png',
-      bkPath: '../../../assets/games/chess/bkgame.png',
+      bkPath: '../../../assets/games/chess/bkGame.png',
       description: 'Game.Flow.Description',
       maxPlayers: 1,
       minPlayers: 1
@@ -133,7 +133,7 @@ export class AppConfig {
       title: 'Game.Babydontcry.Title',
       subtitle: 'Game.Babydontcry.Subtitle',
       image48Path: '../../../assets/games/flow/flow_48.png',
-      bkPath: '../../../assets/games/chess/bkgame.png',
+      bkPath: '../../../assets/games/chess/bkGame.png',
       description: 'Game.Babydontcry.Description',
       maxPlayers: 1,
       minPlayers: 1

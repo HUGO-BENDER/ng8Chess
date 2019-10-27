@@ -28,10 +28,11 @@ import { environment } from '../environments/environment';
 import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 
 // --Components and Pages
-import { AppSharedModule } from './shared-components/app-shared.module'
+import { AppSharedModule } from './shared-components/app-shared.module';
 import { AppToolBarComponent } from './components/app-tool-bar/app-tool-bar.component';
 import { AppFooterComponent } from './components/app-footer/app-footer.component';
 import { AppLoginComponent } from './components/app-login/app-login.component';
+import { AppJumbotronComponent } from './components/app-jumbotron/app-jumbotron.component';
 import { PageHomeComponent } from './components/page-home/page-home.component';
 import { PageAboutComponent } from './components/page-about/page-about.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
@@ -41,7 +42,6 @@ import { PageServiceConditionsComponent } from './components/page-service-condit
 // --Services
 // import { MetadataService } from './services/firestore/metadata.service';
 import { SidenavService } from './services/components/sidenav.service';
-
 
 // -- GAMES :-)
 import { CrazyChessComponent } from './games/crazy-chess/crazy-chess/crazy-chess.component';
@@ -66,6 +66,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     AppToolBarComponent,
     AppFooterComponent,
     AppLoginComponent,
+    AppJumbotronComponent,
     PageHomeComponent,
     PageAboutComponent,
     PageNotFoundComponent,
