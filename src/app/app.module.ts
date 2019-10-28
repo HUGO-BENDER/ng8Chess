@@ -32,8 +32,8 @@ import { AppSharedModule } from './shared-components/app-shared.module';
 import { AppToolBarComponent } from './components/app-tool-bar/app-tool-bar.component';
 import { AppFooterComponent } from './components/app-footer/app-footer.component';
 import { AppLoginComponent } from './components/app-login/app-login.component';
-import { AppJumbotronComponent } from './components/app-jumbotron/app-jumbotron.component';
 import { PageHomeComponent } from './components/page-home/page-home.component';
+import { JumbotronComponent } from './components/page-home/jumbotron/jumbotron.component';
 import { PageAboutComponent } from './components/page-about/page-about.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { PagePolicyPrivacyComponent } from './components/page-policy-privacy/page-policy-privacy.component';
@@ -66,8 +66,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     AppToolBarComponent,
     AppFooterComponent,
     AppLoginComponent,
-    AppJumbotronComponent,
     PageHomeComponent,
+    JumbotronComponent,
     PageAboutComponent,
     PageNotFoundComponent,
     PagePolicyPrivacyComponent,

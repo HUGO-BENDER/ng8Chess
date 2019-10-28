@@ -1,11 +1,12 @@
 <section class="page-container">
-  <app-jumbotron></app-jumbotron>
+  <jumbotron class="jumbotron"></jumbotron>
 
   <div class="grid-container">
     <mat-grid-list [cols]="matGridSetup.cols" [rowHeight]="matGridSetup.rowHeight"
       [gutterSize]="matGridSetup.gutterSize">
+      <mat-grid-tile [colspan]="matGridSetup.JoinOrCreateGame.colsSpan" [rowspan]="matGridSetup.JoinOrCreateGame.rowsSpan">
 
-      <mat-grid-tile [colspan]="matGridSetup.JoinOrCreateGame.cols" [rowspan]="matGridSetup.JoinOrCreateGame.rows">
+
         <mat-card class="dashboard-card clearPadding">
           <mat-card-content class="dashboard-card-content">
             <mat-tab-group mat-stretch-tabs>
@@ -81,10 +82,11 @@
             </mat-tab-group>
           </mat-card-content>
         </mat-card>
+
+
       </mat-grid-tile>
 
-
-      <mat-grid-tile [colspan]="matGridSetup.GamesInProgress.cols" [rowspan]="matGridSetup.GamesInProgress.rows">
+      <mat-grid-tile [colspan]="matGridSetup.GamesInProgress.colsSpan" [rowspan]="matGridSetup.GamesInProgress.rowsSpan">
         <mat-card class="dashboard-card">
           <mat-card-header>
             <mat-card-title>
@@ -133,11 +135,6 @@
           </mat-card-content>
         </mat-card>
       </mat-grid-tile>
-
-
-
-
-
     </mat-grid-list>
   </div>
 
