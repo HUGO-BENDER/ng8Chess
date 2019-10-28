@@ -4,8 +4,8 @@ export interface AppGridConfig {
   rowHeight: string;
   gutterSize: string;
   JoinOrCreateGame: {
-    cols: number;
-    rows: number;
+    colsSpan: number;
+    rowsSpan: number;
     CreateGameSubGrid: {
       cols: number;
       rowHeight: string;
@@ -13,16 +13,16 @@ export interface AppGridConfig {
     }
   };
   GamesInProgress: {
-    cols: number;
-    rows: number;
+    colsSpan: number;
+    rowsSpan: number;
   };
 }
 
 export interface GameCard {
   id: string;
   order: number;
-  colsInGrid: number;
-  rowsInGrid: number;
+  colsSpan: number;
+  rowsSpan: number;
   isActive: boolean;
   isPlayable: boolean;
   title: string;
@@ -48,8 +48,8 @@ export class AppConfig {
     rowHeight: '400px',
     gutterSize: '0px',
     JoinOrCreateGame: {
-      cols: 3,
-      rows: 2,
+      colsSpan: 3,
+      rowsSpan: 2,
       CreateGameSubGrid: {
         cols: 2,
         rowHeight: '450px',
@@ -57,8 +57,8 @@ export class AppConfig {
       }
     },
     GamesInProgress: {
-      cols: 3,
-      rows: 1
+      colsSpan: 3,
+      rowsSpan: 1
     }
   };
 
@@ -66,8 +66,8 @@ export class AppConfig {
     {
       id: 'chess',
       order: 0,
-      colsInGrid: 1,
-      rowsInGrid: 1,
+      colsSpan: 1,
+      rowsSpan: 1,
       isActive: true,
       isPlayable: true,
       title: 'Game.Chess.Title',
@@ -81,8 +81,8 @@ export class AppConfig {
     {
       id: 'crazychess',
       order: 1,
-      colsInGrid: 1,
-      rowsInGrid: 1,
+      colsSpan: 1,
+      rowsSpan: 1,
       isActive: false,
       isPlayable: false,
       title: 'Game.Crazychess.Title',
@@ -96,8 +96,8 @@ export class AppConfig {
     {
       id: 'chinker',
       order: 2,
-      colsInGrid: 1,
-      rowsInGrid: 1,
+      colsSpan: 1,
+      rowsSpan: 1,
       isActive: false,
       isPlayable: false,
       title: 'Game.Chinker.Title',
@@ -111,8 +111,8 @@ export class AppConfig {
     {
       id: 'flow',
       order: 3,
-      colsInGrid: 1,
-      rowsInGrid: 1,
+      colsSpan: 1,
+      rowsSpan: 1,
       isActive: false,
       isPlayable: false,
       title: 'Game.Flow.Title',
@@ -126,8 +126,8 @@ export class AppConfig {
     {
       id: 'babydontcry',
       order: 4,
-      colsInGrid: 1,
-      rowsInGrid: 1,
+      colsSpan: 1,
+      rowsSpan: 1,
       isActive: false,
       isPlayable: false,
       title: 'Game.Babydontcry.Title',
