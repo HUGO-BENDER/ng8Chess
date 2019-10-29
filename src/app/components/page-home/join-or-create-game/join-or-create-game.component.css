@@ -1,0 +1,28 @@
+
+.dashboard-card {
+    border: 1px solid red;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    right: 10px;
+    bottom: 10px;
+}
+
+.clearPadding{
+    padding: 16px 0;
+}
+ 
+.content-tab-scroll-vert {
+    overflow-x: hidden;
+    height: 712px;
+    width: 100%;
+}
+
+
+
+
+
+
+.soloDebug{   
+    border: 1px solid red;
+}  

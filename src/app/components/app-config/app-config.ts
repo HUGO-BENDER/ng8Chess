@@ -16,6 +16,10 @@ export interface AppGridConfig {
     colsSpan: number;
     rowsSpan: number;
   };
+  UserProfile: {
+    colsSpan: number;
+    rowsSpan: number;
+  };
 }
 
 export interface GameCard {
@@ -57,6 +61,10 @@ export class AppConfig {
       }
     },
     GamesInProgress: {
+      colsSpan: 3,
+      rowsSpan: 1
+    },
+    UserProfile: {
       colsSpan: 3,
       rowsSpan: 1
     }

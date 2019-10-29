@@ -4,138 +4,22 @@
   <div class="grid-container">
     <mat-grid-list [cols]="matGridSetup.cols" [rowHeight]="matGridSetup.rowHeight"
       [gutterSize]="matGridSetup.gutterSize">
-      <mat-grid-tile [colspan]="matGridSetup.JoinOrCreateGame.colsSpan" [rowspan]="matGridSetup.JoinOrCreateGame.rowsSpan">
-
+      <mat-grid-tile [colspan]="matGridSetup.JoinOrCreateGame.colsSpan"
+        [rowspan]="matGridSetup.JoinOrCreateGame.rowsSpan">
         <join-or-create-game></join-or-create-game>
-
-        <mat-card class="dashboard-card clearPadding">
-          <mat-card-content class="dashboard-card-content">
-            <mat-tab-group mat-stretch-tabs>
-              <mat-tab label="{{'pagHome.CreateGame' | translate }}">
-                <div class="content-tab-scroll-vert container-games-avatar">
-                  <mat-grid-list class="CreateGameSubGrid" [cols]="matGridSetup.JoinOrCreateGame.CreateGameSubGrid.cols"
-                    [rowHeight]="matGridSetup.JoinOrCreateGame.CreateGameSubGrid.rowHeight"
-                    [gutterSize]="matGridSetup.JoinOrCreateGame.CreateGameSubGrid.gutterSize">
-                    <mat-grid-tile *ngFor="let gamecard of listgames" [colspan]="1" [rowspan]="1">
-                      <mat-card class="game-card">
-                        <mat-card-header>
-                          <div mat-card-avatar class="game-avatar-image"
-                            [style.background-image]="'url(' + gamecard.image48Path + ')'"></div>
-                          <mat-card-title> {{ gamecard.title | translate }}</mat-card-title>
-                          <mat-card-subtitle>{{ gamecard.subtitle | translate }} </mat-card-subtitle>
-                        </mat-card-header>
-                        <mat-card-content>
-                          <img [src]="gamecard.bkPath" class="game-card-img">
-                          <!-- <p>{{ gamecard.description | translate }} </p> -->
-                          <!-- <button mat-button (click)="showInfo(gamecard.id)">
-                              <span class="margin-right-10">{{ 'pagHome.InfoGame' | translate}}</span>
-                              <mat-icon>info</mat-icon>
-                            </button>
-                          <p>
-                            <mat-icon *ngFor="let i of getMaxPlayers(gamecard.maxPlayers)">person_outline</mat-icon>
-                          </p> -->
-                        </mat-card-content>
-                        <mat-card-actions align='end'>
-                          <button mat-icon-button color="primary" (click)="createRecruitment(gamecard.id)">
-                            <mat-icon>add_circle</mat-icon>
-                          </button>
-                          <button mat-raised-button color="warn" (click)="quickStart(gamecard.id)">
-                            <span class="margin-right-10">{{ 'pagHome.PlayNow' | translate}}</span>
-                            <mat-icon>play_circle_outline</mat-icon>
-                          </button>
-                        </mat-card-actions>
-                      </mat-card>
-                    </mat-grid-tile>
-                  </mat-grid-list>
-                </div>
-              </mat-tab>
-              <mat-tab label="{{'pagHome.JoinGame' | translate }}">
-                <div class="content-tab-scroll-vert">
-                  <mat-accordion class="headers-align">
-                    <mat-expansion-panel *ngFor="let recruitment of recruitments | async">
-                      <mat-expansion-panel-header>
-                        <mat-panel-title>
-                          {{recruitment.gameType}}
-                          <!--  {{recruitment.dateCreation.toDate() | date : 'dd/MM/yy' }} -->
-                        </mat-panel-title>
-                        <mat-panel-description>
-                          {{recruitment.name}}
-                        </mat-panel-description>
-                      </mat-expansion-panel-header>
-                      <span>
-                        <mat-icon>account_circle</mat-icon> {{recruitment.creator.displayName}}
-                      </span>
-                      <div>{{recruitment.description}} </div>
-                      <div>{{'pagHome.State' | translate }}:
-                        <span *ngIf="recruitment.state==0">{{'pagHome.Waiting' | translate }}</span>
-                        <span *ngIf="recruitment.state==1">{{'pagHome.Completed' | translate }}completed</span>
-                      </div>
-                      <mat-action-row>
-                        <button mat-button *ngIf="canDelete(recruitment)" color="warn"
-                          (click)="deleteRecruitment(recruitment)">{{'pagHome.Delete' | translate }}</button>
-                        <button mat-button [disabled]="!canJoin(recruitment)" color="primary"
-                          (click)="joinRecruitment(recruitment)">{{'pagHome.JoinGame' | translate }}</button>
-                      </mat-action-row>
-                    </mat-expansion-panel>
-                  </mat-accordion>
-                </div>
-              </mat-tab>
-            </mat-tab-group>
-          </mat-card-content>
-        </mat-card>
-
-
+      </mat-grid-tile>
+      <mat-grid-tile [colspan]="matGridSetup.GamesInProgress.colsSpan"
+        [rowspan]="matGridSetup.GamesInProgress.rowsSpan">
+        <games-in-progress></games-in-progress>
+      </mat-grid-tile>
+      <mat-grid-tile [colspan]="1"
+        [rowspan]="1">
+        <div class="tempo">
+          ITEM 3
+        </div>
       </mat-grid-tile>
 
-      <mat-grid-tile [colspan]="matGridSetup.GamesInProgress.colsSpan" [rowspan]="matGridSetup.GamesInProgress.rowsSpan">
-        <mat-card class="dashboard-card">
-          <mat-card-header>
-            <mat-card-title>
-              {{ 'pagHome.GamesInProgress' | translate  }}
-            </mat-card-title>
-          </mat-card-header>
-          <mat-card-content class="dashboard-card-content content-card-scroll-vert">
-            <div *ngIf="(gamesInProgress | async)==null">
-              {{ 'pagHome.NoRecordsFound' | translate  }}
-            </div>
-            <mat-accordion class="headers-align">
-              <mat-expansion-panel *ngFor="let gameInProgress of (gamesInProgress | async)">
-                <mat-expansion-panel-header>
-                  <mat-panel-title>
-                    {{gameInProgress.gameType}}
-                  </mat-panel-title>
-                  <mat-panel-description>
-                    <div *ngIf="gameInProgress.isMyTurn">
-                      <a [routerLink]="['/game/'+ gameInProgress.gameType, gameInProgress.id]">
-                        {{gameInProgress.name}}
-                      </a>
-                    </div>
-                    <div *ngIf="!gameInProgress.isMyTurn">
-                      {{gameInProgress.name}}
-                    </div>
-                  </mat-panel-description>
-                </mat-expansion-panel-header>
-                <div>{{gameInProgress.description}}</div>
-                <div>{{ 'pagHome.LastTurn' | translate }}:
-                  {{gameInProgress.timeLastTurn.toDate() | date : 'dd/MM/yy HH:MM' }}</div>
-                <mat-action-row>
-                  <button mat-button color="warn"
-                    (click)="surrender(gameInProgress)">{{ 'pagHome.Surrender' | translate }}</button>
-                  <button mat-button color="primary"
-                    [routerLink]="['/game/'+ gameInProgress.gameType, gameInProgress.id]">
-                    <div *ngIf="gameInProgress.isMyTurn">
-                      {{ 'pagHome.Go' | translate }}
-                    </div>
-                    <div *ngIf="!gameInProgress.isMyTurn">
-                      {{ 'pagHome.Open' | translate }}
-                    </div>
-                  </button>
-                </mat-action-row>
-              </mat-expansion-panel>
-            </mat-accordion>
-          </mat-card-content>
-        </mat-card>
-      </mat-grid-tile>
+
     </mat-grid-list>
   </div>
 

@@ -1,1 +1,47 @@
-<p>games-in-progress works!</p>
+<mat-card class="dashboard-card">
+    <mat-card-header>
+        <mat-card-title>
+            {{ 'pagHome.GamesInProgress' | translate  }}
+        </mat-card-title>
+    </mat-card-header>
+    <mat-card-content class="dashboard-card-content content-card-scroll-vert">
+        <div *ngIf="(gamesInProgress | async)==null">
+            {{ 'pagHome.NoRecordsFound' | translate  }}
+        </div>
+        <mat-accordion class="headers-align">
+            <mat-expansion-panel *ngFor="let gameInProgress of (gamesInProgress | async)">
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        {{gameInProgress.gameType}}
+                    </mat-panel-title>
+                    <mat-panel-description>
+                        <div *ngIf="gameInProgress.isMyTurn">
+                            <a [routerLink]="['/game/'+ gameInProgress.gameType, gameInProgress.id]">
+                                {{gameInProgress.name}}
+                            </a>
+                        </div>
+                        <div *ngIf="!gameInProgress.isMyTurn">
+                            {{gameInProgress.name}}
+                        </div>
+                    </mat-panel-description>
+                </mat-expansion-panel-header>
+                <div>{{gameInProgress.description}}</div>
+                <div>{{ 'pagHome.LastTurn' | translate }}:
+                    {{gameInProgress.timeLastTurn.toDate() | date : 'dd/MM/yy HH:MM' }}</div>
+                <mat-action-row>
+                    <button mat-button color="warn"
+                        (click)="surrender(gameInProgress)">{{ 'pagHome.Surrender' | translate }}</button>
+                    <button mat-button color="primary"
+                        [routerLink]="['/game/'+ gameInProgress.gameType, gameInProgress.id]">
+                        <div *ngIf="gameInProgress.isMyTurn">
+                            {{ 'pagHome.Go' | translate }}
+                        </div>
+                        <div *ngIf="!gameInProgress.isMyTurn">
+                            {{ 'pagHome.Open' | translate }}
+                        </div>
+                    </button>
+                </mat-action-row>
+            </mat-expansion-panel>
+        </mat-accordion>
+    </mat-card-content>
+</mat-card>

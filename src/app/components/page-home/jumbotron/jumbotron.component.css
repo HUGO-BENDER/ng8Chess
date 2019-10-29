@@ -1,7 +1,8 @@
 .hero-section {
+    border: 2px solid red;
     min-height: 40vh;
     width: 100%;
-    background-image: 
+    /* background-image: 
       radial-gradient( rgba(255,255,255,.9) 0%, rgba(255,255,255,0) 80%),
       linear-gradient(180deg, rgba(0,0,0,0) 50%, #4AE0FF 50%, #4AE0FF),
       linear-gradient(172deg, rgba(0,0,0,0) 50%, #1D7EAB 50%, #1D7EAB),
@@ -18,7 +19,7 @@
       linear-gradient(8deg, rgba(0,0,0,0) 50%, #4AE0FF 50%, #4AE0FF),
       linear-gradient(0deg, rgba(0,0,0,0) 50%, #1D7EAB 50%, #1D7EAB);
       background-position: 0% 0%;
-      background-size: 100% 200%;
+      background-size: 100% 200%; */
   }
   
   .hero-section-cover {
@@ -27,7 +28,7 @@
     animation-name: burst;
       animation-duration: 4s;
       animation-iteration-count: infinite;
-    background-image: 
+    /* background-image: 
       radial-gradient( rgba(255,255,255,.9) 0%, rgba(255,255,255,0) 40%),
       linear-gradient(180deg, rgba(0,0,0,0) 50%, #1D7EAB 50%, #1D7EAB),
       linear-gradient(172deg, rgba(0,0,0,0) 50%, #4AE0FF 50%, #4AE0FF),
@@ -43,15 +44,11 @@
       linear-gradient(22deg, rgba(0,0,0,0) 50%, #4AE0FF 50%, #4AE0FF),
       linear-gradient(8deg, rgba(0,0,0,0) 50%, #1D7EAB 50%, #1D7EAB),
       linear-gradient(0deg, rgba(0,0,0,0) 50%, #4AE0FF 50%, #4AE0FF);
-      /* background-position: 50% -100%; */
-      /* background-size: 200% 400%; */
       background-position: 0% 0%;
-      background-size: 100% 200%;
+      background-size: 100% 200%; */
     content: "";
     opacity: 1;
-    /* position: absolute;
-      left: 0;
-      top: 0; */
+
   }
   
   @keyframes burst {
