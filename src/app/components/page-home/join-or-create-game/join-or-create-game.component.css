@@ -8,9 +8,6 @@
     right: 5px;
     bottom: 5px;
 }
-
-
-
 .card-max-size {
     border: 1px solid rgba(0, 0, 0, 0.342);
     border-radius: 0px 4px;
@@ -21,22 +18,24 @@
     right: 5px;
     bottom: 5px;
 }
-
-.clearPadding{
-    padding: 16px 0;
+.card-header-fixed{
+    height: 70px;
 }
- 
+
+.card-content-fixed{
+    height: 270px;
+    background: 50% no-repeat;
+    background-size: contain;
+}
+
+
+
+
+
+
 .content-tab-scroll-vert {
     overflow-x: hidden;
     height: 712px;
     width: 100%;
 }
 
-
-
-
-
-
-.soloDebug{   
-    border: 1px solid red;
-}  

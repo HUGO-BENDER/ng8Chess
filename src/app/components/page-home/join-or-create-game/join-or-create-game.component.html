@@ -6,14 +6,14 @@
         [gutterSize]="matGridSetup.JoinOrCreateGame.CreateGameSubGrid.gutterSize">
         <mat-grid-tile *ngFor="let gamecard of listgames" [colspan]="1" [rowspan]="1">
           <mat-card class="card-max-size">
-            <mat-card-header>
+            <mat-card-header class="card-header-fixed">
               <div mat-card-avatar class="game-avatar-image"
                 [style.background-image]="'url(' + gamecard.image48Path + ')'"></div>
               <mat-card-title> {{ gamecard.title | translate }}</mat-card-title>
               <mat-card-subtitle>{{ gamecard.subtitle | translate }} </mat-card-subtitle>
             </mat-card-header>
-            <mat-card-content>
-              <img [src]="gamecard.bkPath" class="game-card-img">
+            <mat-card-content class="card-content-fixed" [style.background-image]="'url(' + gamecard.bkPath + ')'" >
+              <!-- <img  mat-card-image [src]="gamecard.bkPath" class="game-card-img"> -->
               <!-- <p>{{ gamecard.description | translate }} </p> -->
               <!-- <button mat-button (click)="showInfo(gamecard.id)">
                                     <span class="margin-right-10">{{ 'pagHome.InfoGame' | translate}}</span>
