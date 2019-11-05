@@ -101,9 +101,10 @@ import Swal from 'sweetalert2';
     ng g component components/app-footer
     ng g component components/app-login
     ng g c components/pageHome
-    ng g component components/page-home/jumbotron --skipTests
-    ng g component components/page-home/joinOrCreateGame --skipTests
-    ng g component components/page-home/gamesInProgress --skipTests
+    ng g component components/page-home/homeJumbotron --skipTests
+    ng g component components/page-home/homeCreateGame --skipTests
+    ng g component components/page-home/homeJoinGame --skipTests
+    ng g component components/page-home/homeGamesInProgress --skipTests
     -- ng g component components/pageHome/userDetail
     -- ng g component components/pageHome/userDetail
 

@@ -13,8 +13,27 @@
 
 }
 
+.mainDashboardGrid mat-grid-tile :first-child{
+  border: 1px solid rgba(0, 0, 0, 0.342);
+  border-radius: 0px 4px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  right: 5px;
+  bottom: 5px;
+}
 
 
+
+
+/* 
+.content-tab-scroll-vert {
+  overflow-x: hidden;
+  background-color: cadetblue;
+  height: 712px;
+  width: 100%;
+}
 
 
 
@@ -25,7 +44,7 @@
     border: 1px solid green;
   }
 
-
+ */
 
 
   .container-games-avatar {

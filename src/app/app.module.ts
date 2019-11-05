@@ -34,8 +34,9 @@ import { AppFooterComponent } from './components/app-footer/app-footer.component
 import { AppLoginComponent } from './components/app-login/app-login.component';
 import { PageHomeComponent } from './components/page-home/page-home.component';
 import { JumbotronComponent } from './components/page-home/jumbotron/jumbotron.component';
-import { JoinOrCreateGameComponent } from './components/page-home/join-or-create-game/join-or-create-game.component';
-import { GamesInProgressComponent } from './components/page-home/games-in-progress/games-in-progress.component';
+import { HomeCreateGameComponent } from './components/page-home/home-create-game/home-create-game.component';
+import { HomeJoinGameComponent } from './components/page-home/home-join-game/home-join-game.component';
+import { HomeGamesInProgressComponent } from './components/page-home/home-games-in-progress/home-games-in-progress.component';
 import { PageAboutComponent } from './components/page-about/page-about.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { PagePolicyPrivacyComponent } from './components/page-policy-privacy/page-policy-privacy.component';
@@ -70,8 +71,9 @@ export function HttpLoaderFactory(http: HttpClient) {
     AppLoginComponent,
     PageHomeComponent,
     JumbotronComponent,
-    JoinOrCreateGameComponent,
-    GamesInProgressComponent,
+    HomeCreateGameComponent,
+    HomeJoinGameComponent,
+    HomeGamesInProgressComponent,
     PageAboutComponent,
     PageNotFoundComponent,
     PagePolicyPrivacyComponent,

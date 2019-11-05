@@ -3,17 +3,24 @@
 
   <div class="grid-container">
     <mat-grid-list [cols]="matGridSetup.cols" [rowHeight]="matGridSetup.rowHeight"
-      [gutterSize]="matGridSetup.gutterSize">
+      [gutterSize]="matGridSetup.gutterSize"
+      class="mainDashboardGrid">
       <mat-grid-tile [colspan]="matGridSetup.JoinOrCreateGame.colsSpan"
         [rowspan]="matGridSetup.JoinOrCreateGame.rowsSpan">
-        <join-or-create-game></join-or-create-game>
+        <mat-tab-group mat-stretch-tabs>
+          <mat-tab label="{{'pagHome.CreateGame' | translate }}">
+              <home-create-game></home-create-game>
+          </mat-tab>
+          <mat-tab label="{{'pagHome.JoinGame' | translate }}">
+            <home-join-game></home-join-game>
+          </mat-tab>
+        </mat-tab-group>
       </mat-grid-tile>
       <mat-grid-tile [colspan]="matGridSetup.GamesInProgress.colsSpan"
         [rowspan]="matGridSetup.GamesInProgress.rowsSpan">
-        <games-in-progress></games-in-progress>
+        <home-games-in-progress></home-games-in-progress>
       </mat-grid-tile>
-      <mat-grid-tile [colspan]="1"
-        [rowspan]="1">
+      <mat-grid-tile [colspan]="1" [rowspan]="1">
         <div class="tempo">
           ITEM 3
         </div>

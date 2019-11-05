@@ -27,11 +27,11 @@ import { GameChessService } from 'src/app/services/angularfire/game-chess.servic
 
 @Component({
   // tslint:disable-next-line: component-selector
-  selector: 'join-or-create-game',
-  templateUrl: './join-or-create-game.component.html',
-  styleUrls: ['./join-or-create-game.component.css']
+  selector: 'home-create-game',
+  templateUrl: './home-create-game.component.html',
+  styleUrls: ['./home-create-game.component.css']
 })
-export class JoinOrCreateGameComponent implements OnInit {
+export class HomeCreateGameComponent implements OnInit {
   userlogined: firebase.User;
   dialogRef: MatDialogRef<any>;
   matGridSetup: AppGridConfig;
