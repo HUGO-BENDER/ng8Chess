@@ -45,28 +45,15 @@ export class PageHomeComponent implements OnInit {
   inSmallScreen: boolean;
   inMediumScreen: boolean;
   inLargeScreen: boolean;
-  // gamesInProgress: Observable<GameInProgress[]>;
-  // recruitments: Observable<Recruitment[]>;
-  // userlogined: firebase.User;
-  // dialogRef: MatDialogRef<any>;
   matGridSetup: AppGridConfig;
-  // listgames: Array<GameCard>;
-
+  
   constructor(
-    // private translate: TranslateService,
-    // public au: AngularFireAuth,
-    // private fireRecruitment: RecruitmentService,
-    // private fireData: GlobaldataService,
-    // private firePlayer: PlayerService,
-    // private fireChess: GameChessService,
-    // public dialog: MatDialog,
     public breakpointObserver: BreakpointObserver,
     public appConfig: AppConfig) { }
 
   ngOnInit() {
     this.matGridSetup = this.appConfig.getGridConfig();
-    // this.listgames = this.appConfig.getGamesList();
-    this.breakpointObserver
+      this.breakpointObserver
       .observe(['(max-width: 600px)'])
       .subscribe((state: BreakpointState) => {
         this.inSmallScreen = state.matches;
@@ -84,274 +71,32 @@ export class PageHomeComponent implements OnInit {
         this.inLargeScreen = state.matches;
         this.makeResponsive();
       });
-    // this.au.authState.subscribe(user => {
-    //   if (user) {
-    //     this.userlogined = user;
-    //   } else {
-    //     this.userlogined = null;
-    //   }
-    // });
   }
-
-  // showInfo(idGame: string) {
-
-  //   switch (idGame) {
-  //     case 'chess':
-  //       this.dialogRef = this.dialog.open(ChessInfoComponent);
-  //       break;
-  //     case 'crazychess':
-  //       this.dialogRef = this.dialog.open(CrazyChessInfoComponent);
-  //       break;
-  //     case 'chinker':
-  //       this.dialogRef = this.dialog.open(ChinkerInfoComponent);
-  //       break;
-  //     case 'flow':
-  //       this.dialogRef = this.dialog.open(FlowInfoComponent);
-  //       break;
-  //     default:
-  //       this.dialogRef = null;
-  //       break;
-  //   }
-  // }
-
-  // quickStart(idGame: string) {
-  //   let dialogRefNewQuickGame: MatDialogRef<any> = null;
-  //   let dataParam: any = null;
-  //   switch (idGame) {
-  //     case 'chess':
-  // this.fireChess.createGameQuickStart(this.userlogined)
-  //   .then((docRef) => {
-  //     dataParam = { action: 'quickStart', gameId: docRef.id };
-  //     dialogRefNewQuickGame = this.dialog.open(ChessNewGameComponent, {
-  //       data: dataParam
-  //     });
-  //     dialogRefNewQuickGame.afterClosed().subscribe(result => {
-  //       if (!result) {
-  //         this.translate.get('pagHome.AbortQuickGame').subscribe((res: string) => {
-  //           this.ShowToastMessage(res);
-  //           this.fireChess.deleteGameQuickStart(dataParam.gameId);
-  //         });
-  //       }
-  //     });
-  //   }
-  //   ).catch(function(error) {
-  //     this.ShowErrorMessage(error);
-  //     console.error('Error adding document: ', error);
-  //   });
-
-  //       dataParam = { action: 'quickStart', gameId: 'meSqA7bSd3S6w3K9f1J7' };
-  //       dialogRefNewQuickGame = this.dialog.open(ChessNewGameComponent, {
-  //         data: dataParam
-  //       });
-
-
-  //       break;
-  //     case 'crazychess':
-  //       dialogRefNewQuickGame = this.dialog.open(CrazyChessNewGameComponent, {
-  //         data: { action: 'quickStart' }
-  //       });
-  //       break;
-  //     case 'chinker':
-  //       dialogRefNewQuickGame = this.dialog.open(ChinkerNewGameComponent, {
-  //         data: { action: 'quickStart' }
-  //       });
-  //       break;
-  //     case 'flow':
-  //       // --  naaaaaa
-  //       break;
-  //     default:
-  //       dialogRefNewQuickGame = null;
-  //       break;
-  //   }
-  // }
-
-  // createRecruitment(idGame: string) {
-  //   let dialogRefNewGame: MatDialogRef<any> = null;
-  //   if (this.userlogined) {
-  //     switch (idGame) {
-  //       case 'chess':
-  //         dialogRefNewGame = this.dialog.open(ChessNewGameComponent, {
-  //           data: { action: 'createRecruitment' }
-  //         });
-  //         break;
-  //       case 'crazychess':
-  //         dialogRefNewGame = this.dialog.open(CrazyChessNewGameComponent, {
-  //           data: { action: 'createRecruitment' }
-  //         });
-  //         break;
-  //       case 'chinker':
-  //         dialogRefNewGame = this.dialog.open(ChinkerNewGameComponent, {
-  //           data: { action: 'createRecruitment' }
-  //         });
-  //         break;
-  //       case 'flow':
-  //         // --  naaaaaa
-  //         break;
-  //       default:
-  //         dialogRefNewGame = null;
-  //         break;
-  //     }
-
-
-  // dialogRefNewGame.afterClosed().subscribe(result => {
-  //   if (result) {
-
-  //     alert('volvimos del setup');
-
-  //   } else {
-  //     alert('volvimos del setup pero vacios');
-  //   }
-  // });
-
-
-
-
-
-
-  // const player1: MinInfoPlayer = { uid: this.userlogined.uid, displayName: this.userlogined.displayName };
-  // const arrayPlayers: Array<MinInfoPlayer> = [];
-  // arrayPlayers.push(player1);
-  // const newRecruitment: Recruitment = {
-  //   gameType: idGame,
-  //   name: 'setup.name',
-  //   description: 'setup.description',
-  //   dateCreation: firebaseApp.database.ServerValue.TIMESTAMP,
-  //   state: recruitmentState.OPEN,
-  //   creator: player1,
-  //   players: arrayPlayers,
-  //   countPlayers: 1,
-  //   maxPlayers: 2,
-  //   config: {}
-  // };
-  // this.fireRecruitment.createRecruitment(newRecruitment)
-  //   .then((docRef) => {
-  //     Swal.fire({
-  //       position: 'top',
-  //       type: 'success',
-  //       title: this.translate.instant('Has creado un juego'),
-  //       text: 'setup.name' + ' ' + 'setup.description',
-  //       showConfirmButton: false,
-  //       timer: 2000
-  //     });
-  //     console.log('Document written with ID: ', docRef.id);
-  //   })
-  //   .catch(function (error) {
-  //     this.ShowErrorMessage(error);
-  //     console.error('Error adding document: ', error);
-  //   });
-
-
-
-
-
-  //   } else {
-  //     // tslint:disable-next-line: max-line-length
-  //     this.ShowErrorMessage(this.translate.instant('pagHome.IsNotLogined'));
-  //   }
-  // }
-
-  // openGame(gameInProgress: GameInProgress) {
-  //   throw new Error('Method not implemented.');
-  // }
-
-  // canDelete(r: Recruitment): boolean {
-  //   if (this.userlogined) {
-  //     if (r.creator.uid === this.userlogined.uid) {
-  //       return true;
-  //     }
-  //   }
-  //   return false;
-  // }
-
-  // deleteRecruitment(r: Recruitment) {
-  //   this.fireRecruitment.deleteRecruitment(r)
-  //     .then(() => {
-  //       this.translate.get('pagHome.GameDelete').subscribe(
-  //         (res: string) => {
-  //           this.ShowToastMessage(res);
-  //           this.dialogRef.close();
-  //         }
-  //       );
-  //     })
-  //     .catch(function(error) {
-  //       this.ShowErrorMessage('Error deleting game.');
-  //     });
-  // }
-
-  // canJoin(r: Recruitment): boolean {
-  //   if (this.userlogined) {
-  //     if (r.creator.uid !== this.userlogined.uid) {
-  //       return true;
-  //     }
-  //     return false;
-  //   }
-  //   // -- Si no está loginado queremos que intente unirse para invitarlo
-  //   return true;
-  // }
-
-  //joinRecruitment(r: Recruitment) {
-  // if (this.userlogined) {
-  //   this.afsRecruitments.joinRecruitment(r, this.userlogined)
-  //     .then(
-  //       () => this.checkIfRoomReady(r),
-  //       err => this.ShowToastMessage(err)
-  //     )
-  //     .catch(function (error) {
-  //       console.error('Error editing document: ', error);
-  //     });
-  // } else {
-  //   this.ShowErrorMessage('xNo se puede ejecutar esta acción sin estar loginado\n\r
-  // Puede loginarse como invitado. no es necesario crear una cuenta pero no se guardaran los datos de su partida.');
-  // }
-  //}
-
-
-
-
-  // -- config show messages
-  // private ShowToastMessage(msg: string): void {
-  //   Swal.fire({
-  //     toast: true,
-  //     position: 'top',
-  //     type: 'success',
-  //     title: msg,
-  //     showConfirmButton: false,
-  //     timer: 2000
-  //   });
-  // }
-  // private ShowErrorMessage(msg: string): void {
-  //   Swal.fire({
-  //     type: 'error',
-  //     title: this.translate.instant('Error'),
-  //     text: msg,
-  //     showConfirmButton: true
-  //   });
-  // }
 
   makeResponsive(): void {
     if (this.inSmallScreen) {
       this.matGridSetup.cols = 1;
       this.matGridSetup.JoinOrCreateGame.colsSpan = 1;
       this.matGridSetup.GamesInProgress.colsSpan = 1;
-      this.matGridSetup.JoinOrCreateGame.CreateGameSubGrid.cols = 1;
+      // this.matGridSetup.JoinOrCreateGame.CreateGameSubGrid.cols = 1;
       console.log('inSmallScreen');
     } else if (this.inMediumScreen) {
       this.matGridSetup.cols = 2;
       this.matGridSetup.JoinOrCreateGame.colsSpan = 1;
       this.matGridSetup.GamesInProgress.colsSpan = 1;
-      this.matGridSetup.JoinOrCreateGame.CreateGameSubGrid.cols = 1;
+      // this.matGridSetup.JoinOrCreateGame.CreateGameSubGrid.cols = 1;
       console.log('inMediumScreen');
     } else if (this.inLargeScreen) {
       this.matGridSetup.cols = 2;
       this.matGridSetup.JoinOrCreateGame.colsSpan = 1;
       this.matGridSetup.GamesInProgress.colsSpan = 1;
-      this.matGridSetup.JoinOrCreateGame.CreateGameSubGrid.cols = 1;
+      // this.matGridSetup.JoinOrCreateGame.CreateGameSubGrid.cols = 1;
       console.log('inLargeScreen');
     } else {
       this.matGridSetup.cols = 3;
       this.matGridSetup.JoinOrCreateGame.colsSpan = 2;
       this.matGridSetup.GamesInProgress.colsSpan = 1;
-      this.matGridSetup.JoinOrCreateGame.CreateGameSubGrid.cols = 3;
+      // this.matGridSetup.JoinOrCreateGame.CreateGameSubGrid.cols = 3;
       console.log('muy grande');
     }
   }

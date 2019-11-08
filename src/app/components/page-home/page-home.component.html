@@ -1,15 +1,13 @@
 <section class="page-container">
   <jumbotron class="jumbotron"></jumbotron>
-
   <div class="grid-container">
     <mat-grid-list [cols]="matGridSetup.cols" [rowHeight]="matGridSetup.rowHeight"
-      [gutterSize]="matGridSetup.gutterSize"
-      class="mainDashboardGrid">
+      [gutterSize]="matGridSetup.gutterSize" class="mainDashboardGrid">
       <mat-grid-tile [colspan]="matGridSetup.JoinOrCreateGame.colsSpan"
         [rowspan]="matGridSetup.JoinOrCreateGame.rowsSpan">
-        <mat-tab-group mat-stretch-tabs>
+        <mat-tab-group mat-stretch-tabs class="mainDashboardGrid-tile">
           <mat-tab label="{{'pagHome.CreateGame' | translate }}">
-              <home-create-game></home-create-game>
+            <home-create-game></home-create-game>
           </mat-tab>
           <mat-tab label="{{'pagHome.JoinGame' | translate }}">
             <home-join-game></home-join-game>
@@ -18,15 +16,18 @@
       </mat-grid-tile>
       <mat-grid-tile [colspan]="matGridSetup.GamesInProgress.colsSpan"
         [rowspan]="matGridSetup.GamesInProgress.rowsSpan">
-        <home-games-in-progress></home-games-in-progress>
+        <home-games-in-progress class="mainDashboardGrid-tile"></home-games-in-progress>
       </mat-grid-tile>
       <mat-grid-tile [colspan]="1" [rowspan]="1">
-        <div class="tempo">
+        <div class="mainDashboardGrid-tile">
           ITEM 3
         </div>
       </mat-grid-tile>
-
-
+      <mat-grid-tile [colspan]="3" [rowspan]="1">
+        <div class="mainDashboardGrid-tile">
+          ITEM 4
+        </div>
+      </mat-grid-tile>
     </mat-grid-list>
   </div>
 
