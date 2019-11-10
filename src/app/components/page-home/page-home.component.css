@@ -3,7 +3,7 @@
 	overflow-x: auto;
 }
 
-.jumbotron{
+.jumbotron-container{
   width: 100%;
   height: 40vh;
 }
@@ -23,66 +23,3 @@
   bottom: 5px;
 }
 
-
-
-
-
-/* 
-.content-tab-scroll-vert {
-  overflow-x: hidden;
-  background-color: cadetblue;
-  height: 712px;
-  width: 100%;
-}
-
-
-
-  .content-card-scroll-vert{
-    overflow-x: hidden;
-    overflow-y: auto;
-    height: 300px;
-    border: 1px solid green;
-  }
-
- */
-
-
-  .container-games-avatar {
-    display: flex;
-    flex-direction: row ;
-    flex-wrap: wrap;
-  }
-  
-  .game-card{
-	 margin:  10px;
-	 width: 100%; 
-   border: 1px solid royalblue;
-   background-size: cover;
-  }
-
-  .game-avatar-image{
-    background-size: cover;
-    }
-
-    .game-card-img{
-      width: 256px;
-      height: 256px;
-    }
-
-  .new-game-button{
-	max-width: 50px;
-  }
-
-  .margin-right-10 {
-    margin-right: 10px;
-  }
-
-  .headers-align .mat-expansion-panel-header-title, 
-  .headers-align .mat-expansion-panel-header-description {
-    flex-basis: 0;
-  }
-  
-  .headers-align .mat-expansion-panel-header-description {
-    justify-content: space-between;
-    align-items: center;
-  } 

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { AngularFireAuth } from '@angular/fire/auth';
@@ -8,7 +8,7 @@ import { map } from 'rxjs/operators';
 import Swal from 'sweetalert2';
 
 // -- Config app
-import { AppConfig, GameCard, AppGridConfig } from '../../app-config/app-config';
+import { AppConfig, GameCard, AppGridConfig, GridConfigBase } from '../../app-config/app-config';
 // -- Games public Info
 import { ChessInfoComponent } from '../../../games/chess/chess-info/chess-info.component';
 import { CrazyChessInfoComponent } from '../../../games/crazy-chess/crazy-chess-info/crazy-chess-info.component';
@@ -32,16 +32,17 @@ import { GameChessService } from 'src/app/services/angularfire/game-chess.servic
   styleUrls: ['./home-create-game.component.css']
 })
 export class HomeCreateGameComponent implements OnInit {
+  @Input() CreateGameGrid: GridConfigBase;
   userlogined: firebase.User;
   dialogRef: MatDialogRef<any>;
   matGridSetup: AppGridConfig;
   listgames: Array<GameCard>;
 
   constructor(private translate: TranslateService,
-    public au: AngularFireAuth,
-    public dialog: MatDialog,
-    public appConfig: AppConfig,
-    private fireChess: GameChessService) { }
+              public au: AngularFireAuth,
+              public dialog: MatDialog,
+              public appConfig: AppConfig,
+              private fireChess: GameChessService) { }
 
   ngOnInit() {
     this.matGridSetup = this.appConfig.getGridConfig();
@@ -156,7 +157,7 @@ export class HomeCreateGameComponent implements OnInit {
     });
   }
 
-  // --  auxiliar 
+  // --  auxiliar
   getMaxPlayers(n: number): any[] {
     return Array(n);
   }

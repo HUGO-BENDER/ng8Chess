@@ -1,7 +1,7 @@
 <div class="content-tab-scroll-vert">
-  <mat-grid-list [cols]="matGridSetup.JoinOrCreateGame.CreateGameSubGrid.cols"
-    [rowHeight]="matGridSetup.JoinOrCreateGame.CreateGameSubGrid.rowHeight"
-    [gutterSize]="matGridSetup.JoinOrCreateGame.CreateGameSubGrid.gutterSize">
+  <mat-grid-list [cols]="CreateGameGrid.cols"
+    [rowHeight]="CreateGameGrid.rowHeight"
+    [gutterSize]="CreateGameGrid.gutterSize">
     <mat-grid-tile *ngFor="let gamecard of listgames" [colspan]="1" [rowspan]="1">
       <mat-card class="card-max-size">
         <mat-card-header class="card-header-fixed">
@@ -11,22 +11,20 @@
           <mat-card-subtitle>{{ gamecard.subtitle | translate }} </mat-card-subtitle>
         </mat-card-header>
         <mat-card-content class="card-content-fixed" [style.background-image]="'url(' + gamecard.bkPath + ')'">
-          <!-- <img  mat-card-image [src]="gamecard.bkPath" class="game-card-img"> -->
-          <!-- <p>{{ gamecard.description | translate }} </p> -->
-          <!-- <button mat-button (click)="showInfo(gamecard.id)">
-                                    <span class="margin-right-10">{{ 'pagHome.InfoGame' | translate}}</span>
-                                    <mat-icon>info</mat-icon>
-                                  </button>
-                                <p>
-                                  <mat-icon *ngFor="let i of getMaxPlayers(gamecard.maxPlayers)">person_outline</mat-icon>
-                                </p> -->
+                <div class="card-content-text">
+                    <h6>{{ gamecard.subtitle | translate }}</h6>
+                    <button mat-button (click)="showInfo(gamecard.id)">
+                        <span class="margin-right-10">{{ 'pagHome.InfoGame' | translate}}</span>
+                        <mat-icon>info</mat-icon>
+                      </button>
+                </div>
+          <!-- <p>
+               <mat-icon *ngFor="let i of getMaxPlayers(gamecard.maxPlayers)">person_outline</mat-icon>
+               </p> -->
         </mat-card-content>
         <mat-card-actions align='end'>
-            <!-- <button mat-button (click)="showInfo(gamecard.id)">
-                <span class="margin-right-10">{{ 'pagHome.InfoGame' | translate}}</span>
-                <mat-icon>info</mat-icon>
-              </button> -->
-          <button mat-icon-button color="primary" (click)="createRecruitment(gamecard.id)">
+          <button mat-raised-button color="primary" (click)="createRecruitment(gamecard.id)">
+            <span class="margin-right-10">{{ 'pagHome.CreateGame' | translate}}</span>
             <mat-icon>add_circle</mat-icon>
           </button>
           <button mat-raised-button color="warn" (click)="quickStart(gamecard.id)">

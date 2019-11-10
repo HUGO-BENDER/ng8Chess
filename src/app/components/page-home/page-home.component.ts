@@ -46,14 +46,14 @@ export class PageHomeComponent implements OnInit {
   inMediumScreen: boolean;
   inLargeScreen: boolean;
   matGridSetup: AppGridConfig;
-  
+
   constructor(
     public breakpointObserver: BreakpointObserver,
     public appConfig: AppConfig) { }
 
   ngOnInit() {
     this.matGridSetup = this.appConfig.getGridConfig();
-      this.breakpointObserver
+    this.breakpointObserver
       .observe(['(max-width: 600px)'])
       .subscribe((state: BreakpointState) => {
         this.inSmallScreen = state.matches;
@@ -78,25 +78,25 @@ export class PageHomeComponent implements OnInit {
       this.matGridSetup.cols = 1;
       this.matGridSetup.JoinOrCreateGame.colsSpan = 1;
       this.matGridSetup.GamesInProgress.colsSpan = 1;
-      // this.matGridSetup.JoinOrCreateGame.CreateGameSubGrid.cols = 1;
+      this.matGridSetup.JoinOrCreateGame.CreateGameSubGrid.cols = 1;
       console.log('inSmallScreen');
     } else if (this.inMediumScreen) {
       this.matGridSetup.cols = 2;
       this.matGridSetup.JoinOrCreateGame.colsSpan = 1;
       this.matGridSetup.GamesInProgress.colsSpan = 1;
-      // this.matGridSetup.JoinOrCreateGame.CreateGameSubGrid.cols = 1;
+      this.matGridSetup.JoinOrCreateGame.CreateGameSubGrid.cols = 1;
       console.log('inMediumScreen');
     } else if (this.inLargeScreen) {
-      this.matGridSetup.cols = 2;
-      this.matGridSetup.JoinOrCreateGame.colsSpan = 1;
+      this.matGridSetup.cols = 3;
+      this.matGridSetup.JoinOrCreateGame.colsSpan = 2;
       this.matGridSetup.GamesInProgress.colsSpan = 1;
-      // this.matGridSetup.JoinOrCreateGame.CreateGameSubGrid.cols = 1;
+      this.matGridSetup.JoinOrCreateGame.CreateGameSubGrid.cols = 2;
       console.log('inLargeScreen');
     } else {
       this.matGridSetup.cols = 3;
       this.matGridSetup.JoinOrCreateGame.colsSpan = 2;
       this.matGridSetup.GamesInProgress.colsSpan = 1;
-      // this.matGridSetup.JoinOrCreateGame.CreateGameSubGrid.cols = 3;
+      this.matGridSetup.JoinOrCreateGame.CreateGameSubGrid.cols = 3;
       console.log('muy grande');
     }
   }

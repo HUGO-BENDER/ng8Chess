@@ -1,16 +1,14 @@
 
-export interface AppGridConfig {
+export interface GridConfigBase {
   cols: number;
   rowHeight: string;
   gutterSize: string;
+}
+export interface AppGridConfig extends GridConfigBase {
   JoinOrCreateGame: {
     colsSpan: number;
     rowsSpan: number;
-    CreateGameSubGrid: {
-      cols: number;
-      rowHeight: string;
-      gutterSize: string;
-    }
+    CreateGameSubGrid: GridConfigBase;
   };
   GamesInProgress: {
     colsSpan: number;
@@ -52,7 +50,7 @@ export class AppConfig {
     rowHeight: '400px',
     gutterSize: '0px',
     JoinOrCreateGame: {
-      colsSpan: 3,
+      colsSpan: 1,
       rowsSpan: 2,
       CreateGameSubGrid: {
         cols: 2,
@@ -61,11 +59,11 @@ export class AppConfig {
       }
     },
     GamesInProgress: {
-      colsSpan: 3,
+      colsSpan: 1,
       rowsSpan: 1
     },
     UserProfile: {
-      colsSpan: 3,
+      colsSpan: 1,
       rowsSpan: 1
     }
   };
