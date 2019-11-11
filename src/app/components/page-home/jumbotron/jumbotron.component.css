@@ -1,18 +1,20 @@
 .hero-section {
+  position: relative;
   border: 2px solid red;
   min-height: 40vh;
   width: 100%;
 }
 
 .hero-layer {
-  border: 2px solid rgb(0, 255, 85);
+  position: absolute;
+  border: 1px solid rgb(0, 255, 85);
   min-height: 40vh;
   width: 150%;
 }
 
 .layer1 {
      margin-left: -33%;
-     background-image: 
+     /* background-image: 
       radial-gradient( rgba(255,255,255,.9) 0%, rgba(255,255,255,0) 80%),
       linear-gradient(180deg, rgba(0,0,0,0) 50%, #4AE0FF 50%, #4AE0FF),
       linear-gradient(172deg, rgba(0,0,0,0) 50%, #1D7EAB 50%, #1D7EAB),
@@ -27,7 +29,7 @@
       linear-gradient(37deg, rgba(0,0,0,0) 50%, #4AE0FF 50%, #4AE0FF),
       linear-gradient(22deg, rgba(0,0,0,0) 50%, #1D7EAB 50%, #1D7EAB),
       linear-gradient(8deg, rgba(0,0,0,0) 50%, #4AE0FF 50%, #4AE0FF),
-      linear-gradient(0deg, rgba(0,0,0,0) 50%, #1D7EAB 50%, #1D7EAB);
+      linear-gradient(0deg, rgba(0,0,0,0) 50%, #1D7EAB 50%, #1D7EAB); */
       background-position: 0% 0%;
       background-size: 100% 200%; 
   }
@@ -37,7 +39,7 @@
     animation-name: burst;
       animation-duration: 4s;
       animation-iteration-count: infinite;
-    background-image: 
+    /* background-image: 
       radial-gradient( rgba(255,255,255,.9) 0%, rgba(255,255,255,0) 40%),
       linear-gradient(180deg, rgba(0,0,0,0) 50%, #1D7EAB 50%, #1D7EAB),
       linear-gradient(172deg, rgba(0,0,0,0) 50%, #4AE0FF 50%, #4AE0FF),
@@ -52,7 +54,7 @@
       linear-gradient(37deg, rgba(0,0,0,0) 50%, #1D7EAB 50%, #1D7EAB),
       linear-gradient(22deg, rgba(0,0,0,0) 50%, #4AE0FF 50%, #4AE0FF),
       linear-gradient(8deg, rgba(0,0,0,0) 50%, #1D7EAB 50%, #1D7EAB),
-      linear-gradient(0deg, rgba(0,0,0,0) 50%, #4AE0FF 50%, #4AE0FF);
+      linear-gradient(0deg, rgba(0,0,0,0) 50%, #4AE0FF 50%, #4AE0FF); */
       background-position: 0% 0%;
       background-size: 100% 200%;
     content: "";
@@ -74,10 +76,51 @@
     }
   }
   
+.layerImg{
+  margin-left: 25%;
+  margin-top: 10vh;
+  height: 30vh; 
+  min-height: 30vh;
+  width: 30vh;
+}
+  
+.text-wrapper1{
+  margin-left: 25%;
+  width: 60%;
+  margin-right: 5%;
+	transform: perspective(400px) rotateY(-15deg);
+}  
+.text1{
+  font: bold;
+  font-size: 300%;
+}
 
-  
-  
-  
+.text-wrapper2{
+  margin-right: 5%;
+}  
+.text2{
+  font: bold;
+  font-size: 150%;
+}
+
+.text-wrapper3{
+  margin-right: 5%;
+
+}  
+.text3{
+  font: bold;
+  font-size: 150%;
+}
+
+
+
+
+
+
+
+
+
+
   
   /* .hero-section {
       background: url("/assets/images/bg800x527.jpg") 50% no-repeat;
