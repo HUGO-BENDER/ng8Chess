@@ -14,7 +14,7 @@
 
 .layer1 {
      margin-left: -33%;
-     /* background-image: 
+     background-image: 
       radial-gradient( rgba(255,255,255,.9) 0%, rgba(255,255,255,0) 80%),
       linear-gradient(180deg, rgba(0,0,0,0) 50%, #4AE0FF 50%, #4AE0FF),
       linear-gradient(172deg, rgba(0,0,0,0) 50%, #1D7EAB 50%, #1D7EAB),
@@ -29,7 +29,7 @@
       linear-gradient(37deg, rgba(0,0,0,0) 50%, #4AE0FF 50%, #4AE0FF),
       linear-gradient(22deg, rgba(0,0,0,0) 50%, #1D7EAB 50%, #1D7EAB),
       linear-gradient(8deg, rgba(0,0,0,0) 50%, #4AE0FF 50%, #4AE0FF),
-      linear-gradient(0deg, rgba(0,0,0,0) 50%, #1D7EAB 50%, #1D7EAB); */
+      linear-gradient(0deg, rgba(0,0,0,0) 50%, #1D7EAB 50%, #1D7EAB);
       background-position: 0% 0%;
       background-size: 100% 200%; 
   }
@@ -54,7 +54,7 @@
       linear-gradient(37deg, rgba(0,0,0,0) 50%, #1D7EAB 50%, #1D7EAB),
       linear-gradient(22deg, rgba(0,0,0,0) 50%, #4AE0FF 50%, #4AE0FF),
       linear-gradient(8deg, rgba(0,0,0,0) 50%, #1D7EAB 50%, #1D7EAB),
-      linear-gradient(0deg, rgba(0,0,0,0) 50%, #4AE0FF 50%, #4AE0FF); */
+      linear-gradient(0deg, rgba(0,0,0,0) 50%, #4AE0FF 50%, #4AE0FF);*/
       background-position: 0% 0%;
       background-size: 100% 200%;
     content: "";
@@ -77,39 +77,36 @@
   }
   
 .layerImg{
-  margin-left: 25%;
+  margin-left: 15%;
   margin-top: 10vh;
   height: 30vh; 
   min-height: 30vh;
   width: 30vh;
 }
   
-.text-wrapper1{
-  margin-left: 25%;
-  width: 60%;
-  margin-right: 5%;
+.text-wrapper{
+  margin: 5%;
+  margin-left: 40%;
+  width: 50%;
 	transform: perspective(400px) rotateY(-15deg);
-}  
+}
+
+.texto{
+  font: bold;
+  font-size: 250%;
+}
+
 .text1{
-  font: bold;
-  font-size: 300%;
-}
-
-.text-wrapper2{
   margin-right: 5%;
-}  
+} 
+
 .text2{
-  font: bold;
-  font-size: 150%;
+  margin-top: 5%;
+  margin-left: 5%;
 }
 
-.text-wrapper3{
-  margin-right: 5%;
-
-}  
 .text3{
-  font: bold;
-  font-size: 150%;
+  margin-left: 10%;
 }
 
 
