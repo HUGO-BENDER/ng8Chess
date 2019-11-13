@@ -98,6 +98,9 @@
   font: bold;
   font-size:3vw;
 }
+.logo-angular{
+  height: 5vw;
+}
 @media screen and (max-width: 601px) {
   .texto {
     font-size: 20px;
