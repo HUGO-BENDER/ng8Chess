@@ -58,6 +58,9 @@ footer::after {
     width: 250px;  /* Or whatever */
     height: 250px; /* Or whatever */
     margin: auto;  /* Magic! */
+    background-image: url('/assets/images/foto_perfil.jpg');
+    background-position: center;
+    background-size: cover;
 }
 
 
